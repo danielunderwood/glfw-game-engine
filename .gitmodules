@@ -1,3 +1,6 @@
 [submodule "deps/glfw"]
 	path = deps/glfw
 	url = https://github.com/glfw/glfw
+[submodule "glew"]
+	path = glew
+	url = https://github.com/omniavinco/glew-cmake
