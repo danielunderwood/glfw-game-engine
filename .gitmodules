@@ -2,8 +2,8 @@
 	path = deps/glfw
 	url = https://github.com/glfw/glfw
 [submodule "glew"]
-	path = glew
+	path = deps/glew
 	url = https://github.com/omniavinco/glew-cmake
 [submodule "glm"]
-	path = glm
+	path = deps/glm
 	url = https://github.com/g-truc/glm
