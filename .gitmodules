@@ -4,3 +4,6 @@
 [submodule "glew"]
 	path = glew
 	url = https://github.com/omniavinco/glew-cmake
+[submodule "glm"]
+	path = glm
+	url = https://github.com/g-truc/glm
