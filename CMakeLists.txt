@@ -33,5 +33,9 @@ if(MSVC)
 endif()
 
 # Copy resources to output directory
-file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
-file(COPY res/textures/. DESTINATION ${CMAKE_BINARY_DIR}/res/textures)
+if(EXISTS res/shaders)
+    file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
+endif()
+if(EXISTS res/textures)
+    file(COPY res/textures/. DESTINATION ${CMAKE_BINARY_DIR}/res/textures)
+endif()
