@@ -1,6 +1,7 @@
 #include "window.h"
 #include <iostream>
 #include <unistd.h>
+#include <stdio.h>
 
 Window::Window(int height, int width, bool fullscreen, char * title) :
 	height(height),
@@ -35,8 +36,17 @@ void Window::init()
     
     // Make the current context be the window that was just created
     glfwMakeContextCurrent(window);
+
+    // Set callback for changing window size
+    glfwSetWindowSizeCallback(window, resizeCallback);
     
     sleep(1);
     
     return; // TODO: Return Success Message at this point instead of nothing
+}
+
+void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
+{
+    // Change glViewport to new window size
+    glViewport(0, 0, newWidth, newHeight);
 }

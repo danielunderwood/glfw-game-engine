@@ -27,4 +27,8 @@ private:
 
 	// Initializes window with GLFW
 	void init();
+
+    // Callback registered with GLFW in init() to change the glViewport to match the new window size
+    // TODO: Figure out if this needs to remain static or what should be done
+    static void resizeCallback(GLFWwindow * window, int newWidth, int newHeight);
 };
