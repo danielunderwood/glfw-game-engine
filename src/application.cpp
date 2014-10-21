@@ -1,11 +1,15 @@
 #include <stdio.h>
 
 #include "application.h"
-#include "glew.h"
-#include "glfw3.h"
 
 Application::Application() { init(); }
-Application::~Application(){}
+Application::~Application()
+{
+    // TODO: Change this cleanup code for all windows
+    delete mainWindow;
+
+    glfwTerminate();
+}
 
 // TODO: Add default window that is mainWindow to application
 int Application::init()

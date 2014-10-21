@@ -1,6 +1,5 @@
 #include "window.h"
 #include <iostream>
-#include <unistd.h>
 #include <stdio.h>
 
 Window::Window(int height, int width, bool fullscreen, char * title) :
@@ -13,7 +12,10 @@ Window::Window(int height, int width, bool fullscreen, char * title) :
 	init();
 }
 
-Window::~Window(){}
+Window::~Window()
+{
+    glfwDestroyWindow(window);
+}
 
 int Window::getHeight() { return height; }
 int Window::getWidth() { return width; }
