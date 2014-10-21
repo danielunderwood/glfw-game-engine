@@ -17,6 +17,11 @@ public:
 	int getWidth();
 	bool isFullscreen();
 	bool isClosed();
+
+    // Renders one frame and returns false when it should close
+    // TODO: Figure out the proper place to put closing logic
+    // TODO: Abstract this so we can declare a function to render with (function pointer)
+    bool renderFrame();
 private:
 	int height;			// Height of window
 	int width;			// Width of window

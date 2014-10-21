@@ -7,6 +7,7 @@
 Application::Application() { init(); }
 Application::~Application(){}
 
+// TODO: Add default window that is mainWindow to application
 int Application::init()
 {
     // Initialize GLFW
@@ -52,7 +53,12 @@ void Application::terminate(ErrorCode e)
 }
 
 // TODO: Make this able to be used with multiple windows
-void Application::addWindow(int height, int width, bool fullscreen, char * title, bool isMain)
+Window * Application::addWindow(int height, int width, bool fullscreen, char * title, bool isMain)
 {
-    mainWindow = new Window(height, width, fullscreen, title);
+    Window * w = new Window(height, width, fullscreen, title);
+
+    // TODO: Make this compatible with multiple windows by setting mainWindow and adding to list of windows
+    mainWindow = w;
+
+    return w;
 }
