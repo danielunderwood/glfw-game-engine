@@ -15,7 +15,12 @@ Shader::Shader(const char * filename, GLenum shaderType) :
     std::ifstream shaderFileStream(filename);
 
     while(std::getline(shaderFileStream, line))
-        shaderString += line + "\n"; // TODO: Stop from adding extra newlines here
+    {
+        shaderString += line;
+
+        // Add newline if not at end of file
+        if(shaderFileStream.peek() != EOF) shaderString += '\n';
+    }
 
     // Create OpenGL Shader
     shaderID = glCreateShader(shaderType);
