@@ -27,6 +27,10 @@ public:
     Window * windows;
     Window * mainWindow;
 
+    // Callback to set for GLFW error
+    // TODO: Move this to a logging class
+    static void glfwErrorCallback(int error, const char * description);
+
 
 private:
 	// Internal Error Codes

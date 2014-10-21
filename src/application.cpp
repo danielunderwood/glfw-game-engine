@@ -30,6 +30,9 @@ int Application::init()
     
     // Core Profile (Not using deprecated functionality)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    // Set OpenGL Error Callback
+    glfwSetErrorCallback(glfwErrorCallback);
     
     // --- Initialize GLEW ---
     // TODO: Figure out where this needs to go, as it causes an error using before a window is created
@@ -37,7 +40,7 @@ int Application::init()
     
     // Experimental GLEW Required for OSX
     // TODO: Find out what to do about this and OSX/Other OSs
-    glewExperimental = GL_TRUE;
+    //glewExperimental = GL_TRUE;
     
     // Initialize
     //if(glewInit())
@@ -61,4 +64,9 @@ Window * Application::addWindow(int height, int width, bool fullscreen, char * t
     mainWindow = w;
 
     return w;
+}
+
+void Application::glfwErrorCallback(int error, const char * description)
+{
+    fprintf(stderr, "OpenGL Error %d: %s", error, description);
 }

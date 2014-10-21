@@ -40,6 +40,10 @@ void Window::init()
 
     // Set callback for changing window size
     glfwSetWindowSizeCallback(window, resizeCallback);
+
+    // Set clear color
+    // TODO: Move this to somewhere that can be changed when needed
+    glClearColor(1.0, 0.0, 0.0, 1.0);
     
     return; // TODO: Return Success Message at this point instead of nothing
 }
