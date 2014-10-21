@@ -12,6 +12,7 @@ Shader::Shader(const char * filename, GLenum shaderType) :
     std::string line;
 
     // Stream for file
+    // TODO: Handle the case of file not existing
     std::ifstream shaderFileStream(filename);
 
     while(std::getline(shaderFileStream, line))
@@ -29,9 +30,8 @@ Shader::Shader(const char * filename, GLenum shaderType) :
     printf("Compiling %s\n", filename);
 
     // Set source for shader
-    // TODO: Make this suck less
-    const char * cShaderString = shaderString.c_str();
-    glShaderSource(shaderID, 1, (GLchar const *const *) cShaderString, NULL);
+    const GLchar * cShaderString = shaderString.c_str();
+    glShaderSource(shaderID, 1, &cShaderString, NULL);
 
     // Compile
     glCompileShader(shaderID);
