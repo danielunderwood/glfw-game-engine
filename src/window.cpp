@@ -70,7 +70,7 @@ bool Window::renderFrame()
 
     // Determine if window should close
     // TODO: Move key functionality to input callback
-    shouldClose = glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(window);
+    shouldClose = shouldClose || glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(window);
 
     return !shouldClose;
 }
