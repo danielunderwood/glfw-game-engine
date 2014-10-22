@@ -18,8 +18,6 @@ public:
     // Getter for shaderID
     GLuint getShaderID();
 
-    // Bind this shader
-
 private:
     // Text of shader
     std::string shaderString;

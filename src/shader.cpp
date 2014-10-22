@@ -12,13 +12,12 @@ Shader::Shader(const char * filename, GLenum shaderType) :
     std::string line;
 
     // Stream for file
-    // TODO: Handle the case of file not existing
     std::ifstream shaderFileStream(filename);
 
     // Exit if file doesn't exist
     if(!shaderFileStream)
     {
-        fprintf(stderr, "Could not open shader '%s': File Does Not Exist", filename);
+        fprintf(stderr, "Could not open shader '%s': File Does Not Exist\n", filename);
 
         // Set shader ID to 0 to stop problems from occurring
         shaderID = 0;
@@ -39,7 +38,7 @@ Shader::Shader(const char * filename, GLenum shaderType) :
     // Create OpenGL Shader
     shaderID = glCreateShader(shaderType);
 
-    // TODO: Print Shader Logger Messages
+    // TODO: Put this in logger
     printf("Compiling %s\n", filename);
 
     // Set source for shader
