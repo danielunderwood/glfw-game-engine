@@ -46,8 +46,6 @@ void Window::init()
     // Set clear color
     // TODO: Move this to somewhere that can be changed when needed
     glClearColor(1.0, 0.0, 0.0, 1.0);
-    
-    return; // TODO: Return Success Message at this point instead of nothing
 }
 
 void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
