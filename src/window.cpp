@@ -1,6 +1,10 @@
 #include "window.h"
 #include <iostream>
 #include <stdio.h>
+#include <shader.h>
+#include <program.h>
+#include <triangle.h>
+#include <stdlib.h>
 
 Window::Window(int height, int width, bool fullscreen, char * title) :
 	height(height),
@@ -21,6 +25,11 @@ int Window::getHeight() { return height; }
 int Window::getWidth() { return width; }
 bool Window::isFullscreen() { return fullscreen; }
 bool Window::isClosed() { return shouldClose; }
+
+// Put this here for biscuits
+// Global stuff for testing
+Program * p;
+Triangle * t;
 
 void Window::init()
 {
@@ -43,9 +52,33 @@ void Window::init()
     // Set callback for changing window size
     glfwSetWindowSizeCallback(window, resizeCallback);
 
+    // Initialize GLEW
+    // TODO: Put this somewhere
+    glewExperimental = GL_TRUE;
+    if(glewInit() != GLEW_OK)
+        exit(1);
+
     // Set clear color
     // TODO: Move this to somewhere that can be changed when needed
     glClearColor(1.0, 0.0, 0.0, 1.0);
+
+    // Load shaders
+    // TODO: This doesn't go here!
+    Shader * vs = new Shader("res/shaders/basicShader.vs", GL_VERTEX_SHADER);
+    Shader * fs = new Shader("res/shaders/basicShader.fs", GL_FRAGMENT_SHADER);
+    std::vector<Shader> v;
+    v.push_back(*vs);
+    v.push_back(*fs);
+    p = new Program(v);
+    std::vector<GLfloat> points;
+    points.push_back(-0.5);
+    points.push_back(-0.5);
+    points.push_back(0);
+    points.push_back(0.5);
+    points.push_back(0.5);
+    points.push_back(0.5);
+    t = new Triangle(points);
+
 }
 
 void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
@@ -59,6 +92,11 @@ bool Window::renderFrame()
     // Clear Screen
     // TODO: Add clearing depth buffer when it is necessary
     glClear(GL_COLOR_BUFFER_BIT);
+
+    p->bind();
+    t->draw();
+    p->unbind();
+
 
     // Swap Buffers -- Always do this at the end of frame's render
     glfwSwapBuffers(window);

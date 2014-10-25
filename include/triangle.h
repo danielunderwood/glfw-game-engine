@@ -10,7 +10,7 @@ class Triangle
 public:
     // Constructor
     // TODO: Figure out what the best way to pass draw type is
-    Triangle(GLfloat points[3], GLenum drawType = GL_STATIC_DRAW);
+    Triangle(std::vector<GLfloat> points, GLenum drawType = GL_STATIC_DRAW);
     // Destructor
     ~Triangle();
 
@@ -20,7 +20,7 @@ public:
 private:
     // Points in triangle
     // TODO: See if there is something better to use for these
-    GLfloat points[3];
+    std::vector<GLfloat> points;
 
     // Draw type
     GLenum drawType;

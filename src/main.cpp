@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "application.h"
+#include "shader.h"
 
 int main(int argc, char ** argv)
 {

@@ -1,6 +1,6 @@
 #include "triangle.h"
 
-Triangle::Triangle(GLfloat points[3], GLenum drawType = GL_STATIC_DRAW) :
+Triangle::Triangle(std::vector<GLfloat> points, GLenum drawType) :
     points(points)
 {
 }
@@ -18,7 +18,7 @@ void Triangle::draw()
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
     // Transfer data to vbo
-    glBufferData(GL_ARRAY_BUFFER, sizeof(points), points, drawType);
+    glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(GLfloat), &points[0], drawType);
 
     // Make vao to transfer data
     GLuint vao;
@@ -36,5 +36,5 @@ void Triangle::draw()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
     // Draw Triangle
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, points.size()/2);
 }
