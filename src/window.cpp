@@ -74,9 +74,12 @@ void Window::init()
     points.push_back(-0.5);
     points.push_back(-0.5);
     points.push_back(0);
+    points.push_back(0);
     points.push_back(0.5);
+    points.push_back(0);
     points.push_back(0.5);
-    points.push_back(0.5);
+    points.push_back(-0.5);
+    points.push_back(0);
     t = new Triangle(points);
 
 }
@@ -97,12 +100,11 @@ bool Window::renderFrame()
     t->draw();
     p->unbind();
 
+    // Poll inputs
+    glfwPollEvents();
 
     // Swap Buffers -- Always do this at the end of frame's render
     glfwSwapBuffers(window);
-
-    // Poll inputs
-    glfwPollEvents();
 
     // Determine if window should close
     // TODO: Move key functionality to input callback
