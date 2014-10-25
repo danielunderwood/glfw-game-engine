@@ -1,6 +1,6 @@
 #version 150 core
 
-out vec4 finalColor
+out vec4 finalColor;
 
 void main()
 {
