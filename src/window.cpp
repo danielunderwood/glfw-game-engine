@@ -85,6 +85,7 @@ void Window::init()
     t1 = new Triangle(points);
 
     // Tryna make a square?
+    // Note: This DOESN"T make a square
     std::vector<GLfloat> points2;
     // First Triangle
     points2.push_back(-0.5);
