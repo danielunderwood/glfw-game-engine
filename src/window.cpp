@@ -29,7 +29,9 @@ bool Window::isClosed() { return shouldClose; }
 // Put this here for biscuits
 // Global stuff for testing
 Program * p;
-Triangle * t;
+Triangle * t1;
+Triangle * t2;
+Triangle * t3;
 
 void Window::init()
 {
@@ -80,7 +82,44 @@ void Window::init()
     points.push_back(0.5);
     points.push_back(-0.5);
     points.push_back(0);
-    t = new Triangle(points);
+    t1 = new Triangle(points);
+
+    // Tryna make a square?
+    std::vector<GLfloat> points2;
+    // First Triangle
+    points2.push_back(-0.5);
+    points2.push_back(-0.5);
+    points2.push_back(0);
+    points2.push_back(0);
+    points2.push_back(0.5);
+    points2.push_back(0);
+    points2.push_back(0.5);
+    points2.push_back(-0.5);
+    points2.push_back(0);
+    // Second triangle
+    points2.push_back(-1.0);
+    points2.push_back(-1.0);
+    points2.push_back(0.0);
+    points2.push_back(-1.0);
+    points2.push_back(1.0);
+    points2.push_back(0.0);
+    points2.push_back(0.0);
+    points2.push_back(1.0);
+    points2.push_back(0.0);
+    t2 = new Triangle(points2);
+
+    // Let's try another
+    std::vector<GLfloat> points3;
+    points3.push_back(-0.5);
+    points3.push_back(0.5);
+    points3.push_back(0);
+    points3.push_back(0);
+    points3.push_back(0.5);
+    points3.push_back(0);
+    points3.push_back(-0.5);
+    points3.push_back(-0.5);
+    points3.push_back(0);
+    t3 = new Triangle(points3);
 
 }
 
@@ -97,7 +136,8 @@ bool Window::renderFrame()
     glClear(GL_COLOR_BUFFER_BIT);
 
     p->bind();
-    t->draw();
+    t1->draw();
+    t3->draw();
     p->unbind();
 
     // Poll inputs
