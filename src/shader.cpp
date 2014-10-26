@@ -7,6 +7,8 @@ Shader::Shader(const char * filename, GLenum shaderType) :
 {
     // TODO: Do this with logging class
     printf("Loading %s\n", filename);
+    // Flush stdout buffer
+    fflush(stdout);
 
     // Line buffer
     std::string line;
@@ -40,6 +42,8 @@ Shader::Shader(const char * filename, GLenum shaderType) :
 
     // TODO: Put this in logger
     printf("Compiling %s\n", filename);
+    // Flush stdout buffer
+    fflush(stdout);
 
     // Set source for shader
     const GLchar * cShaderString = shaderString.c_str();

@@ -137,8 +137,9 @@ bool Window::renderFrame()
     glClear(GL_COLOR_BUFFER_BIT);
 
     p->bind();
-    t1->draw();
-    t3->draw();
+    //t1->draw();
+    t2->draw();
+    //t3->draw();
     p->unbind();
 
     // Poll inputs
