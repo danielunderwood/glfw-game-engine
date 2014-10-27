@@ -1,14 +1,14 @@
-#include "triangle.h"
+#include "mesh.h"
 
-Triangle::Triangle(std::vector<GLfloat> points, GLenum drawType) :
+Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType) :
     points(points)
 {
 }
 
-Triangle::~Triangle(){}
+Mesh::~Mesh(){}
 
 // TODO: Move most of this logic to constructor?
-void Triangle::draw()
+void Mesh::draw()
 {
     // Make a VBO to hold points
     GLuint vbo = 0;
@@ -24,6 +24,6 @@ void Triangle::draw()
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
-    // Draw Triangle
+    // Draw Mesh
     glDrawArrays(GL_TRIANGLES, 0, points.size()/2);
 }

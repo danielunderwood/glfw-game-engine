@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <shader.h>
 #include <program.h>
-#include <triangle.h>
+#include <mesh.h>
 #include <stdlib.h>
 
 Window::Window(int height, int width, bool fullscreen, char * title) :
@@ -29,9 +29,9 @@ bool Window::isClosed() { return shouldClose; }
 // Put this here for biscuits
 // Global stuff for testing
 Program * p;
-Triangle * t1;
-Triangle * t2;
-Triangle * t3;
+Mesh * t1;
+Mesh * t2;
+Mesh * t3;
 
 void Window::init()
 {
@@ -82,12 +82,12 @@ void Window::init()
     points.push_back(0.5);
     points.push_back(-0.5);
     points.push_back(0);
-    t1 = new Triangle(points);
+    t1 = new Mesh(points);
 
     // Tryna make a square?
-    // Note: This DOESN"T make a square
+    // Note: This DOESN'T make a square
     std::vector<GLfloat> points2;
-    // First Triangle
+    // First Mesh
     points2.push_back(-0.5);
     points2.push_back(-0.5);
     points2.push_back(0);
@@ -107,7 +107,7 @@ void Window::init()
     points2.push_back(0.0);
     points2.push_back(1.0);
     points2.push_back(0.0);
-    t2 = new Triangle(points2);
+    t2 = new Mesh(points2);
 
     // Let's try another
     std::vector<GLfloat> points3;
@@ -120,7 +120,7 @@ void Window::init()
     points3.push_back(-0.5);
     points3.push_back(-0.5);
     points3.push_back(0);
-    t3 = new Triangle(points3);
+    t3 = new Mesh(points3);
 
 }
 

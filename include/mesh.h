@@ -5,14 +5,14 @@
 #include "glew.h"
 #include "glfw3.h"
 
-class Triangle
+class Mesh
 {
 public:
     // Constructor
     // TODO: Figure out what the best way to pass draw type is
-    Triangle(std::vector<GLfloat> points, GLenum drawType = GL_STATIC_DRAW);
+    Mesh(std::vector<GLfloat> points, GLenum drawType = GL_STATIC_DRAW);
     // Destructor
-    ~Triangle();
+    ~Mesh();
 
     // Draw Triangle
     void draw();
