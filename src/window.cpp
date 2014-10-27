@@ -32,6 +32,7 @@ Program * p;
 Mesh * t1;
 Mesh * t2;
 Mesh * t3;
+Mesh * square;
 
 void Window::init()
 {
@@ -122,6 +123,23 @@ void Window::init()
     points3.push_back(0);
     t3 = new Mesh(points3);
 
+    // Test drawing with strips
+    std::vector<GLfloat> squarePts;
+    squarePts.push_back(-0.5);
+    squarePts.push_back(0.5);
+    squarePts.push_back(0.0);
+    squarePts.push_back(0.5);
+    squarePts.push_back(0.5);
+    squarePts.push_back(0.0);
+    squarePts.push_back(0.5);
+    squarePts.push_back(-0.5);
+    squarePts.push_back(0.0);
+    squarePts.push_back(-0.5);
+    squarePts.push_back(-0.5);
+    squarePts.push_back(0.0);
+
+    square = new Mesh(squarePts, GL_STATIC_DRAW, GL_TRIANGLE_FAN);
+
 }
 
 void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
@@ -138,8 +156,9 @@ bool Window::renderFrame()
 
     p->bind();
     //t1->draw();
-    t2->draw();
+    //t2->draw();
     //t3->draw();
+    square->draw();
     p->unbind();
 
     // Poll inputs

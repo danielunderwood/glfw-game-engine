@@ -1,7 +1,9 @@
 #include "mesh.h"
 
-Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType) :
-    points(points)
+Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
+    points(points),
+    drawType(drawType),
+    drawShape(drawShape)
 {
 }
 
@@ -14,7 +16,7 @@ void Mesh::draw()
     GLuint vbo = 0;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(GLfloat), &points[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(GLfloat), &points[0], drawType);
 
     // Make a VAO for the points VBO
     GLuint vao = 0;
@@ -25,5 +27,5 @@ void Mesh::draw()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
     // Draw Mesh
-    glDrawArrays(GL_TRIANGLES, 0, points.size()/2);
+    glDrawArrays(drawShape, 0, points.size()/2);
 }
