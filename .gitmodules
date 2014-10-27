@@ -1,4 +1,4 @@
-[submodule "deps/glfw"]
+[submodule "glfw"]
 	path = deps/glfw
 	url = https://github.com/glfw/glfw
 [submodule "glew"]
