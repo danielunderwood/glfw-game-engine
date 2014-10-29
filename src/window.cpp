@@ -5,6 +5,7 @@
 #include <program.h>
 #include <mesh.h>
 #include <stdlib.h>
+#include <application.h>
 
 Window::Window(int height, int width, bool fullscreen, char * title) :
 	height(height),
@@ -55,15 +56,31 @@ void Window::init()
     // Set callback for changing window size
     glfwSetWindowSizeCallback(window, resizeCallback);
 
-    // Initialize GLEW
-    // TODO: Put this somewhere
-    glewExperimental = GL_TRUE;
-    if(glewInit() != GLEW_OK)
-        exit(1);
-
     // Set clear color
     // TODO: Move this to somewhere that can be changed when needed
     glClearColor(1.0, 0.0, 0.0, 1.0);
+
+    // Initialize glew if not initialized
+    if(!Application::glewInitialized)
+    {
+        // Initialize GLEW
+        glewExperimental = GL_TRUE;
+        if(glewInit() != GLEW_OK)
+        {
+            fprintf(stderr, "GLEW Failed To Initialize. Exiting...\n");
+            exit(1);
+        }
+        // Print Renderer info
+        // TODO: Use logger class
+        const GLubyte * renderer = glGetString(GL_RENDERER);
+        const GLubyte * version = glGetString(GL_VERSION);
+
+        printf("Renderer: %s\n", renderer);
+        printf("OpenGL Version: %s\n", version);
+        fflush(stdout);
+
+        Application::glewInitialized = true;
+    }
 
     // Load shaders
     // TODO: This doesn't go here!
@@ -123,7 +140,7 @@ void Window::init()
     points3.push_back(0);
     t3 = new Mesh(points3);
 
-    // Test drawing with strips
+    // Test drawing with fans
     std::vector<GLfloat> squarePts;
     squarePts.push_back(-0.5);
     squarePts.push_back(0.5);

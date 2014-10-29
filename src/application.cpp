@@ -46,10 +46,6 @@ int Application::init()
     // TODO: Find out what to do about this and OSX/Other OSs
     //glewExperimental = GL_TRUE;
     
-    // Initialize
-    //if(glewInit())
-    //    fprintf(stderr, "ERROR: Could Not Initialize GLEW"); // TODO: Exit Application (Call Function)
-    
     return SUCCESS;
 }
 
@@ -74,3 +70,6 @@ void Application::glfwErrorCallback(int error, const char * description)
 {
     fprintf(stderr, "OpenGL Error %d: %s", error, description);
 }
+
+// Make glewInitialized false by default
+bool Application::glewInitialized = false;

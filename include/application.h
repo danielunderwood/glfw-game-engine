@@ -31,6 +31,10 @@ public:
     // TODO: Move this to a logging class
     static void glfwErrorCallback(int error, const char * description);
 
+    // Flag if GLEW initialized
+    // Static since Application should be singleton
+    static bool glewInitialized;
+
 
 private:
 	// Internal Error Codes
