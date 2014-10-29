@@ -7,3 +7,6 @@
 [submodule "glm"]
 	path = deps/glm
 	url = https://github.com/g-truc/glm
+[submodule "soil"]
+	path = deps/soil
+	url = https://github.com/kbranigan/Simple-OpenGL-Image-Library
