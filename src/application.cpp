@@ -14,6 +14,9 @@ Application::~Application()
 // TODO: Add default window that is mainWindow to application
 int Application::init()
 {
+    // Set OpenGL Error Callback
+    glfwSetErrorCallback(glfwErrorCallback);
+
     // Initialize GLFW
     if(!glfwInit())
     {
@@ -22,11 +25,12 @@ int Application::init()
     }
     
     // --- Set Window Hints ---
+    // TODO: Some of this stuff should automatically be determined
     
     // OpenGL Version (3.2)
     // TODO: Set This automatically
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
     
     // Forward Compatibility for OSX
     // TODO: Figure out why this is required
@@ -34,17 +38,6 @@ int Application::init()
     
     // Core Profile (Not using deprecated functionality)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    // Set OpenGL Error Callback
-    glfwSetErrorCallback(glfwErrorCallback);
-    
-    // --- Initialize GLEW ---
-    // TODO: Figure out where this needs to go, as it causes an error using before a window is created
-    //       since an OpenGL context is created by GLFW along with the window
-    
-    // Experimental GLEW Required for OSX
-    // TODO: Find out what to do about this and OSX/Other OSs
-    //glewExperimental = GL_TRUE;
     
     return SUCCESS;
 }
