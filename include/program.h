@@ -13,7 +13,7 @@ class Program
 {
 public:
     // Constructor with vector of shaders
-    Program(std::vector<Shader> shaders);
+    Program(std::vector<Shader*> shaders);
 
     // Destructor
     ~Program();
@@ -45,6 +45,6 @@ private:
     GLuint programID;
 
     // Shaders in program
-    std::vector<Shader> shaders;
+    std::vector<Shader*> shaders;
 
 };

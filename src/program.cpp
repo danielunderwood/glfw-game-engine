@@ -5,18 +5,22 @@
 // Initialize the currentProgram
 GLuint Program::currentProgram = 0;
 
-Program::Program(std::vector<Shader> shaders) :
+Program::Program(std::vector<Shader*> shaders) :
     shaders(shaders)
 {
     // Create Program
     programID = glCreateProgram();
+    printf("ProgramID: %d\n", programID);
+    fflush(stdout);
 
     // Iterate through Shaders
-    for(std::vector<Shader>::iterator shader = shaders.begin(); shader != shaders.end(); shader++)
+    for(std::vector<Shader*>::iterator shader = shaders.begin(); shader != shaders.end(); shader++)
     {
         // Attach Shader
-        glAttachShader(programID, shader->getShaderID());
+        glAttachShader(programID, (*shader)->getShaderID());
+        printf("Shader %d attaching to Program %d\n", (*shader)->getShaderID(), programID);
     }
+    fflush(stdout);
 
     // Link program
     glLinkProgram(programID);
@@ -48,10 +52,10 @@ Program::Program(std::vector<Shader> shaders) :
 Program::~Program()
 {
     // Iterate through attached shaders
-    for(std::vector<Shader>::iterator shader = shaders.begin(); shader != shaders.end(); shader++)
+    for(std::vector<Shader*>::iterator shader = shaders.begin(); shader != shaders.end(); shader++)
     {
         // Detach Shader
-        glDetachShader(programID, shader->getShaderID());
+        glDetachShader(programID, (*shader)->getShaderID());
     }
 
     // Delete program

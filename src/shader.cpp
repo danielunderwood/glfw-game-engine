@@ -71,7 +71,11 @@ Shader::Shader(const char * filename, GLenum shaderType) :
 
         // TODO: Figure out what to do when a shader fails to compile. It will currently just result
         // in graphical bugs
+        return;
     }
+
+    printf("%s Successfully Compiled as Shader %d\n", filename, shaderID);
+    fflush(stdout);
 }
 
 Shader::~Shader()

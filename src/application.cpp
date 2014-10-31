@@ -29,8 +29,8 @@ int Application::init()
     
     // OpenGL Version (3.2)
     // TODO: Set This automatically
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     
     // Forward Compatibility for OSX
     // TODO: Figure out why this is required
@@ -38,6 +38,9 @@ int Application::init()
     
     // Core Profile (Not using deprecated functionality)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    // AA
+    glfwWindowHint(GLFW_SAMPLES, 8);
     
     return SUCCESS;
 }

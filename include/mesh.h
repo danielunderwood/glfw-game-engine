@@ -22,6 +22,9 @@ private:
     // TODO: See if there is something better to use for these
     std::vector<GLfloat> points;
 
+    // vao object for mesh
+    GLuint vao;
+
     // Draw type (static, dynamic, etc.)
     GLenum drawType;
     // Shape to draw (triangle, triangle strips, etc.)

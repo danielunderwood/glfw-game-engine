@@ -18,9 +18,9 @@ Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
     glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
 
     float colors[] = {
-            1.0, 0.0, 0.0,
-            0.0, 1.0, 0.0,
-            0.0, 0.0, 1.0
+            0.5, 0.0, 0.0,
+            0.0, 0.5, 0.0,
+            0.0, 0.0, 0.5
     };
 
     glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), colors, GL_STATIC_DRAW);
@@ -44,7 +44,10 @@ Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
     glEnableVertexAttribArray(1);   // Colors
 }
 
-Mesh::~Mesh(){}
+Mesh::~Mesh()
+{
+//TODO: Delete vbos and vaos
+}
 
 void Mesh::draw()
 {

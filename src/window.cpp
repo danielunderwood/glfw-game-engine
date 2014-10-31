@@ -86,9 +86,9 @@ void Window::init()
     // TODO: This doesn't go here!
     Shader * vs = new Shader("res/shaders/basicShader.vs", GL_VERTEX_SHADER);
     Shader * fs = new Shader("res/shaders/basicShader.fs", GL_FRAGMENT_SHADER);
-    std::vector<Shader> v;
-    v.push_back(*vs);
-    v.push_back(*fs);
+    std::vector<Shader *> v;
+    v.push_back(vs);
+    v.push_back(fs);
     p = new Program(v);
     std::vector<GLfloat> points;
     points.push_back(-0.5);
@@ -169,13 +169,19 @@ bool Window::renderFrame()
 {
     // Clear Screen
     // TODO: Add clearing depth buffer when it is necessary
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     p->bind();
-    //t1->draw();
+    // Validate program
+    glValidateProgram(p->getProgramID());
+    GLint validated;
+    glGetProgramiv(p->getProgramID(), GL_VALIDATE_STATUS, &validated);
+    if(validated != GL_TRUE)
+        fprintf(stderr, "Program failed to validate\n");
+    t1->draw();
     //t2->draw();
     //t3->draw();
-    square->draw();
+    //square->draw();
     p->unbind();
 
     // Poll inputs
