@@ -1,3 +1,4 @@
+#include <program.h>
 #include "mesh.h"
 
 Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
@@ -5,27 +6,52 @@ Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
     drawType(drawType),
     drawShape(drawShape)
 {
-}
-
-Mesh::~Mesh(){}
-
-// TODO: Move most of this logic to constructor?
-void Mesh::draw()
-{
     // Make a VBO to hold points
     GLuint vbo = 0;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(GLfloat), &points[0], drawType);
 
+    // VBO TO hold colors
+    GLuint colorVbo = 0;
+    glGenBuffers(1, &colorVbo);
+    glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
+
+    float colors[] = {
+            1.0, 0.0, 0.0,
+            0.0, 1.0, 0.0,
+            0.0, 0.0, 1.0
+    };
+
+    glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), colors, GL_STATIC_DRAW);
+
     // Make a VAO for the points VBO
-    GLuint vao = 0;
+    vao = 0;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
-    glEnableVertexAttribArray(0);
+
+    // Points
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
+    // Colors
+    glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    GLint colorpos = glGetAttribLocation(1, "vertColor");
+
+    glEnableVertexAttribArray(0);   // Points
+    glEnableVertexAttribArray(1);   // Colors
+}
+
+Mesh::~Mesh(){}
+
+void Mesh::draw()
+{
+    // Bind vao
+    glBindVertexArray(vao);
     // Draw Mesh
-    glDrawArrays(drawShape, 0, points.size()/2);
+    glDrawArrays(drawShape, 0, points.size());
+    // Unbind vao
+    glBindVertexArray(0);
 }
