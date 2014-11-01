@@ -17,6 +17,7 @@ set (
       deps/glm/glm
       deps/glm/gtc
       deps/glm/gtx
+      deps/soil/src
     )
 
 include_directories(${INCLUDE_DIRS})
@@ -25,7 +26,7 @@ include_directories(${INCLUDE_DIRS})
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 # Link GLFW and GLEW to main executable
-target_link_libraries(${PROJECT_NAME} libglew_static glfw ${GLFW_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} libglew_static glfw ${GLFW_LIBRARIES} SOIL)
 
 # Define GLEW_STATIC for Windows
 if(MSVC)
@@ -34,9 +35,7 @@ endif()
 
 # Copy resources to output directory
 # TODO: Figure out why this isn't working -- possibly because we're checking if directory exists?
-if(EXISTS res/shaders/*)
-    file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
-endif()
+file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
 if(EXISTS res/textures/*)
     file(COPY res/textures/. DESTINATION ${CMAKE_BINARY_DIR}/res/textures)
 endif()
