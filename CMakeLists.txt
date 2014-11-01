@@ -36,6 +36,4 @@ endif()
 # Copy resources to output directory
 # TODO: Figure out why this isn't working -- possibly because we're checking if directory exists?
 file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
-if(EXISTS res/textures/*)
-    file(COPY res/textures/. DESTINATION ${CMAKE_BINARY_DIR}/res/textures)
-endif()
+file(COPY res/textures/. DESTINATION ${CMAKE_BINARY_DIR}/res/textures)
