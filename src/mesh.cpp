@@ -18,12 +18,12 @@ Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
     glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
 
     float colors[] = {
-            0.5, 0.0, 0.0,
-            0.0, 0.5, 0.0,
-            0.0, 0.0, 0.5
+            1.0, 1.0, 1.0,
+            0.0, 1.0, 0.0,
+            0.0, 0.0, 1.0
     };
 
-    glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), colors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
 
     // Make a VAO for the points VBO
     vao = 0;
@@ -37,8 +37,6 @@ Mesh::Mesh(std::vector<GLfloat> points, GLenum drawType, GLenum drawShape) :
     // Colors
     glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-
-    GLint colorpos = glGetAttribLocation(1, "vertColor");
 
     glEnableVertexAttribArray(0);   // Points
     glEnableVertexAttribArray(1);   // Colors

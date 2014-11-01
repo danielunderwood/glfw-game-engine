@@ -140,7 +140,7 @@ void Window::init()
     points3.push_back(0);
     t3 = new Mesh(points3);
 
-    // Test drawing with fans
+    // Test drawing with strips
     std::vector<GLfloat> squarePts;
     squarePts.push_back(-0.5);
     squarePts.push_back(0.5);
@@ -172,16 +172,10 @@ bool Window::renderFrame()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     p->bind();
-    // Validate program
-    glValidateProgram(p->getProgramID());
-    GLint validated;
-    glGetProgramiv(p->getProgramID(), GL_VALIDATE_STATUS, &validated);
-    if(validated != GL_TRUE)
-        fprintf(stderr, "Program failed to validate\n");
-    t1->draw();
+    //t1->draw();
     //t2->draw();
     //t3->draw();
-    //square->draw();
+    square->draw();
     p->unbind();
 
     // Poll inputs

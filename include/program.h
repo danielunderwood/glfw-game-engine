@@ -39,6 +39,7 @@ public:
 
 private:
     // ID of Program Currently Being Used
+    // TODO: Refactor to use Program object
     static GLuint currentProgram;
 
     // ID of Program to OpenGL
