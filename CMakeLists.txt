@@ -7,7 +7,6 @@ add_subdirectory(deps)
 # Get all source files from src
 aux_source_directory(src SRC_LIST)
 
-
 # Get Include Directories
 set (
       INCLUDE_DIRS
@@ -17,6 +16,7 @@ set (
       deps/glm/glm
       deps/glm/gtc
       deps/glm/gtx
+      deps/stb_image
       deps/soil/src
     )
 

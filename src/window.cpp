@@ -30,10 +30,9 @@ bool Window::isClosed() { return shouldClose; }
 // Put this here for biscuits
 // Global stuff for testing
 Program * p;
-Mesh * t1;
-Mesh * t2;
-Mesh * t3;
-Mesh * square;
+Program * texP;
+Texture * brickTex;
+Mesh * t1, * t2, * t3, * square, * texturedTriangle;
 
 void Window::init()
 {
@@ -86,11 +85,24 @@ void Window::init()
     // TODO: This doesn't go here!
     Shader * vs = new Shader("res/shaders/basicShader.vs", GL_VERTEX_SHADER);
     Shader * fs = new Shader("res/shaders/basicShader.fs", GL_FRAGMENT_SHADER);
-    std::vector<Shader *> v;
-    v.push_back(vs);
-    v.push_back(fs);
-    p = new Program(v);
+    std::vector<Shader *> shaders;
+    shaders.push_back(vs);
+    shaders.push_back(fs);
+    p = new Program(shaders);
+
+    // Make texture program
+    Shader * texvs = new Shader("res/shaders/textureShader.vs", GL_VERTEX_SHADER);
+    Shader * texfs = new Shader("res/shaders/textureShader.fs", GL_FRAGMENT_SHADER);
+    std::vector<Shader*> texShaders;
+    texShaders.push_back(texvs);
+    texShaders.push_back(texfs);
+    texP = new Program(texShaders);
+
+    // Brick Texture
+    brickTex = new Texture("res/textures/fabric-pattern.jpg");
+
     std::vector<GLfloat> points;
+    std::vector<GLfloat> tex;
     points.push_back(-0.5);
     points.push_back(-0.5);
     points.push_back(0);
@@ -100,11 +112,12 @@ void Window::init()
     points.push_back(0.5);
     points.push_back(-0.5);
     points.push_back(0);
-    t1 = new Mesh(points);
+    t1 = new Mesh(points, tex, NULL);
 
     // Tryna make a square?
     // Note: This DOESN'T make a square
     std::vector<GLfloat> points2;
+    std::vector<GLfloat> tex2;
     // First Mesh
     points2.push_back(-0.5);
     points2.push_back(-0.5);
@@ -125,10 +138,11 @@ void Window::init()
     points2.push_back(0.0);
     points2.push_back(1.0);
     points2.push_back(0.0);
-    t2 = new Mesh(points2);
+    t2 = new Mesh(points2, tex2, NULL);
 
     // Let's try another
     std::vector<GLfloat> points3;
+    std::vector<GLfloat> tex3;
     points3.push_back(-0.5);
     points3.push_back(0.5);
     points3.push_back(0);
@@ -138,10 +152,11 @@ void Window::init()
     points3.push_back(-0.5);
     points3.push_back(-0.5);
     points3.push_back(0);
-    t3 = new Mesh(points3);
+    t3 = new Mesh(points3, tex3, NULL);
 
     // Test drawing with strips
     std::vector<GLfloat> squarePts;
+    std::vector<GLfloat> squareTex;
     squarePts.push_back(-0.5);
     squarePts.push_back(0.5);
     squarePts.push_back(0.0);
@@ -155,8 +170,39 @@ void Window::init()
     squarePts.push_back(-0.5);
     squarePts.push_back(0.0);
 
-    square = new Mesh(squarePts, GL_STATIC_DRAW, GL_TRIANGLE_FAN);
+    squareTex.push_back(1.0);
+    squareTex.push_back(0.0);
+    squareTex.push_back(0.0);
+    squareTex.push_back(1.0);
+    squareTex.push_back(1.0);
+    squareTex.push_back(1.0);
+    squareTex.push_back(1.0);
+    squareTex.push_back(0.0);
 
+    square = new Mesh(squarePts, squareTex, brickTex, GL_STATIC_DRAW, GL_TRIANGLE_FAN);
+
+    // Test textured triangle
+    std::vector<GLfloat> ttPoints;
+    std::vector<GLfloat> ttTex;
+
+    ttPoints.push_back(-0.5);
+    ttPoints.push_back(-0.5);
+    ttPoints.push_back(0.0);
+    ttPoints.push_back(0.0);
+    ttPoints.push_back(0.5);
+    ttPoints.push_back(0.0);
+    ttPoints.push_back(0.5);
+    ttPoints.push_back(-0.5);
+    ttPoints.push_back(0.0);
+
+    ttTex.push_back(0.0);
+    ttTex.push_back(1.0);
+    ttTex.push_back(0.5);
+    ttTex.push_back(0.0);
+    ttTex.push_back(1.0);
+    ttTex.push_back(1.0);
+
+    texturedTriangle = new Mesh(ttPoints, ttTex, brickTex);
 }
 
 void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
@@ -175,8 +221,13 @@ bool Window::renderFrame()
     //t1->draw();
     //t2->draw();
     //t3->draw();
-    square->draw();
     p->unbind();
+
+    texP->bind();
+    brickTex->bind();
+    //square->draw();
+    texturedTriangle->draw();
+    texP->unbind();
 
     // Poll inputs
     glfwPollEvents();
