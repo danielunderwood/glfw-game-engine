@@ -41,3 +41,6 @@ install_manifest.txt
 # Build Directories
 [Bb]uild/
 [Bb]in/
+
+# Idea Directory
+.idea/
