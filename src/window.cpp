@@ -99,7 +99,7 @@ void Window::init()
     texP = new Program(texShaders);
 
     // Brick Texture
-    brickTex = new Texture("res/textures/fabric-pattern.jpg");
+    brickTex = new Texture("res/textures/texture-brick.png");
 
     std::vector<GLfloat> points;
     std::vector<GLfloat> tex;
@@ -220,7 +220,7 @@ bool Window::renderFrame()
     p->bind();
     //t1->draw();
     //t2->draw();
-    //t3->draw();
+    t3->draw();
     p->unbind();
 
     texP->bind();

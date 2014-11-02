@@ -53,10 +53,6 @@ Mesh::Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords,
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
-    // Colors
-    glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-
     glEnableVertexAttribArray(0);   // Points
     glEnableVertexAttribArray(1);   // Colors
 }
