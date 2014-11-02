@@ -35,12 +35,12 @@ public:
     GLuint getUniform(const GLchar * uniformName);
 
     // Get program currently being used by OpenGL
-    static GLuint getCurrentProgram();
+    static Program * getCurrentProgram();
 
 private:
     // ID of Program Currently Being Used
     // TODO: Refactor to use Program object
-    static GLuint currentProgram;
+    static Program * currentProgram;
 
     // ID of Program to OpenGL
     GLuint programID;

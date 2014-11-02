@@ -3,7 +3,7 @@
 #include "program.h"
 
 // Initialize the currentProgram
-GLuint Program::currentProgram = 0;
+Program * Program::currentProgram = NULL;
 
 Program::Program(std::vector<Shader*> shaders) :
     shaders(shaders)
@@ -68,7 +68,7 @@ GLuint Program::bind()
 {
     // Set current program as this program
     // TODO: Make this thread-safe
-    currentProgram = programID;
+    currentProgram = this;
 
     // Tell OpenGL to use this program
     glUseProgram(programID);
@@ -80,15 +80,15 @@ GLuint Program::bind()
 GLuint Program::unbind()
 {
     // Set current program as 0
-    currentProgram = 0;
-    glUseProgram(currentProgram);
+    currentProgram = NULL;
+    glUseProgram(0);
 
     // Return the current program for checking if there are thread issues
     // TODO: Find a way to make everything thread-safe
-    return currentProgram;
+    return 0;
 }
 
-GLuint Program::getCurrentProgram() { return currentProgram; }
+Program * Program::getCurrentProgram() { return currentProgram; }
 
 GLuint Program::getUniform(const GLchar *uniformName)
 {
