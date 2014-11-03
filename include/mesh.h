@@ -6,14 +6,15 @@
 #include "glfw3.h"
 
 #include "texture.h"
+#include "program.h"
 
 class Mesh
 {
 public:
     // Constructor
     // TODO: Figure out what the best way to pass draw type is
-    Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords,
-            Texture * texture, GLenum drawType = GL_STATIC_DRAW, GLenum drawShape = GL_TRIANGLES);
+    Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords, Texture * texture,
+            Program * program, GLenum drawType = GL_STATIC_DRAW, GLenum drawShape = GL_TRIANGLES);
     // Destructor
     ~Mesh();
 
@@ -27,6 +28,9 @@ private:
 
     // Texture for mesh
     Texture * texture;
+
+    // Program to render mesh
+    Program * program;
 
     // Texture coords for mesh
     std::vector<GLfloat> textureCoords;

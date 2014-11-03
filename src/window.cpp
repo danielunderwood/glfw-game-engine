@@ -112,7 +112,8 @@ void Window::init()
     points.push_back(0.5);
     points.push_back(-0.5);
     points.push_back(0);
-    t1 = new Mesh(points, tex, NULL);
+
+    t1 = new Mesh(points, tex, NULL, p);
 
     // Tryna make a square?
     // Note: This DOESN'T make a square
@@ -138,7 +139,8 @@ void Window::init()
     points2.push_back(0.0);
     points2.push_back(1.0);
     points2.push_back(0.0);
-    t2 = new Mesh(points2, tex2, NULL);
+
+    t2 = new Mesh(points2, tex2, NULL, p);
 
     // Let's try another
     std::vector<GLfloat> points3;
@@ -152,7 +154,8 @@ void Window::init()
     points3.push_back(-0.5);
     points3.push_back(-0.5);
     points3.push_back(0);
-    t3 = new Mesh(points3, tex3, NULL);
+
+    t3 = new Mesh(points3, tex3, NULL, p);
 
     // Test drawing with strips
     std::vector<GLfloat> squarePts;
@@ -179,7 +182,7 @@ void Window::init()
     squareTex.push_back(1.0);
     squareTex.push_back(0.0);
 
-    square = new Mesh(squarePts, squareTex, brickTex, GL_STATIC_DRAW, GL_TRIANGLE_FAN);
+    square = new Mesh(squarePts, squareTex, brickTex, texP, GL_STATIC_DRAW, GL_TRIANGLE_FAN);
 
     // Test textured triangle
     std::vector<GLfloat> ttPoints;
@@ -202,7 +205,7 @@ void Window::init()
     ttTex.push_back(1.0);
     ttTex.push_back(1.0);
 
-    texturedTriangle = new Mesh(ttPoints, ttTex, brickTex);
+    texturedTriangle = new Mesh(ttPoints, ttTex, brickTex, texP);
 }
 
 void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
@@ -217,17 +220,13 @@ bool Window::renderFrame()
     // TODO: Add clearing depth buffer when it is necessary
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    p->bind();
     //t1->draw();
     //t2->draw();
     t3->draw();
-    p->unbind();
 
-    texP->bind();
     brickTex->bind();
     //square->draw();
     texturedTriangle->draw();
-    texP->unbind();
 
     // Poll inputs
     glfwPollEvents();
