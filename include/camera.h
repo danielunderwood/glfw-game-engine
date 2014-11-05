@@ -17,6 +17,9 @@ public:
     // Switch to this camera
     Camera * use();
 
+    // Get current camera
+    static Camera * getCurrentCamera();
+
     // Getter for viewMatrix
     glm::mat4 getViewMatrix();
 

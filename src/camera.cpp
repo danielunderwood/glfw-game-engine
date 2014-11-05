@@ -20,6 +20,7 @@ Camera::~Camera()
     activeCameras.remove(this);
 }
 
+Camera * Camera::getCurrentCamera() { return currentCamera; }
 Camera * Camera::use()
 {
     // Make current camera
