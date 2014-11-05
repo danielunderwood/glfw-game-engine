@@ -4,11 +4,13 @@
 
 #include "glew.h"
 #include "glfw3.h"
+#include "glm.hpp"
 
 #include "texture.h"
 #include "program.h"
+#include "entity.h"
 
-class Mesh
+class Mesh : public Entity
 {
 public:
     // Constructor
@@ -21,10 +23,16 @@ public:
     // Draw Triangle
     void draw();
 
+    // Getter for model matrix
+    glm::mat4 getModelMatrix();
+
 private:
     // Points in triangle
     // TODO: See if there is something better to use for these
     std::vector<GLfloat> points;
+
+    // Model matrix for mesh
+    glm::mat4 modelMatrix;
 
     // Texture for mesh
     Texture * texture;

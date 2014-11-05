@@ -89,3 +89,5 @@ void Mesh::draw()
     // Unbind program
     program->unbind();
 }
+
+glm::mat4 Mesh::getModelMatrix() { return modelMatrix; }
