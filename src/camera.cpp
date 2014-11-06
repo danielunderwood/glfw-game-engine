@@ -12,7 +12,7 @@ Camera::Camera()
 
     // If no camera is being used, use this one
     if(!currentCamera)
-        currentCamera = this;
+        use();
 }
 Camera::~Camera()
 {

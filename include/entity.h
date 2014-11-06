@@ -11,19 +11,19 @@ class Entity
 public:
     // TODO: Remove these to make inheritance only class
     Entity();
-    ~Entity();
+    virtual ~Entity();
 
     // Move entity's world position by vector
-    glm::vec3 move(glm::vec3 translation);
+    virtual glm::vec3 move(glm::vec3 translation);
 
     // Set entity's world position
-    glm::vec3 setPosition(glm::vec3 newPosition);
+    virtual glm::vec3 setPosition(glm::vec3 newPosition);
 
     // Rotate entity
-    glm::vec3 rotate(glm::quat rotation);
+    virtual glm::vec3 rotate(glm::quat rotation);
 
     // Set entity's direction
-    glm::vec3 setDirection(glm::vec3 newDirection);
+    virtual glm::vec3 setDirection(glm::vec3 newDirection);
 protected:
     // TODO: Look at other structures for these, such as quaternions
     // Entity's Position in World
