@@ -12,7 +12,11 @@ public:
 	//Destructor
 	~Window();
 
+    // Set the function for the rendering in this window
+    void setRenderFunction(bool (*renderFunction)());
+
 	// Getters
+    GLFWwindow * getGLFWWindow();
 	int getHeight();
 	int getWidth();
 	bool isFullscreen();
@@ -29,6 +33,9 @@ private:
 	bool shouldClose;		// Should window close?
 	char * title;			// Title of window
 	GLFWwindow * window;	// Window for GLFW
+
+    // Pointer to function to render with
+    bool (*renderFunction)();
 
 	// Initializes window with GLFW
 	void init();
