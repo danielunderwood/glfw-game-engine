@@ -22,7 +22,7 @@ Window::~Window()
     glfwDestroyWindow(window);
 }
 
-void Window::setRenderFunction(bool (*renderFunction)())
+void Window::setRenderFunction(RenderFunction renderFunction)
 {
     this->renderFunction = renderFunction;
 }
@@ -90,5 +90,22 @@ void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
 
 bool Window::renderFrame()
 {
-    return (shouldClose =  renderFunction());
+    // Clear Screen
+    // TODO: Add clearing depth buffer when it is necessary
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // Call assigned render function
+    renderFunction();
+
+    // Poll inputs
+    glfwPollEvents();
+
+    // Swap Buffers -- Always do this at the end of frame's render
+    glfwSwapBuffers(window);
+
+    // Determine if window should close
+    // TODO: Move key functionality to input callback
+    bool shouldClose = glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(window);
+
+    return !shouldClose;
 }

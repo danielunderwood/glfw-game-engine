@@ -148,12 +148,8 @@ void setupScene()
     texturedTriangle = new Mesh(ttPoints, ttTex, brickTex, texP);
 }
 
-bool renderFunction()
+void renderFunction()
 {
-    // Clear Screen
-    // TODO: Add clearing depth buffer when it is necessary
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     //t1->draw();
     //t2->draw();
     t3->draw();
@@ -161,20 +157,6 @@ bool renderFunction()
     brickTex->bind();
     //square->draw();
     texturedTriangle->draw();
-
-    // Poll inputs
-    glfwPollEvents();
-
-    GLFWwindow * window = app->mainWindow->getGLFWWindow();
-
-    // Swap Buffers -- Always do this at the end of frame's render
-    glfwSwapBuffers(window);
-
-    // Determine if window should close
-    // TODO: Move key functionality to input callback
-    bool shouldClose = glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(window);
-
-    return !shouldClose;
 }
 
 int main(int argc, char ** argv)

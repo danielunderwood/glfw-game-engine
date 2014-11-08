@@ -3,6 +3,8 @@
 #include "glew.h"
 #include "glfw3.h"
 
+typedef void (*RenderFunction)();
+
 // Represents a GLFW Window with context
 class Window
 {
@@ -13,7 +15,7 @@ public:
 	~Window();
 
     // Set the function for the rendering in this window
-    void setRenderFunction(bool (*renderFunction)());
+    void setRenderFunction(RenderFunction renderFunction);
 
 	// Getters
     GLFWwindow * getGLFWWindow();
@@ -35,7 +37,7 @@ private:
 	GLFWwindow * window;	// Window for GLFW
 
     // Pointer to function to render with
-    bool (*renderFunction)();
+    RenderFunction renderFunction;
 
 	// Initializes window with GLFW
 	void init();
