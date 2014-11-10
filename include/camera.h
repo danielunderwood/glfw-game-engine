@@ -23,6 +23,10 @@ public:
     // Getter for viewMatrix
     glm::mat4 getViewMatrix();
 
+    // Override movement functions
+    glm::vec4 move(glm::vec4 translation);
+    glm::vec4 setPosition(glm::vec4 newPosition);
+
 private:
     // Camera that is currently being used
     static Camera * currentCamera;

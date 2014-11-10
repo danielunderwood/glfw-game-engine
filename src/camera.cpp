@@ -31,3 +31,20 @@ Camera * Camera::use()
 }
 
 glm::mat4 Camera::getViewMatrix() { return viewMatrix; }
+
+glm::vec4 Camera::move(glm::vec4 translation)
+{
+   // Move the world to effectively move camera
+   translation *= -1;
+   viewMatrix *= translation;
+
+   return Entity::move(translation);
+}
+
+glm::vec4 Camera::setPosition(glm::vec4 newPosition)
+{
+    for(int i = 0; i < newPosition.length(); i++)
+        viewMatrix[i][i] = -(newPosition[i]);
+
+    return Entity::setPosition(newPosition);
+}

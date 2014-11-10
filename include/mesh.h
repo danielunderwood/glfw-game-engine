@@ -26,6 +26,10 @@ public:
     // Getter for model matrix
     glm::mat4 getModelMatrix();
 
+    // Override movement functions
+    glm::vec4 move(glm::vec4 translation);
+    glm::vec4 setPosition(glm::vec4 newPosition);
+
 private:
     // Points in triangle
     // TODO: See if there is something better to use for these

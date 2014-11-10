@@ -14,10 +14,10 @@ public:
     virtual ~Entity();
 
     // Move entity's world position by vector
-    virtual glm::vec3 move(glm::vec3 translation);
+    virtual glm::vec4 move(glm::vec4 translation);
 
     // Set entity's world position
-    virtual glm::vec3 setPosition(glm::vec3 newPosition);
+    virtual glm::vec4 setPosition(glm::vec4 newPosition);
 
     // Rotate entity
     virtual glm::vec3 rotate(glm::quat rotation);
@@ -27,7 +27,7 @@ public:
 protected:
     // TODO: Look at other structures for these, such as quaternions
     // Entity's Position in World
-    glm::vec3 worldPosition;
+    glm::vec4 worldPosition;
     // Direction entity is facing
     glm::vec3 direction;
 };

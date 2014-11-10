@@ -6,6 +6,9 @@
 #include <mesh.h>
 #include <stdlib.h>
 #include <application.h>
+#include <gtc/matrix_transform.hpp>
+
+std::list<Window*> Window::windows;
 
 Window::Window(int height, int width, bool fullscreen, char * title) :
 	height(height),
@@ -14,12 +17,25 @@ Window::Window(int height, int width, bool fullscreen, char * title) :
 	title(title),
     shouldClose(false)
 {
+    // Initialiize with glfw
 	init();
+
+    // Put in windows list
+    windows.push_back(this);
+
+    // Make perspective matrix
+    // TODO: Dynamic FOV and Near/Far
+    perspectiveMatrix = glm::perspective(45.0f, float(width/height), 1.0f, 10.0f);
 }
 
 Window::~Window()
 {
+    // Destroy window in GLFW
     glfwDestroyWindow(window);
+
+    // Remove from list of windows
+    windows.remove(this);
+
 }
 
 void Window::setRenderFunction(RenderFunction renderFunction)
@@ -86,6 +102,19 @@ void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
 {
     // Change glViewport to new window size
     glViewport(0, 0, newWidth, newHeight);
+
+    // Update Perspective Matrix
+    // TODO: Dynamic FOV and Near/Far
+    // TODO: Do this in a less hacky way
+    for(std::list<Window*>::iterator w = windows.begin(); w != windows.end(); w++)
+    {
+        if ((*w)->window == window)
+        {
+            // Set the perspective matrix of this window
+            (*w)->perspectiveMatrix = glm::perspective(45.0f, float(newWidth / newHeight), 1.0f, 10.0f);
+            break;
+        }
+    }
 }
 
 bool Window::renderFrame()

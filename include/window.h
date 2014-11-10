@@ -1,7 +1,10 @@
 #pragma once
 
+#include <list>
+
 #include "glew.h"
 #include "glfw3.h"
+#include "glm.hpp"
 
 typedef void (*RenderFunction)();
 
@@ -29,12 +32,16 @@ public:
     // TODO: Abstract this so we can declare a function to render with (function pointer)
     bool renderFrame();
 private:
-	int height;			// Height of window
-	int width;			// Width of window
-	bool fullscreen;		// Is window fullscreen?
-	bool shouldClose;		// Should window close?
-	char * title;			// Title of window
-	GLFWwindow * window;	// Window for GLFW
+	int height;			            // Height of window
+	int width;			            // Width of window
+	bool fullscreen;		        // Is window fullscreen?
+	bool shouldClose;		        // Should window close?
+	char * title;			        // Title of window
+	GLFWwindow * window;	        // Window for GLFW
+
+
+    glm::mat4 perspectiveMatrix;       // Perspective matrix for window
+    static std::list<Window*> windows;   // List of windows for resize callback
 
     // Pointer to function to render with
     RenderFunction renderFunction;

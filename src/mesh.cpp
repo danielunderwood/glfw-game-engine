@@ -90,4 +90,18 @@ void Mesh::draw()
     program->unbind();
 }
 
+glm::vec4 Mesh::move(glm::vec4 translation)
+{
+    modelMatrix *= translation;
+    return Entity::move(translation);
+}
+
+glm::vec4 Mesh::setPosition(glm::vec4 newPosition)
+{
+    for(int i = 0; i < newPosition.length(); i++)
+        modelMatrix[i][i] = newPosition[i];
+
+    return Entity::setPosition(newPosition);
+}
+
 glm::mat4 Mesh::getModelMatrix() { return modelMatrix; }
