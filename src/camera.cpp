@@ -1,3 +1,4 @@
+#include <gtc/matrix_transform.hpp>
 #include "camera.h"
 
 // Declare currentCamera
@@ -32,17 +33,18 @@ Camera * Camera::use()
 
 glm::mat4 Camera::getViewMatrix() { return viewMatrix; }
 
-glm::vec4 Camera::move(glm::vec4 translation)
+glm::vec3 Camera::move(glm::vec3 translation)
 {
    // Move the world to effectively move camera
    translation *= -1;
-   viewMatrix *= translation;
+   viewMatrix *= glm::translate(viewMatrix, translation);
 
    return Entity::move(translation);
 }
 
-glm::vec4 Camera::setPosition(glm::vec4 newPosition)
+glm::vec3 Camera::setPosition(glm::vec3 newPosition)
 {
+    // TODO: Check if this actually works. May need to generate new matrix
     for(int i = 0; i < newPosition.length(); i++)
         viewMatrix[i][i] = -(newPosition[i]);
 

@@ -27,8 +27,8 @@ public:
     glm::mat4 getModelMatrix();
 
     // Override movement functions
-    glm::vec4 move(glm::vec4 translation);
-    glm::vec4 setPosition(glm::vec4 newPosition);
+    glm::vec3 move(glm::vec3 translation);
+    glm::vec3 setPosition(glm::vec3 newPosition);
 
 private:
     // Points in triangle

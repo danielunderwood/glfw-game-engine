@@ -4,7 +4,7 @@ Entity::Entity(){}
 Entity::~Entity(){}
 
 
-glm::vec4 Entity::move(glm::vec4 translation)
+glm::vec3 Entity::move(glm::vec3 translation)
 {
     // Move by amount
     worldPosition += translation;
@@ -13,7 +13,7 @@ glm::vec4 Entity::move(glm::vec4 translation)
     return  worldPosition;
 }
 
-glm::vec4 Entity::setPosition(glm::vec4 newPosition)
+glm::vec3 Entity::setPosition(glm::vec3 newPosition)
 {
     // Set net position
     worldPosition = newPosition;

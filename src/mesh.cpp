@@ -1,3 +1,5 @@
+#include <gtc/type_ptr.hpp>
+#include <gtc/matrix_transform.hpp>
 #include "program.h"
 #include "mesh.h"
 
@@ -63,6 +65,10 @@ Mesh::Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords,
     glVertexAttribPointer(positionIndex, 3, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(positionIndex);
 
+    // Upload model matrix
+    GLint uniModel = program->getUniform("model");
+    glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+
     // Unbind program
     program->unbind();
 }
@@ -90,16 +96,33 @@ void Mesh::draw()
     program->unbind();
 }
 
-glm::vec4 Mesh::move(glm::vec4 translation)
+glm::vec3 Mesh::move(glm::vec3 translation)
 {
-    modelMatrix *= translation;
+    // Apply translation
+    modelMatrix *= glm::translate(modelMatrix, translation);
+
+    // Upload new model matrix
+    // TODO: Figure out about binding/unbinding program here
+    program->bind();
+    GLint uniModel = program->getUniform("model");
+    glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+    program->unbind();
+
     return Entity::move(translation);
 }
 
-glm::vec4 Mesh::setPosition(glm::vec4 newPosition)
+glm::vec3 Mesh::setPosition(glm::vec3 newPosition)
 {
-    for(int i = 0; i < newPosition.length(); i++)
-        modelMatrix[i][i] = newPosition[i];
+    // Set new position
+    int dims = modelMatrix.length() - 1;
+    for (int i = 0; i < dims; i++)
+        modelMatrix[dims][i] = newPosition[i];
+
+    // Upload new model matrix
+    program->bind();
+    GLint uniModel = program->getUniform("model");
+    glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+    program->unbind();
 
     return Entity::setPosition(newPosition);
 }

@@ -24,8 +24,8 @@ public:
     glm::mat4 getViewMatrix();
 
     // Override movement functions
-    glm::vec4 move(glm::vec4 translation);
-    glm::vec4 setPosition(glm::vec4 newPosition);
+    glm::vec3 move(glm::vec3 translation);
+    glm::vec3 setPosition(glm::vec3 newPosition);
 
 private:
     // Camera that is currently being used
