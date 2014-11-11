@@ -1,11 +1,13 @@
 #pragma once
 
 #include <vector>
+#include <list>
 
 #include "shader.h"
 
 #include "glew.h"
 #include "glfw3.h"
+#include "glm.hpp"
 
 // Class representing OpenGL Program
 // TODO: Implement getting attribute locations from shaders
@@ -37,10 +39,16 @@ public:
     // Get program currently being used by OpenGL
     static Program * getCurrentProgram();
 
+    // Update projection matrix
+    // TODO: Figure out best way to do this
+    static void updateProjectionMatrix(glm::mat4 projectionMatrix);
+
 private:
-    // ID of Program Currently Being Used
-    // TODO: Refactor to use Program object
+    // Program Currently Being Used
     static Program * currentProgram;
+
+    // List of active programs
+    static std::list<Program*> activePrograms;
 
     // ID of Program to OpenGL
     GLuint programID;

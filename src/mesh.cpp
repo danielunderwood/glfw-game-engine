@@ -1,5 +1,7 @@
 #include <gtc/type_ptr.hpp>
 #include <gtc/matrix_transform.hpp>
+#include <application.h>
+#include <stdio.h>
 #include "program.h"
 #include "mesh.h"
 
@@ -85,6 +87,12 @@ void Mesh::draw()
     // Bind vao
     glBindVertexArray(vao);
     // TODO: Bind texture here
+
+    // TODO: Associate with camera instead of here
+    glUniformMatrix4fv(program->getUniform("view"), 1, GL_FALSE,
+         glm::value_ptr(glm::lookAt(glm::vec3(-0.5, 0.5, 0.5),
+                 glm::vec3(0.0f, 0.0f, 0.0f),
+                 glm::vec3(0.0f, 0.0f, 1.0f))));
 
     // Draw Mesh
     glDrawArrays(drawShape, 0, points.size());

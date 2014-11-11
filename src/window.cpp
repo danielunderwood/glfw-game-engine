@@ -25,7 +25,15 @@ Window::Window(int height, int width, bool fullscreen, char * title) :
 
     // Make perspective matrix
     // TODO: Dynamic FOV and Near/Far
-    perspectiveMatrix = glm::perspective(45.0f, float(width/height), 1.0f, 10.0f);
+    projectionMatrix = glm::perspective(90.0f, float(width/height), 1.0f, 100.0f);
+    printf("Projection Matrix: %f, %f, %f, %f\n"
+            "                   %f, %f, %f, %f\n"
+            "                   %f, %f, %f, %f\n"
+            "                   %f, %f, %f, %f\n",
+    projectionMatrix[0][0], projectionMatrix[0][1], projectionMatrix[0][2], projectionMatrix[0][3],
+    projectionMatrix[1][0], projectionMatrix[1][1], projectionMatrix[1][2], projectionMatrix[1][3],
+    projectionMatrix[2][0], projectionMatrix[2][1], projectionMatrix[2][2], projectionMatrix[2][3],
+    projectionMatrix[3][0], projectionMatrix[3][1], projectionMatrix[3][2], projectionMatrix[3][3]);
 }
 
 Window::~Window()
@@ -111,7 +119,20 @@ void Window::resizeCallback(GLFWwindow * window, int newWidth, int newHeight)
         if ((*w)->window == window)
         {
             // Set the perspective matrix of this window
-            (*w)->perspectiveMatrix = glm::perspective(45.0f, float(newWidth / newHeight), 1.0f, 10.0f);
+            (*w)->projectionMatrix = glm::perspective(90.0f, float(newWidth / newHeight), 0.0f, 100.0f);
+
+            // Update shaders
+            Program::updateProjectionMatrix((*w)->projectionMatrix);
+
+            printf("Projection Matrix: %f, %f, %f, %f\n"
+                            "                   %f, %f, %f, %f\n"
+                            "                   %f, %f, %f, %f\n"
+                            "                   %f, %f, %f, %f\n",
+                    (*w)->projectionMatrix[0][0], (*w)->projectionMatrix[0][1], (*w)->projectionMatrix[0][2], (*w)->projectionMatrix[0][3],
+                    (*w)->projectionMatrix[1][0], (*w)->projectionMatrix[1][1], (*w)->projectionMatrix[1][2], (*w)->projectionMatrix[1][3],
+                    (*w)->projectionMatrix[2][0], (*w)->projectionMatrix[2][1], (*w)->projectionMatrix[2][2], (*w)->projectionMatrix[2][3],
+                    (*w)->projectionMatrix[3][0], (*w)->projectionMatrix[3][1], (*w)->projectionMatrix[3][2], (*w)->projectionMatrix[3][3]);
+
             break;
         }
     }
@@ -138,3 +159,5 @@ bool Window::renderFrame()
 
     return !shouldClose;
 }
+
+glm::mat4 Window::getProjectionMatrix() { return projectionMatrix; }

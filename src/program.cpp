@@ -1,9 +1,14 @@
 #include <stdio.h>
+#include <gtc/type_ptr.hpp>
+#include <application.h>
 
 #include "program.h"
 
 // Initialize the currentProgram
 Program * Program::currentProgram = NULL;
+
+// Initialize activePrograms
+std::list<Program*> Program::activePrograms;
 
 Program::Program(std::vector<Shader*> shaders) :
     shaders(shaders)
@@ -46,7 +51,18 @@ Program::Program(std::vector<Shader*> shaders) :
         fprintf(stderr, "Program %d Linking Failed:\n%s\n", programID, linkerLog);
 
         // TODO: Figure out what to do when this fails
+        return;
     }
+
+    // Add to list of active programs
+    activePrograms.push_back(this);
+
+    // Set up projection matrix
+    bind();
+    GLint uniProj = getUniform("projection");
+    glUniformMatrix4fv(uniProj, 1, GL_FALSE,
+            glm::value_ptr(Application::mainWindow->getProjectionMatrix()));
+    unbind();
 }
 
 Program::~Program()
@@ -60,6 +76,9 @@ Program::~Program()
 
     // Delete program
     glDeleteProgram(programID);
+
+    // Remove from active program list
+    activePrograms.remove(this);
 }
 
 GLuint Program::getProgramID() { return programID; }
@@ -86,6 +105,20 @@ GLuint Program::unbind()
     // Return the current program for checking if there are thread issues
     // TODO: Find a way to make everything thread-safe
     return 0;
+}
+
+void Program::updateProjectionMatrix(glm::mat4 projectionMatrix)
+{
+    for(std::list<Program*>::iterator program = activePrograms.begin();
+        program != activePrograms.end(); program++)
+    {
+        (*program)->bind();
+        GLint uniProj = (*program)->getUniform("projection");
+        glUniformMatrix4fv(uniProj, 1, GL_FALSE,
+                glm::value_ptr(Application::mainWindow->getProjectionMatrix()));
+        (*program)->unbind();
+    }
+
 }
 
 Program * Program::getCurrentProgram() { return currentProgram; }

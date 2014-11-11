@@ -154,26 +154,13 @@ void renderFunction()
     //t1->draw();
     //t2->draw();
     t3->draw();
+    t3->setPosition(glm::vec3(0.0, 0.0, -3.0));
 
     brickTex->bind();
     //square->draw();
     texturedTriangle->draw();
-    /*
-    glm::mat4 model = texturedTriangle->getModelMatrix();
 
-    printf("Model Matrix: %f, %f, %f, %f\n"
-                    "              %f, %f, %f, %f\n"
-                    "              %f, %f, %f, %f\n"
-                    "              %f, %f, %f, %f\n",
-            model[0][0], model[0][1], model[0][2], model[0][3],
-            model[1][0], model[1][1], model[1][2], model[1][3],
-            model[2][0], model[2][1], model[2][2], model[2][3],
-            model[3][0], model[3][1], model[3][2], model[3][3]);
-    */
-
-    glm::vec3 pos = texturedTriangle->setPosition(glm::vec3(0.1, 0.1, 0.0));
-    //printf("Position: (%f, %f, %f) Weight: %f\n", pos[0], pos[1], pos[2], pos[3]);
-    fflush(stdout);
+    glm::vec3 pos = texturedTriangle->setPosition(glm::vec3(0.1, 0.1, -0.1));
 }
 
 int main(int argc, char ** argv)

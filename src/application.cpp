@@ -2,6 +2,9 @@
 
 #include "application.h"
 
+// Initialize mainWindow
+Window * Application::mainWindow = NULL;
+
 Application::Application() { init(); }
 Application::~Application()
 {

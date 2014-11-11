@@ -25,7 +25,7 @@ public:
     // TODO: Make a function or something to render for the application so we aren't accessing these
     // windows directly
     Window * windows;
-    Window * mainWindow;
+    static Window * mainWindow;
 
     // Callback to set for GLFW error
     // TODO: Move this to a logging class

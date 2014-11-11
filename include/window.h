@@ -26,11 +26,13 @@ public:
 	int getWidth();
 	bool isFullscreen();
 	bool isClosed();
+    glm::mat4 getProjectionMatrix();
 
     // Renders one frame and returns false when it should close
     // TODO: Figure out the proper place to put closing logic
     // TODO: Abstract this so we can declare a function to render with (function pointer)
     bool renderFrame();
+
 private:
 	int height;			            // Height of window
 	int width;			            // Width of window
@@ -40,7 +42,7 @@ private:
 	GLFWwindow * window;	        // Window for GLFW
 
 
-    glm::mat4 perspectiveMatrix;       // Perspective matrix for window
+    glm::mat4 projectionMatrix;       // Perspective matrix for window
     static std::list<Window*> windows;   // List of windows for resize callback
 
     // Pointer to function to render with
