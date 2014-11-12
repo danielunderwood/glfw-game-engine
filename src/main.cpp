@@ -147,6 +147,7 @@ void setupScene()
     ttTex.push_back(1.0);
 
     texturedTriangle = new Mesh(ttPoints, ttTex, brickTex, texP);
+    texturedTriangle->setPosition(glm::vec3(0.0, 0.0, -1.0));
 }
 
 void renderFunction()
@@ -154,13 +155,13 @@ void renderFunction()
     //t1->draw();
     //t2->draw();
     t3->draw();
-    t3->setPosition(glm::vec3(0.0, 0.0, -3.0));
+    t3->setPosition(glm::vec3(0.0, 0.0, -1.0));
 
     brickTex->bind();
     //square->draw();
     texturedTriangle->draw();
 
-    glm::vec3 pos = texturedTriangle->setPosition(glm::vec3(0.1, 0.1, -0.1));
+    glm::vec3 pos = texturedTriangle->move(glm::vec3(0.0, 0.0, -0.1));
 }
 
 int main(int argc, char ** argv)

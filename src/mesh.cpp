@@ -90,9 +90,9 @@ void Mesh::draw()
 
     // TODO: Associate with camera instead of here
     glUniformMatrix4fv(program->getUniform("view"), 1, GL_FALSE,
-         glm::value_ptr(glm::lookAt(glm::vec3(-0.5, 0.5, 0.5),
-                 glm::vec3(0.0f, 0.0f, 0.0f),
-                 glm::vec3(0.0f, 0.0f, 1.0f))));
+         glm::value_ptr(glm::lookAt(glm::vec3(0.0, 0.0, 0.0),
+                 glm::vec3(0.0f, 0.0f, -0.01),
+                 glm::vec3(0.0f, 1.0f, 0.0f))));
 
     // Draw Mesh
     glDrawArrays(drawShape, 0, points.size());
@@ -106,8 +106,10 @@ void Mesh::draw()
 
 glm::vec3 Mesh::move(glm::vec3 translation)
 {
+    int dims = modelMatrix.length() - 1;
     // Apply translation
-    modelMatrix *= glm::translate(modelMatrix, translation);
+    for(int i = 0; i < dims; i++)
+        modelMatrix[dims][i] += translation[i];
 
     // Upload new model matrix
     // TODO: Figure out about binding/unbinding program here
