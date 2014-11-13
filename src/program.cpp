@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <gtc/type_ptr.hpp>
 #include <application.h>
+#include <camera.h>
 
 #include "program.h"
 
@@ -118,7 +119,19 @@ void Program::updateProjectionMatrix(glm::mat4 projectionMatrix)
                 glm::value_ptr(Application::mainWindow->getProjectionMatrix()));
         (*program)->unbind();
     }
+}
 
+void Program::updateViewMatrix(glm::mat4 viewMatrix)
+{
+    for(std::list<Program*>::iterator program = activePrograms.begin();
+        program != activePrograms.end(); program++)
+    {
+        (*program)->bind();
+        GLint viewProj = (*program)->getUniform("view");
+        glUniformMatrix4fv(viewProj, 1, GL_FALSE,
+                glm::value_ptr(Camera::getCurrentCamera()->getViewMatrix()));
+        (*program)->unbind();
+    }
 }
 
 Program * Program::getCurrentProgram() { return currentProgram; }

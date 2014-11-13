@@ -43,6 +43,9 @@ public:
     // TODO: Figure out best way to do this
     static void updateProjectionMatrix(glm::mat4 projectionMatrix);
 
+    // Update view matrix
+    static void updateViewMatrix(glm::mat4 viewMatrix);
+
 private:
     // Program Currently Being Used
     static Program * currentProgram;

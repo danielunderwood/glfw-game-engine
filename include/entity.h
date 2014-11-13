@@ -11,6 +11,7 @@ class Entity
 public:
     // TODO: Remove these to make inheritance only class
     Entity();
+    Entity(glm::vec3 position, glm::vec3 direction);
     virtual ~Entity();
 
     // Move entity's world position by vector
@@ -27,7 +28,7 @@ public:
 protected:
     // TODO: Look at other structures for these, such as quaternions
     // Entity's Position in World
-    glm::vec3 worldPosition;
+    glm::vec3 position;
     // Direction entity is facing
     glm::vec3 direction;
 };

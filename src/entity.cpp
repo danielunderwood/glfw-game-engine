@@ -1,25 +1,27 @@
 #include "entity.h"
 
 Entity::Entity(){}
+
+Entity::Entity(glm::vec3 position, glm::vec3 direction) : position(position), direction(direction) {}
 Entity::~Entity(){}
 
 
 glm::vec3 Entity::move(glm::vec3 translation)
 {
     // Move by amount
-    worldPosition += translation;
+    position += translation;
 
     // Return new position
-    return  worldPosition;
+    return position;
 }
 
 glm::vec3 Entity::setPosition(glm::vec3 newPosition)
 {
     // Set net position
-    worldPosition = newPosition;
+    position = newPosition;
 
     // Return new position
-    return worldPosition;
+    return position;
 }
 
 glm::vec3 Entity::rotate(glm::quat rotation)

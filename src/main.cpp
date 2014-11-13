@@ -1,5 +1,6 @@
 #include <vector>
 #include <stdio.h>
+#include <camera.h>
 
 #include "application.h"
 #include "shader.h"
@@ -16,6 +17,7 @@ Program * p;
 Program * texP;
 Texture * brickTex;
 Mesh * t1, * t2, * t3, * square, * texturedTriangle;
+Camera * cam;
 void setupScene()
 {
     // Set clear color
@@ -41,6 +43,9 @@ void setupScene()
 
     // Brick Texture
     brickTex = new Texture("res/textures/texture-brick.png");
+
+    // Make camera
+    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01), glm::vec3(0.0, 1.0, 0.0));
 
     std::vector<GLfloat> points;
     std::vector<GLfloat> tex;
@@ -155,13 +160,15 @@ void renderFunction()
     //t1->draw();
     //t2->draw();
     t3->draw();
-    t3->setPosition(glm::vec3(0.0, 0.0, -1.0));
+    t3->setPosition(glm::vec3(1.0, 0.0, -1.0));
 
     brickTex->bind();
     //square->draw();
     texturedTriangle->draw();
 
-    glm::vec3 pos = texturedTriangle->move(glm::vec3(0.0, 0.0, -0.1));
+    glm::vec3 pos = texturedTriangle->setPosition(glm::vec3(0.01, 0.01, -1.0));
+
+    cam->move(glm::vec3(-0.01, 0.0, 0.0));
 }
 
 int main(int argc, char ** argv)

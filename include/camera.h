@@ -10,7 +10,7 @@ class Camera : public Entity
 {
 public:
     // Constructor
-    Camera();
+    Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up);
     // Destructor
     ~Camera();
 

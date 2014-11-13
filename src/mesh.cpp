@@ -88,12 +88,6 @@ void Mesh::draw()
     glBindVertexArray(vao);
     // TODO: Bind texture here
 
-    // TODO: Associate with camera instead of here
-    glUniformMatrix4fv(program->getUniform("view"), 1, GL_FALSE,
-         glm::value_ptr(glm::lookAt(glm::vec3(0.0, 0.0, 0.0),
-                 glm::vec3(0.0f, 0.0f, -0.01),
-                 glm::vec3(0.0f, 1.0f, 0.0f))));
-
     // Draw Mesh
     glDrawArrays(drawShape, 0, points.size());
 
