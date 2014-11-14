@@ -8,6 +8,7 @@
 #include "texture.h"
 #include "program.h"
 
+using namespace GGE;
 
 Application * app;
 
@@ -166,9 +167,9 @@ void renderFunction()
     //square->draw();
     texturedTriangle->draw();
 
-    glm::vec3 pos = texturedTriangle->setPosition(glm::vec3(0.01, 0.01, -1.0));
+    glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
 
-    cam->move(glm::vec3(-0.01, 0.0, 0.0));
+    cam->move(glm::vec3(0.001, 0.0, 0.01));
 }
 
 int main(int argc, char ** argv)
@@ -177,7 +178,7 @@ int main(int argc, char ** argv)
     app = new Application();
 
     // Add Window
-    Window * window = app->addWindow(320, 620, true, "Test", true);
+    GGE::Window * window = app->addWindow(320, 620, true, "Test", true);
 
     // Set up scene
     setupScene();

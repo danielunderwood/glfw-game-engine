@@ -5,34 +5,39 @@
 #include "entity.h"
 #include "glm.hpp"
 
-// Class that represents camera
-class Camera : public Entity
+namespace GGE
 {
-public:
-    // Constructor
-    Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up);
-    // Destructor
-    ~Camera();
+// Class that represents camera
+    class Camera : public Entity
+    {
+    public:
+        // Constructor
+        Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up);
 
-    // Switch to this camera
-    Camera * use();
+        // Destructor
+        ~Camera();
 
-    // Get current camera
-    static Camera * getCurrentCamera();
+        // Switch to this camera
+        Camera *use();
 
-    // Getter for viewMatrix
-    glm::mat4 getViewMatrix();
+        // Get current camera
+        static Camera *getCurrentCamera();
 
-    // Override movement functions
-    glm::vec3 move(glm::vec3 translation);
-    glm::vec3 setPosition(glm::vec3 newPosition);
+        // Getter for viewMatrix
+        glm::mat4 getViewMatrix();
 
-private:
-    // Camera that is currently being used
-    static Camera * currentCamera;
-    // List of active cameras for switching
-    static std::list<Camera*> activeCameras;
+        // Override movement functions
+        glm::vec3 move(glm::vec3 translation);
 
-    // View matrix for this camera
-    glm::mat4 viewMatrix;
-};
+        glm::vec3 setPosition(glm::vec3 newPosition);
+
+    private:
+        // Camera that is currently being used
+        static Camera *currentCamera;
+        // List of active cameras for switching
+        static std::list<Camera *> activeCameras;
+
+        // View matrix for this camera
+        glm::mat4 viewMatrix;
+    };
+}

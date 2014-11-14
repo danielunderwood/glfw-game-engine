@@ -3,66 +3,77 @@
 #include <program.h>
 #include "camera.h"
 
-// Declare currentCamera
-Camera * Camera::currentCamera = NULL;
-// Declare activeCameras
-std::list<Camera*> Camera::activeCameras;
-
-Camera::Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up) : Entity::Entity(position, direction)
+namespace GGE
 {
-    // Add to list of active cameras
-    activeCameras.push_back(this);
+    // Declare currentCamera
+    Camera *Camera::currentCamera = NULL;
+    // Declare activeCameras
+    std::list<Camera *> Camera::activeCameras;
 
-    // Set up view matrix
-    viewMatrix = glm::lookAt(direction, position, up);
+    Camera::Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up) : Entity::Entity(position, direction)
+    {
+        // Add to list of active cameras
+        activeCameras.push_back(this);
 
-    // If no camera is being used, use this one
-    if(!currentCamera)
-        use();
-}
-Camera::~Camera()
-{
-    // Remove from list of active cameras
-    activeCameras.remove(this);
-}
+        // Set up view matrix
+        viewMatrix = glm::lookAt(direction, position, up);
 
-Camera * Camera::getCurrentCamera() { return currentCamera; }
-Camera * Camera::use()
-{
-    // Make current camera
-    currentCamera = this;
+        // If no camera is being used, use this one
+        if (!currentCamera)
+            use();
+    }
 
-    // Use this view matrix
-    Program::updateViewMatrix(viewMatrix);
+    Camera::~Camera()
+    {
+        // Remove from list of active cameras
+        activeCameras.remove(this);
+    }
 
-    // Return for chaining
-    return this;
-}
+    Camera *Camera::getCurrentCamera()
+    {
+        return currentCamera;
+    }
 
-glm::mat4 Camera::getViewMatrix() { return viewMatrix; }
+    Camera *Camera::use()
+    {
+        // Make current camera
+        currentCamera = this;
 
-glm::vec3 Camera::move(glm::vec3 translation)
-{
-    int dims = viewMatrix.length() - 1;
-    // Apply translation
-    for(int i = 0; i < dims; i++)
-        viewMatrix[dims][i] -= translation[i];
+        // Use this view matrix
+        Program::updateViewMatrix(viewMatrix);
 
-    // Update viewMatrix
-    Program::updateViewMatrix(viewMatrix);
+        // Return for chaining
+        return this;
+    }
 
-   return Entity::move(translation);
-}
+    glm::mat4 Camera::getViewMatrix()
+    {
+        return viewMatrix;
+    }
 
-glm::vec3 Camera::setPosition(glm::vec3 newPosition)
-{
-    // Set new position
-    int dims = viewMatrix.length() - 1;
-    for (int i = 0; i < dims; i++)
-        viewMatrix[dims][i] = newPosition[i];
+    glm::vec3 Camera::move(glm::vec3 translation)
+    {
+        int dims = viewMatrix.length() - 1;
+        // Apply translation
+        for (int i = 0; i < dims; i++)
+            viewMatrix[dims][i] -= translation[i];
 
-    // Upload new model matrix
-    Program::updateViewMatrix(viewMatrix);
+        // Update viewMatrix
+        Program::updateViewMatrix(viewMatrix);
 
-    return Entity::setPosition(newPosition);
+        return Entity::move(translation);
+    }
+
+    glm::vec3 Camera::setPosition(glm::vec3 newPosition)
+    {
+        // Set new position
+        int dims = viewMatrix.length() - 1;
+        for (int i = 0; i < dims; i++)
+            viewMatrix[dims][i] = newPosition[i];
+
+        // Upload new model matrix
+        Program::updateViewMatrix(viewMatrix);
+
+        return Entity::setPosition(newPosition);
+    }
 }

@@ -10,48 +10,53 @@
 #include "program.h"
 #include "entity.h"
 
-class Mesh : public Entity
+namespace GGE
 {
-public:
-    // Constructor
-    // TODO: Figure out what the best way to pass draw type is
-    Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords, Texture * texture,
-            Program * program, GLenum drawType = GL_STATIC_DRAW, GLenum drawShape = GL_TRIANGLES);
-    // Destructor
-    ~Mesh();
+    class Mesh : public Entity
+    {
+    public:
+        // Constructor
+        // TODO: Figure out what the best way to pass draw type is
+        Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords, Texture *texture,
+                Program *program, GLenum drawType = GL_STATIC_DRAW, GLenum drawShape = GL_TRIANGLES);
 
-    // Draw Triangle
-    void draw();
+        // Destructor
+        ~Mesh();
 
-    // Getter for model matrix
-    glm::mat4 getModelMatrix();
+        // Draw Triangle
+        void draw();
 
-    // Override movement functions
-    glm::vec3 move(glm::vec3 translation);
-    glm::vec3 setPosition(glm::vec3 newPosition);
+        // Getter for model matrix
+        glm::mat4 getModelMatrix();
 
-private:
-    // Points in triangle
-    // TODO: See if there is something better to use for these
-    std::vector<GLfloat> points;
+        // Override movement functions
+        glm::vec3 move(glm::vec3 translation);
 
-    // Model matrix for mesh
-    glm::mat4 modelMatrix;
+        glm::vec3 setPosition(glm::vec3 newPosition);
 
-    // Texture for mesh
-    Texture * texture;
+    private:
+        // Points in triangle
+        // TODO: See if there is something better to use for these
+        std::vector<GLfloat> points;
 
-    // Program to render mesh
-    Program * program;
+        // Model matrix for mesh
+        glm::mat4 modelMatrix;
 
-    // Texture coords for mesh
-    std::vector<GLfloat> textureCoords;
+        // Texture for mesh
+        Texture *texture;
 
-    // vao object for mesh
-    GLuint vao;
+        // Program to render mesh
+        Program *program;
 
-    // Draw type (static, dynamic, etc.)
-    GLenum drawType;
-    // Shape to draw (triangle, triangle strips, etc.)
-    GLenum drawShape;
-};
+        // Texture coords for mesh
+        std::vector<GLfloat> textureCoords;
+
+        // vao object for mesh
+        GLuint vao;
+
+        // Draw type (static, dynamic, etc.)
+        GLenum drawType;
+        // Shape to draw (triangle, triangle strips, etc.)
+        GLenum drawShape;
+    };
+}

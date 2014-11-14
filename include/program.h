@@ -9,54 +9,58 @@
 #include "glfw3.h"
 #include "glm.hpp"
 
+namespace GGE
+{
 // Class representing OpenGL Program
 // TODO: Implement getting attribute locations from shaders
-class Program
-{
-public:
-    // Constructor with vector of shaders
-    Program(std::vector<Shader*> shaders);
+    class Program
+    {
+    public:
+        // Constructor with vector of shaders
+        Program(std::vector<Shader *> shaders);
 
-    // Destructor
-    ~Program();
+        // Destructor
+        ~Program();
 
-    // Getter for ProgramID
-    // TODO: Change these types of getters just to getID?
-    GLuint getProgramID();
+        // Getter for ProgramID
+        // TODO: Change these types of getters just to getID?
+        GLuint getProgramID();
 
-    // Bind the program
-    // TODO: Is this really necessary unless it starts needing more lines?
-    GLuint bind();
+        // Bind the program
+        // TODO: Is this really necessary unless it starts needing more lines?
+        GLuint bind();
 
-    // Unbind program
-    // TODO: See if there is a better way to do this
-    GLuint unbind();
+        // Unbind program
+        // TODO: See if there is a better way to do this
+        GLuint unbind();
 
-    // Get values from shaders
-    GLuint getAttrib(const GLchar * attribName);
-    GLuint getUniform(const GLchar * uniformName);
+        // Get values from shaders
+        GLuint getAttrib(const GLchar *attribName);
 
-    // Get program currently being used by OpenGL
-    static Program * getCurrentProgram();
+        GLuint getUniform(const GLchar *uniformName);
 
-    // Update projection matrix
-    // TODO: Figure out best way to do this
-    static void updateProjectionMatrix(glm::mat4 projectionMatrix);
+        // Get program currently being used by OpenGL
+        static Program *getCurrentProgram();
 
-    // Update view matrix
-    static void updateViewMatrix(glm::mat4 viewMatrix);
+        // Update projection matrix
+        // TODO: Figure out best way to do this
+        static void updateProjectionMatrix(glm::mat4 projectionMatrix);
 
-private:
-    // Program Currently Being Used
-    static Program * currentProgram;
+        // Update view matrix
+        static void updateViewMatrix(glm::mat4 viewMatrix);
 
-    // List of active programs
-    static std::list<Program*> activePrograms;
+    private:
+        // Program Currently Being Used
+        static Program *currentProgram;
 
-    // ID of Program to OpenGL
-    GLuint programID;
+        // List of active programs
+        static std::list<Program *> activePrograms;
 
-    // Shaders in program
-    std::vector<Shader*> shaders;
+        // ID of Program to OpenGL
+        GLuint programID;
 
-};
+        // Shaders in program
+        std::vector<Shader *> shaders;
+
+    };
+}

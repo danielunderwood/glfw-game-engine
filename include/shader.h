@@ -5,26 +5,29 @@
 #include "glew.h"
 #include "glfw3.h"
 
-// Class to represent an OpenGL Shader
-class Shader
+namespace GGE
 {
-public:
-    // Constructor to load from file
-    Shader(const char * filename, GLenum shaderType);
+// Class to represent an OpenGL Shader
+    class Shader
+    {
+    public:
+        // Constructor to load from file
+        Shader(const char *filename, GLenum shaderType);
 
-    // Destructor
-    ~Shader();
+        // Destructor
+        ~Shader();
 
-    // Getter for shaderID
-    GLuint getShaderID();
+        // Getter for shaderID
+        GLuint getShaderID();
 
-private:
-    // Text of shader
-    std::string shaderString;
+    private:
+        // Text of shader
+        std::string shaderString;
 
-    // ID For shader
-    GLuint shaderID;
+        // ID For shader
+        GLuint shaderID;
 
-    // Type of Shader
-    GLenum shaderType;
-};
+        // Type of Shader
+        GLenum shaderType;
+    };
+}

@@ -3,27 +3,31 @@
 #include <glew.h>
 #include <glfw3.h>
 
-// Represents a texture
-class Texture
+namespace GGE
 {
-public:
-    Texture(const char * filename, GLenum textureType = GL_TEXTURE_2D);
-    ~Texture();
+// Represents a texture
+    class Texture
+    {
+    public:
+        Texture(const char *filename, GLenum textureType = GL_TEXTURE_2D);
 
-    // Bind texture for use
-    void bind();
+        ~Texture();
 
-    // Getter for textureID
-    GLuint getTextureID();
+        // Bind texture for use
+        void bind();
 
-private:
-    // OpenGL's ID for the texture
-    GLuint textureID;
+        // Getter for textureID
+        GLuint getTextureID();
 
-    // Type identifier of texture
-    GLenum textureType;
+    private:
+        // OpenGL's ID for the texture
+        GLuint textureID;
 
-    // ID of Current Texture
-    // TODO: Make this a texture object
-    static GLuint currentTexture;
-};
+        // Type identifier of texture
+        GLenum textureType;
+
+        // ID of Current Texture
+        // TODO: Make this a texture object
+        static GLuint currentTexture;
+    };
+}

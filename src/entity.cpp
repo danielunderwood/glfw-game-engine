@@ -1,42 +1,52 @@
 #include "entity.h"
 
-Entity::Entity(){}
-
-Entity::Entity(glm::vec3 position, glm::vec3 direction) : position(position), direction(direction) {}
-Entity::~Entity(){}
-
-
-glm::vec3 Entity::move(glm::vec3 translation)
+namespace GGE
 {
-    // Move by amount
-    position += translation;
+    Entity::Entity()
+    {
+    }
 
-    // Return new position
-    return position;
-}
+    Entity::Entity(glm::vec3 position, glm::vec3 direction) : position(position), direction(direction)
+    {
+    }
 
-glm::vec3 Entity::setPosition(glm::vec3 newPosition)
-{
-    // Set net position
-    position = newPosition;
+    Entity::~Entity()
+    {
+    }
 
-    // Return new position
-    return position;
-}
 
-glm::vec3 Entity::rotate(glm::quat rotation)
-{
-    // TODO: Figure out how to do rotation
+    glm::vec3 Entity::move(glm::vec3 translation)
+    {
+        // Move by amount
+        position += translation;
 
-    // Return direction of entity
-    return direction;
-}
+        // Return new position
+        return position;
+    }
 
-glm::vec3 Entity::setDirection(glm::vec3 newDirection)
-{
-    // Set direction of entity
-    direction = newDirection;
+    glm::vec3 Entity::setPosition(glm::vec3 newPosition)
+    {
+        // Set net position
+        position = newPosition;
 
-    // Return new direction of entity
-    return direction;
+        // Return new position
+        return position;
+    }
+
+    glm::vec3 Entity::rotate(glm::quat rotation)
+    {
+        // TODO: Figure out how to do rotation
+
+        // Return direction of entity
+        return direction;
+    }
+
+    glm::vec3 Entity::setDirection(glm::vec3 newDirection)
+    {
+        // Set direction of entity
+        direction = newDirection;
+
+        // Return new direction of entity
+        return direction;
+    }
 }
