@@ -176,7 +176,7 @@ namespace GGE
 
         // Determine if window should close
         // TODO: Move key functionality to input callback
-        bool shouldClose = glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(window);
+        bool shouldClose = shouldClose || glfwWindowShouldClose(window);
 
         return !shouldClose;
     }
@@ -184,5 +184,11 @@ namespace GGE
     glm::mat4 Window::getProjectionMatrix()
     {
         return projectionMatrix;
+    }
+
+    void Window::close()
+    {
+        glfwWindowShouldClose(window);
+        shouldClose = true;
     }
 }

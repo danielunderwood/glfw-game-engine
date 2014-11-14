@@ -167,9 +167,31 @@ void renderFunction()
     //square->draw();
     texturedTriangle->draw();
 
-    glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
+    //glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
 
-    cam->move(glm::vec3(0.001, 0.0, 0.01));
+    //cam->move(glm::vec3(0.001, 0.0, 0.01));
+}
+
+void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mods)
+{
+    switch(key)
+    {
+        case  GLFW_KEY_W:
+            cam->move(glm::vec3(0.0, 0.0, -0.01));
+            break;
+        case GLFW_KEY_S:
+            cam->move(glm::vec3(0.0, 0.0, 0.01));
+            break;
+        case GLFW_KEY_A:
+            cam->move(glm::vec3(-0.01, 0.0, 0.0));
+            break;
+        case GLFW_KEY_D:
+            cam->move(glm::vec3(0.01, 0.0, 0.0));
+            break;
+        case GLFW_KEY_ESCAPE:
+            glfwSetWindowShouldClose(window, GL_TRUE);
+            break;
+    }
 }
 
 int main(int argc, char ** argv)
@@ -182,6 +204,9 @@ int main(int argc, char ** argv)
 
     // Set up scene
     setupScene();
+
+    // Set key callback
+    glfwSetKeyCallback(window->getGLFWWindow(), keyCallback);
 
     // Set window's render function
     window->setRenderFunction(renderFunction);

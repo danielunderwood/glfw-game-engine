@@ -25,14 +25,13 @@ namespace GGE
 
         // Getters
         GLFWwindow *getGLFWWindow();
-
         int getHeight();
-
         int getWidth();
-
         bool isFullscreen();
-
         bool isClosed();
+
+        // Tell window to close
+        void close();
 
         glm::mat4 getProjectionMatrix();
 
