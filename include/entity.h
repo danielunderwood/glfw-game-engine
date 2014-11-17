@@ -18,6 +18,10 @@ namespace GGE
 
         virtual ~Entity();
 
+        // Getters
+        glm::vec3 getPosition();
+        glm::vec3 getDirection();
+
         // Move entity's world position by vector
         virtual glm::vec3 move(glm::vec3 translation);
 
