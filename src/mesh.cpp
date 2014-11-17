@@ -8,7 +8,7 @@
 namespace GGE
 {
     Mesh::Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords,
-            Texture *texture, Program *program, GLenum drawType, GLenum drawShape) :
+            Texture * texture, Program *  program, GLenum drawType, GLenum drawShape) :
             points(points),
             textureCoords(textureCoords),
             texture(texture),

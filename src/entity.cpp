@@ -2,18 +2,14 @@
 
 namespace GGE
 {
-    Entity::Entity()
-    {
-    }
+    Entity::Entity() {}
 
-    Entity::Entity(glm::vec3 position, glm::vec3 direction) : position(position), direction(direction)
-    {
-    }
+    Entity::Entity(glm::vec3 position, glm::vec3 direction) : position(position), direction(direction) {}
 
-    Entity::~Entity()
-    {
-    }
+    Entity::~Entity() {}
 
+    glm::vec3 Entity::getPosition() { return position; }
+    glm::vec3 Entity::getDirection() { return direction; }
 
     glm::vec3 Entity::move(glm::vec3 translation)
     {

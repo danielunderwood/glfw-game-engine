@@ -27,7 +27,7 @@ namespace GGE
 
         // Make perspective matrix
         // TODO: Dynamic FOV and Near/Far
-        projectionMatrix = glm::perspective(90.0f, float(width / height), 1.0f, 100.0f);
+        projectionMatrix = glm::perspective(45.0f, float(width / height), 0.1f, 10000.0f);
         printf("Projection Matrix: %f, %f, %f, %f\n"
                         "                   %f, %f, %f, %f\n"
                         "                   %f, %f, %f, %f\n"
@@ -100,6 +100,12 @@ namespace GGE
         // Set callback for changing window size
         glfwSetWindowSizeCallback(window, resizeCallback);
 
+        // Set mouse mode to be captured
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+        // Set mouse position to center
+        glfwSetCursorPos(window, 0, 0);
+
         // Set clear color
         // TODO: Move this to somewhere that can be changed when needed
         glClearColor(1.0, 0.0, 0.0, 1.0);
@@ -170,6 +176,9 @@ namespace GGE
 
         // Poll inputs
         glfwPollEvents();
+
+        // Move mouse back to center
+        glfwSetCursorPos(window, 0, 0);
 
         // Swap Buffers -- Always do this at the end of frame's render
         glfwSwapBuffers(window);

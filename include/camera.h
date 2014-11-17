@@ -28,8 +28,10 @@ namespace GGE
 
         // Override movement functions
         glm::vec3 move(glm::vec3 translation);
-
         glm::vec3 setPosition(glm::vec3 newPosition);
+
+        // Use this for changing direction until the quaternion stuff is figured out
+        glm::vec3 setDirection(glm::vec3 newDirection);
 
     private:
         // Camera that is currently being used

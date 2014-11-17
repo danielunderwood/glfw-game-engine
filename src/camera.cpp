@@ -76,4 +76,15 @@ namespace GGE
 
         return Entity::setPosition(newPosition);
     }
+
+    glm::vec3 Camera::setDirection(glm::vec3 newDirection)
+    {
+        direction = newDirection;
+
+        viewMatrix = glm::lookAt(direction, position, glm::vec3(0.0, 1.0, 0.0));
+
+        Program::updateViewMatrix(viewMatrix);
+
+        return Entity::setDirection(newDirection);
+    }
 }

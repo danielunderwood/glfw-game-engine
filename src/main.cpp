@@ -19,6 +19,7 @@ Program * texP;
 Texture * brickTex;
 Mesh * t1, * t2, * t3, * square, * texturedTriangle;
 Camera * cam;
+
 void setupScene()
 {
     // Set clear color
@@ -172,26 +173,54 @@ void renderFunction()
     //cam->move(glm::vec3(0.001, 0.0, 0.01));
 }
 
+// Callback for handling key events
 void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mods)
 {
     switch(key)
     {
-        case  GLFW_KEY_W:
-            cam->move(glm::vec3(0.0, 0.0, -0.01));
+        case GLFW_KEY_W:
+            cam->move(glm::vec3(0.0, 0.0, -0.05));
             break;
         case GLFW_KEY_S:
-            cam->move(glm::vec3(0.0, 0.0, 0.01));
+            cam->move(glm::vec3(0.0, 0.0, 0.05));
             break;
         case GLFW_KEY_A:
-            cam->move(glm::vec3(-0.01, 0.0, 0.0));
+            cam->move(glm::vec3(-0.05, 0.0, 0.0));
             break;
         case GLFW_KEY_D:
-            cam->move(glm::vec3(0.01, 0.0, 0.0));
+            cam->move(glm::vec3(0.05, 0.0, 0.0));
             break;
         case GLFW_KEY_ESCAPE:
             glfwSetWindowShouldClose(window, GL_TRUE);
             break;
+        default:
+            break;
     }
+}
+
+// Callback for handling mouse movement
+void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
+{
+    printf("Mouse Moved to (%f, %f)\n", xpos, ypos);
+
+    // Change camera angle
+    glm::vec3 cameraMovement;
+
+    // Change in x (rotation about y axis)
+    if(xpos > 0)
+        cameraMovement.x = -0.0001;
+    else if (xpos < 0)
+        cameraMovement.x = 0.0001;
+
+    // Change in y (rotation about x axis)
+    if(ypos > 0)
+        cameraMovement.y = 0.0001;
+    else if(ypos < 0)
+        cameraMovement.y = -0.0001;
+
+    // Change Position of Camera
+    cameraMovement += Camera::getCurrentCamera()->getDirection();
+    Camera::getCurrentCamera()->setDirection(cameraMovement);
 }
 
 int main(int argc, char ** argv)
@@ -200,13 +229,16 @@ int main(int argc, char ** argv)
     app = new Application();
 
     // Add Window
-    GGE::Window * window = app->addWindow(320, 620, true, "Test", true);
+    Window * window = app->addWindow(320, 620, true, "Test", true);
 
     // Set up scene
     setupScene();
 
     // Set key callback
     glfwSetKeyCallback(window->getGLFWWindow(), keyCallback);
+
+    // Set callback for mouse movement
+    glfwSetCursorPosCallback(window->getGLFWWindow(), cursorMoveCallback);
 
     // Set window's render function
     window->setRenderFunction(renderFunction);
