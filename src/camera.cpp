@@ -39,9 +39,6 @@ namespace GGE
         // Make current camera
         currentCamera = this;
 
-        // Use this view matrix
-        Program::updateViewMatrix(viewMatrix);
-
         // Return for chaining
         return this;
     }
@@ -58,9 +55,6 @@ namespace GGE
         for (int i = 0; i < dims; i++)
             viewMatrix[dims][i] -= translation[i];
 
-        // Update viewMatrix
-        Program::updateViewMatrix(viewMatrix);
-
         return Entity::move(translation);
     }
 
@@ -71,17 +65,12 @@ namespace GGE
         for (int i = 0; i < dims; i++)
             viewMatrix[dims][i] = newPosition[i];
 
-        // Upload new model matrix
-        Program::updateViewMatrix(viewMatrix);
-
         return Entity::setPosition(newPosition);
     }
 
     glm::vec3 Camera::setDirection(glm::vec3 newDirection)
     {
         viewMatrix = glm::lookAt(position, newDirection, glm::vec3(0.0, 1.0, 0.0));
-
-        Program::updateViewMatrix(viewMatrix);
 
         return Entity::setDirection(newDirection);
     }

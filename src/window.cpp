@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <application.h>
 #include <gtc/matrix_transform.hpp>
+#include <camera.h>
 
 namespace GGE
 {
@@ -176,6 +177,9 @@ namespace GGE
 
         // Poll inputs
         glfwPollEvents();
+
+        // Update view matrix
+        Program::updateViewMatrix(Camera::getCurrentCamera()->getViewMatrix());
 
         // Swap Buffers -- Always do this at the end of frame's render
         glfwSwapBuffers(window);
