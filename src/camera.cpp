@@ -55,6 +55,9 @@ namespace GGE
         for (int i = 0; i < dims; i++)
             viewMatrix[dims][i] -= translation[i];
 
+        // TODO: Make this better
+        direction += translation;
+
         return Entity::move(translation);
     }
 
