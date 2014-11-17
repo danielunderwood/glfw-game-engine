@@ -7,6 +7,7 @@
 #include "mesh.h"
 #include "texture.h"
 #include "program.h"
+#include "geometry.h"
 
 using namespace GGE;
 
@@ -47,7 +48,7 @@ void setupScene()
     brickTex = new Texture("res/textures/texture-brick.png");
 
     // Make camera
-    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01), glm::vec3(0.0, 1.0, 0.0));
+    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01), Y_UNIT_VECTOR);
 
     std::vector<GLfloat> points;
     std::vector<GLfloat> tex;
@@ -168,6 +169,9 @@ void renderFunction()
     //square->draw();
     texturedTriangle->draw();
 
+    // Update View Matrix
+    Program::updateViewMatrix(Camera::getCurrentCamera()->getViewMatrix());
+
     //glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
 
     //cam->move(glm::vec3(0.001, 0.0, 0.01));
@@ -208,15 +212,18 @@ void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
 
     // Change in x (rotation about y axis)
     if(xpos > 0)
-        cameraMovement.x = -0.0001;
+        cameraMovement.x = 0.0005;
     else if (xpos < 0)
-        cameraMovement.x = 0.0001;
+        cameraMovement.x = -0.0005;
 
     // Change in y (rotation about x axis)
     if(ypos > 0)
-        cameraMovement.y = 0.0001;
+        cameraMovement.y = -0.0005;
     else if(ypos < 0)
-        cameraMovement.y = -0.0001;
+        cameraMovement.y = 0.0005;
+
+    // Reset mouse position
+    glfwSetCursorPos(window, 0, 0);
 
     // Change Position of Camera
     cameraMovement += Camera::getCurrentCamera()->getDirection();

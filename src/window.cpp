@@ -19,7 +19,7 @@ namespace GGE
             title(title),
             shouldClose(false)
     {
-        // Initialiize with glfw
+        // Initialize with glfw
         init();
 
         // Put in windows list
@@ -176,9 +176,6 @@ namespace GGE
 
         // Poll inputs
         glfwPollEvents();
-
-        // Move mouse back to center
-        glfwSetCursorPos(window, 0, 0);
 
         // Swap Buffers -- Always do this at the end of frame's render
         glfwSwapBuffers(window);

@@ -12,7 +12,7 @@ namespace GGE
     {
     public:
         // Constructor
-        Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up);
+        Camera(glm::vec3 position, glm::vec3 direction, glm::vec3 up);
 
         // Destructor
         ~Camera();

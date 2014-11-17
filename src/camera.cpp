@@ -10,13 +10,13 @@ namespace GGE
     // Declare activeCameras
     std::list<Camera *> Camera::activeCameras;
 
-    Camera::Camera(glm::vec3 direction, glm::vec3 position, glm::vec3 up) : Entity::Entity(position, direction)
+    Camera::Camera(glm::vec3 position, glm::vec3 direction, glm::vec3 up) : Entity::Entity(position, direction)
     {
         // Add to list of active cameras
         activeCameras.push_back(this);
 
         // Set up view matrix
-        viewMatrix = glm::lookAt(direction, position, up);
+        viewMatrix = glm::lookAt(position, direction, up);
 
         // If no camera is being used, use this one
         if (!currentCamera)
@@ -79,9 +79,7 @@ namespace GGE
 
     glm::vec3 Camera::setDirection(glm::vec3 newDirection)
     {
-        direction = newDirection;
-
-        viewMatrix = glm::lookAt(direction, position, glm::vec3(0.0, 1.0, 0.0));
+        viewMatrix = glm::lookAt(position, newDirection, glm::vec3(0.0, 1.0, 0.0));
 
         Program::updateViewMatrix(viewMatrix);
 
