@@ -21,6 +21,9 @@ Texture * brickTex;
 Mesh * t1, * t2, * t3, * square, * texturedTriangle, * objCube;
 Camera * cam;
 
+// Wireframe or fill
+GLenum polygonMode = GL_FILL;
+
 void setupScene()
 {
     // Set clear color
@@ -158,7 +161,7 @@ void setupScene()
     texturedTriangle->setPosition(glm::vec3(0.0, 0.0, -1.0));
 
     objCube = new Mesh("res/meshes/cube.obj", p);
-    objCube->setPosition(glm::vec3(0.0, 0.0, -1.0));
+    objCube->setPosition(glm::vec3(1.0, 0.0, -1.0));
 }
 
 void renderFunction()
@@ -186,21 +189,35 @@ void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mod
 {
     switch(key)
     {
+        // Camera Forward
         case GLFW_KEY_W:
             cam->move(glm::vec3(0.0, 0.0, -0.05));
             break;
+        // Camera Backward
         case GLFW_KEY_S:
             cam->move(glm::vec3(0.0, 0.0, 0.05));
             break;
+        // Camera Left
         case GLFW_KEY_A:
             cam->move(glm::vec3(-0.05, 0.0, 0.0));
             break;
+        // Camera Right
         case GLFW_KEY_D:
             cam->move(glm::vec3(0.05, 0.0, 0.0));
             break;
+        // Change Rendering Mode
+        case GLFW_KEY_R:
+            if(action == GLFW_PRESS)
+            {
+                polygonMode = polygonMode == GL_FILL ? GL_LINE : GL_FILL;
+                glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
+            }
+            break;
+        // Quit
         case GLFW_KEY_ESCAPE:
             glfwSetWindowShouldClose(window, GL_TRUE);
             break;
+        // If there's some other key...probably not needed
         default:
             break;
     }
