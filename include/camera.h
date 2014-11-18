@@ -29,6 +29,7 @@ namespace GGE
         // Override movement functions
         glm::vec3 move(glm::vec3 translation);
         glm::vec3 setPosition(glm::vec3 newPosition);
+        glm::vec3 rotate(float angle, glm::vec3 rotationAxis);
 
         // Use this for changing direction until the quaternion stuff is figured out
         glm::vec3 setDirection(glm::vec3 newDirection);

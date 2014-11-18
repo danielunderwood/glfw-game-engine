@@ -245,8 +245,14 @@ void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
     glfwSetCursorPos(window, 0, 0);
 
     // Change Position of Camera
-    cameraMovement += Camera::getCurrentCamera()->getDirection();
-    Camera::getCurrentCamera()->setDirection(cameraMovement);
+    if(cameraMovement.x > 0)
+        Camera::getCurrentCamera()->rotate(0.03, NEGATIVE_Y_UNIT_VECTOR);
+    else if(cameraMovement.x < 0)
+        Camera::getCurrentCamera()->rotate(0.03, Y_UNIT_VECTOR);
+    if(cameraMovement.y > 0)
+        Camera::getCurrentCamera()->rotate(0.03, X_UNIT_VECTOR);
+    else if(cameraMovement.y < 0)
+        Camera::getCurrentCamera()->rotate(0.03, NEGATIVE_X_UNIT_VECTOR);
 }
 
 int main(int argc, char ** argv)

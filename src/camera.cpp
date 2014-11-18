@@ -71,6 +71,13 @@ namespace GGE
         return Entity::setPosition(newPosition);
     }
 
+    glm::vec3 Camera::rotate(float angle, glm::vec3 rotationAxis)
+    {
+        direction = Entity::rotate(angle, rotationAxis);
+        viewMatrix = glm::lookAt(position, direction, glm::vec3(0.0, 1.0, 0.0));
+        return direction;
+    }
+
     glm::vec3 Camera::setDirection(glm::vec3 newDirection)
     {
         viewMatrix = glm::lookAt(position, newDirection, glm::vec3(0.0, 1.0, 0.0));

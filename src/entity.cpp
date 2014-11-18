@@ -1,5 +1,7 @@
 #include "entity.h"
 
+#include "gtx/rotate_vector.hpp"
+
 namespace GGE
 {
     Entity::Entity() {}
@@ -29,12 +31,9 @@ namespace GGE
         return position;
     }
 
-    glm::vec3 Entity::rotate(glm::quat rotation)
+    glm::vec3 Entity::rotate(float angle, glm::vec3 rotationAxis)
     {
-        // TODO: Figure out how to do rotation
-
-        // Return direction of entity
-        return direction;
+        return direction = glm::rotate(direction, angle, rotationAxis);
     }
 
     glm::vec3 Entity::setDirection(glm::vec3 newDirection)

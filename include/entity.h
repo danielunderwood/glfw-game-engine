@@ -29,7 +29,8 @@ namespace GGE
         virtual glm::vec3 setPosition(glm::vec3 newPosition);
 
         // Rotate entity
-        virtual glm::vec3 rotate(glm::quat rotation);
+        // TODO: Change to work with quaternions
+        virtual glm::vec3 rotate(float angle, glm::vec3 rotationAxis);
 
         // Set entity's direction
         virtual glm::vec3 setDirection(glm::vec3 newDirection);
