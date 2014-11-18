@@ -160,7 +160,7 @@ void setupScene()
     texturedTriangle = new Mesh(ttPoints, ttTex, brickTex, texP);
     texturedTriangle->setPosition(glm::vec3(0.0, 0.0, -1.0));
 
-    objCube = new Mesh("res/meshes/cube.obj", p);
+    objCube = new Mesh("cube.obj", "res/meshes", p);
     objCube->setPosition(glm::vec3(1.0, 0.0, -1.0));
 }
 

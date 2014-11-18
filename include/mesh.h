@@ -21,7 +21,7 @@ namespace GGE
                 Program *program, GLenum drawType = GL_STATIC_DRAW, GLenum drawShape = GL_TRIANGLES);
 
         // Constructor to load from file
-        Mesh(const char *filename, Program *program);
+        Mesh(const char * filename, const char * directory, Program *program);
 
         // Destructor
         ~Mesh();

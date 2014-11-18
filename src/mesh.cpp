@@ -81,7 +81,7 @@ namespace GGE
         program->unbind();
     }
 
-    Mesh::Mesh(const char *filename, Program * program) :
+    Mesh::Mesh(const char * filename, const char * directory, Program * program) :
     program(program),
     drawType(GL_STATIC_DRAW),
     drawShape(GL_TRIANGLE_STRIP)
@@ -93,7 +93,7 @@ namespace GGE
         // TODO: Integrate material support with rest of program
         std::vector<tinyobj::material_t> materials;
 
-        printf("Loading %s...\n", filename);
+        printf("Loading %s...\n", filename, directory);
         fflush(stdout);
 
         std::string error = tinyobj::LoadObj(shapes, materials, filename);
@@ -120,6 +120,29 @@ namespace GGE
                 points.push_back(shapes[shape].mesh.positions[3 * vertex + 2]);
             }
         }
+
+        for (size_t i = 0; i < materials.size(); i++) {
+            printf("material[%ld].name = %s\n", i, materials[i].name.c_str());
+            printf("  material.Ka = (%f, %f ,%f)\n", materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
+            printf("  material.Kd = (%f, %f ,%f)\n", materials[i].diffuse[0], materials[i].diffuse[1], materials[i].diffuse[2]);
+            printf("  material.Ks = (%f, %f ,%f)\n", materials[i].specular[0], materials[i].specular[1], materials[i].specular[2]);
+            printf("  material.Tr = (%f, %f ,%f)\n", materials[i].transmittance[0], materials[i].transmittance[1], materials[i].transmittance[2]);
+            printf("  material.Ke = (%f, %f ,%f)\n", materials[i].emission[0], materials[i].emission[1], materials[i].emission[2]);
+            printf("  material.Ns = %f\n", materials[i].shininess);
+            printf("  material.Ni = %f\n", materials[i].ior);
+            printf("  material.dissolve = %f\n", materials[i].dissolve);
+            printf("  material.illum = %d\n", materials[i].illum);
+            printf("  material.map_Ka = %s\n", materials[i].ambient_texname.c_str());
+            printf("  material.map_Kd = %s\n", materials[i].diffuse_texname.c_str());
+            printf("  material.map_Ks = %s\n", materials[i].specular_texname.c_str());
+            printf("  material.map_Ns = %s\n", materials[i].normal_texname.c_str());
+            std::map<std::string, std::string>::const_iterator it(materials[i].unknown_parameter.begin());
+            std::map<std::string, std::string>::const_iterator itEnd(materials[i].unknown_parameter.end());
+            for (; it != itEnd; it++) {
+                printf("  material.%s = %s\n", it->first.c_str(), it->second.c_str());
+            }
+        }
+        fflush(stdout);
 
         // Standard initialization
         // TODO: Move this to common function
@@ -183,6 +206,8 @@ namespace GGE
 
         // Unbind program
         program->unbind();
+
+
     }
 
     Mesh::~Mesh()
