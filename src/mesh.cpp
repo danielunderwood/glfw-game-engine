@@ -84,7 +84,7 @@ namespace GGE
     Mesh::Mesh(const char *filename, Program * program) :
     program(program),
     drawType(GL_STATIC_DRAW),
-    drawShape(GL_TRIANGLES)
+    drawShape(GL_TRIANGLE_STRIP)
     {
         // Vector for shapes
         std::vector<tinyobj::shape_t> shapes;
