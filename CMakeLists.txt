@@ -18,6 +18,7 @@ set (
       deps/glm/gtx
       deps/stb_image
       deps/soil/src
+      deps/tinyobjloader
     )
 
 include_directories(${INCLUDE_DIRS})
@@ -26,7 +27,7 @@ include_directories(${INCLUDE_DIRS})
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 # Link GLFW and GLEW to main executable
-target_link_libraries(${PROJECT_NAME} libglew_static glfw ${GLFW_LIBRARIES} SOIL)
+target_link_libraries(${PROJECT_NAME} libglew_static glfw ${GLFW_LIBRARIES} SOIL tinyobjloader)
 
 # Define GLEW_STATIC for Windows
 if(MSVC)
