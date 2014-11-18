@@ -37,3 +37,4 @@ endif()
 # TODO: Figure out why this isn't working -- possibly because we're checking if directory exists?
 file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
 file(COPY res/textures/. DESTINATION ${CMAKE_BINARY_DIR}/res/textures)
+file(COPY res/meshes/. DESTINATION ${CMAKE_BINARY_DIR}/res/meshes)

@@ -44,3 +44,6 @@ install_manifest.txt
 
 # Idea Directory
 .idea/
+
+# Don't ignore obj meshes
+!res/meshes/*.obj
