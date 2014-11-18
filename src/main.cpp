@@ -18,7 +18,7 @@ Application * app;
 Program * p;
 Program * texP;
 Texture * brickTex;
-Mesh * t1, * t2, * t3, * square, * texturedTriangle;
+Mesh * t1, * t2, * t3, * square, * texturedTriangle, * objCube;
 Camera * cam;
 
 void setupScene()
@@ -156,6 +156,9 @@ void setupScene()
 
     texturedTriangle = new Mesh(ttPoints, ttTex, brickTex, texP);
     texturedTriangle->setPosition(glm::vec3(0.0, 0.0, -1.0));
+
+    objCube = new Mesh("res/meshes/cube.obj", p);
+    objCube->setPosition(glm::vec3(0.0, 0.0, -1.0));
 }
 
 void renderFunction()
@@ -168,6 +171,7 @@ void renderFunction()
     brickTex->bind();
     //square->draw();
     texturedTriangle->draw();
+    objCube->draw();
 
     // Update View Matrix
     Program::updateViewMatrix(Camera::getCurrentCamera()->getViewMatrix());
@@ -205,8 +209,6 @@ void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mod
 // Callback for handling mouse movement
 void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
 {
-    printf("Mouse Moved to (%f, %f)\n", xpos, ypos);
-
     // Change camera angle
     glm::vec3 cameraMovement;
 
