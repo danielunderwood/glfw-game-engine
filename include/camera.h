@@ -12,7 +12,7 @@ namespace GGE
     {
     public:
         // Constructor
-        Camera(glm::vec3 position, glm::vec3 direction, glm::vec3 up);
+        Camera(glm::vec3 position, glm::vec3 direction);
 
         // Destructor
         ~Camera();
@@ -23,7 +23,7 @@ namespace GGE
         // Get current camera
         static Camera *getCurrentCamera();
 
-        // Getter for viewMatrix
+        // Getters
         glm::mat4 getViewMatrix();
 
         // Override movement functions
@@ -42,5 +42,8 @@ namespace GGE
 
         // View matrix for this camera
         glm::mat4 viewMatrix;
+
+        // Upward direction for camera
+        glm::vec3 up;
     };
 }

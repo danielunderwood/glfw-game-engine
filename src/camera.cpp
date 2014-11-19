@@ -1,6 +1,9 @@
-#include <gtc/matrix_transform.hpp>
-#include <gtc/type_ptr.hpp>
-#include <program.h>
+#include <geometry.h>
+#include "gtc/matrix_transform.hpp"
+#include "gtc/type_ptr.hpp"
+#include "gtx/rotate_vector.hpp"
+
+#include "program.h"
 #include "camera.h"
 
 namespace GGE
@@ -10,7 +13,8 @@ namespace GGE
     // Declare activeCameras
     std::list<Camera *> Camera::activeCameras;
 
-    Camera::Camera(glm::vec3 position, glm::vec3 direction, glm::vec3 up) : Entity::Entity(position, direction)
+    Camera::Camera(glm::vec3 position, glm::vec3 direction) :
+            Entity::Entity(position, direction)
     {
         // Add to list of active cameras
         activeCameras.push_back(this);
@@ -50,37 +54,44 @@ namespace GGE
 
     glm::vec3 Camera::move(glm::vec3 translation)
     {
-        int dims = viewMatrix.length() - 1;
-        // Apply translation
-        for (int i = 0; i < dims; i++)
-            viewMatrix[dims][i] -= translation[i];
+        position = Entity::move(translation);
 
-        // TODO: Make this better
-        direction += translation;
+        direction -= translation;
 
-        return Entity::move(translation);
+        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+
+        // Recalculate up
+
+        return position;
     }
 
     glm::vec3 Camera::setPosition(glm::vec3 newPosition)
     {
-        // Set new position
-        int dims = viewMatrix.length() - 1;
-        for (int i = 0; i < dims; i++)
-            viewMatrix[dims][i] = newPosition[i];
+        position = Entity::setPosition(newPosition);
 
-        return Entity::setPosition(newPosition);
+        // TODO: Fix direction
+
+        return position;
     }
 
     glm::vec3 Camera::rotate(float angle, glm::vec3 rotationAxis)
     {
         direction = Entity::rotate(angle, rotationAxis);
-        viewMatrix = glm::lookAt(position, direction, glm::vec3(0.0, 1.0, 0.0));
+        up = Y_UNIT_VECTOR;
+
+        // Recalculate up if rotation axis is not parallel to up or direction
+        //if(glm::cross(rotationAxis, up) != glm::vec3(0.0, 0.0, 0.0) &&
+        //        glm::cross(rotationAxis, direction) != glm::vec3(0.0, 0.0, 0.0))
+        //    up = glm::cross(rotationAxis, direction);
+        // Rotate with direction if rotation is about direction
+
+        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
         return direction;
     }
 
     glm::vec3 Camera::setDirection(glm::vec3 newDirection)
     {
-        viewMatrix = glm::lookAt(position, newDirection, glm::vec3(0.0, 1.0, 0.0));
+        viewMatrix = glm::lookAt(position, newDirection, Y_UNIT_VECTOR);
 
         return Entity::setDirection(newDirection);
     }

@@ -51,7 +51,7 @@ void setupScene()
     brickTex = new Texture("res/textures/texture-brick.png");
 
     // Make camera
-    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01), Y_UNIT_VECTOR);
+    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01));
 
     std::vector<GLfloat> points;
     std::vector<GLfloat> tex;
@@ -244,15 +244,20 @@ void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
     // Reset mouse position
     glfwSetCursorPos(window, 0, 0);
 
+    Camera * cam = Camera::getCurrentCamera();
+
+    // Get right and left for camera
+    glm::vec3 rightAxis = glm::cross(Y_UNIT_VECTOR, cam->getDirection());
+
     // Change Position of Camera
     if(cameraMovement.x > 0)
-        Camera::getCurrentCamera()->rotate(0.03, NEGATIVE_Y_UNIT_VECTOR);
+        cam->rotate(-0.02, Y_UNIT_VECTOR);
     else if(cameraMovement.x < 0)
-        Camera::getCurrentCamera()->rotate(0.03, Y_UNIT_VECTOR);
+        cam->rotate(0.02, Y_UNIT_VECTOR);
     if(cameraMovement.y > 0)
-        Camera::getCurrentCamera()->rotate(0.03, X_UNIT_VECTOR);
+        cam->rotate(-0.02, rightAxis);
     else if(cameraMovement.y < 0)
-        Camera::getCurrentCamera()->rotate(0.03, NEGATIVE_X_UNIT_VECTOR);
+        cam->rotate(0.02, rightAxis);
 }
 
 int main(int argc, char ** argv)
