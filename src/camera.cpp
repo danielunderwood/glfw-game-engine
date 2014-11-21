@@ -13,14 +13,16 @@ namespace GGE
     // Declare activeCameras
     std::list<Camera *> Camera::activeCameras;
 
-    Camera::Camera(glm::vec3 position, glm::vec3 direction) :
-            Entity::Entity(position, direction)
+    Camera::Camera(glm::vec3 position, glm::vec3 direction, glm::vec3 up) :
+            Entity::Entity(position, direction),
+            up(up),
+            right(glm::normalize(glm::cross(direction, up)))
     {
         // Add to list of active cameras
         activeCameras.push_back(this);
 
         // Set up view matrix
-        viewMatrix = glm::lookAt(position, direction, up);
+        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
 
         // If no camera is being used, use this one
         if (!currentCamera)
@@ -56,11 +58,9 @@ namespace GGE
     {
         position = Entity::move(translation);
 
-        direction -= translation;
+        direction += translation;
 
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
-
-        // Recalculate up
 
         return position;
     }
@@ -68,6 +68,8 @@ namespace GGE
     glm::vec3 Camera::setPosition(glm::vec3 newPosition)
     {
         position = Entity::setPosition(newPosition);
+
+        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
 
         // TODO: Fix direction
 
@@ -77,13 +79,15 @@ namespace GGE
     glm::vec3 Camera::rotate(float angle, glm::vec3 rotationAxis)
     {
         direction = Entity::rotate(angle, rotationAxis);
-        up = Y_UNIT_VECTOR;
 
-        // Recalculate up if rotation axis is not parallel to up or direction
-        //if(glm::cross(rotationAxis, up) != glm::vec3(0.0, 0.0, 0.0) &&
-        //        glm::cross(rotationAxis, direction) != glm::vec3(0.0, 0.0, 0.0))
-        //    up = glm::cross(rotationAxis, direction);
-        // Rotate with direction if rotation is about direction
+        // Rotate up and right
+        up = glm::rotate(up, angle, rotationAxis - position);
+
+        glm::vec3 rotatedRight = glm::rotate(right, angle, rotationAxis - position);
+        if(glm::cross(rotatedRight, X_UNIT_VECTOR) == glm::vec3(0.0, 0.0, 0.0))
+        {
+            right = rotatedRight;
+        }
 
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
         return direction;
@@ -95,4 +99,25 @@ namespace GGE
 
         return Entity::setDirection(newDirection);
     }
+
+    glm::vec3 Camera::yaw(float angle)
+    {
+        direction = Entity::rotate(angle, Y_UNIT_VECTOR);
+        right = Entity::rotate(angle, Y_UNIT_VECTOR);
+
+        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+        return direction;
+    }
+
+    glm::vec3 Camera::pitch(float angle)
+    {
+        direction = Entity::rotate(angle, right);
+        up = Entity::rotate(angle, right);
+
+        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+        return direction;
+    }
+
+    glm::vec3 Camera::getUp() { return up; }
+    glm::vec3 Camera::getRight() { return right; }
 }

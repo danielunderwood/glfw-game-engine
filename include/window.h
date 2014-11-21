@@ -41,12 +41,12 @@ namespace GGE
         bool renderFrame();
 
     private:
-        int height;                        // Height of window
-        int width;                        // Width of window
+        int height;                     // Height of window
+        int width;                      // Width of window
         bool fullscreen;                // Is window fullscreen?
-        bool shouldClose;                // Should window close?
+        bool shouldClose;               // Should window close?
         char *title;                    // Title of window
-        GLFWwindow *window;            // Window for GLFW
+        GLFWwindow *window;             // Window for GLFW
 
 
         glm::mat4 projectionMatrix;       // Perspective matrix for window

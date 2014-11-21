@@ -51,7 +51,7 @@ void setupScene()
     brickTex = new Texture("res/textures/texture-brick.png");
 
     // Make camera
-    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01));
+    cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01), Y_UNIT_VECTOR);
 
     std::vector<GLfloat> points;
     std::vector<GLfloat> tex;
@@ -191,19 +191,19 @@ void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mod
     {
         // Camera Forward
         case GLFW_KEY_W:
-            cam->move(glm::vec3(0.0, 0.0, -0.05));
+            cam->move(0.05f * cam->getDirection());
             break;
         // Camera Backward
         case GLFW_KEY_S:
-            cam->move(glm::vec3(0.0, 0.0, 0.05));
+            cam->move(-0.05f * cam->getDirection());
             break;
         // Camera Left
         case GLFW_KEY_A:
-            cam->move(glm::vec3(-0.05, 0.0, 0.0));
+            cam->move(-0.05f * cam->getRight());
             break;
         // Camera Right
         case GLFW_KEY_D:
-            cam->move(glm::vec3(0.05, 0.0, 0.0));
+            cam->move(0.05f * cam->getRight());
             break;
         // Change Rendering Mode
         case GLFW_KEY_R:
@@ -246,18 +246,16 @@ void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
 
     Camera * cam = Camera::getCurrentCamera();
 
-    // Get right and left for camera
-    glm::vec3 rightAxis = glm::cross(Y_UNIT_VECTOR, cam->getDirection());
 
     // Change Position of Camera
     if(cameraMovement.x > 0)
-        cam->rotate(-0.02, Y_UNIT_VECTOR);
+        cam->yaw(-0.02);
     else if(cameraMovement.x < 0)
-        cam->rotate(0.02, Y_UNIT_VECTOR);
+        cam->yaw(0.02);
     if(cameraMovement.y > 0)
-        cam->rotate(-0.02, rightAxis);
+        cam->pitch(0.02);
     else if(cameraMovement.y < 0)
-        cam->rotate(0.02, rightAxis);
+        cam->pitch(-0.02);
 }
 
 int main(int argc, char ** argv)

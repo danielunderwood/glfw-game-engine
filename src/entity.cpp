@@ -47,7 +47,6 @@ namespace GGE
 
     glm::vec3 Entity::setPosition(glm::vec3 newPosition)
     { return position = newPosition; }
-
     glm::vec3 Entity::setDirection(glm::vec3 newDirection)
     { return direction = newDirection; }
     glm::vec3 Entity::setAcceleration(glm::vec3 newAcceleration)
