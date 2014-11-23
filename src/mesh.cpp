@@ -120,7 +120,7 @@ namespace GGE
                 points.push_back(shapes[shape].mesh.positions[3 * vertex + 2]);
             }
         }
-
+        /*
         for (size_t i = 0; i < materials.size(); i++) {
             printf("material[%ld].name = %s\n", i, materials[i].name.c_str());
             printf("  material.Ka = (%f, %f ,%f)\n", materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
@@ -143,6 +143,7 @@ namespace GGE
             }
         }
         fflush(stdout);
+        */
 
         // Standard initialization
         // TODO: Move this to common function
