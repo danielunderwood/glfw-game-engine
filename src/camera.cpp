@@ -17,8 +17,8 @@ namespace GGE
             Entity::Entity(position, direction),
             up(up),
             right(glm::normalize(glm::cross(direction, up))),
-            horizontalAngle(DEGREES_TO_RADIANS(-90)),
-            verticalAngle(0)
+            horizontalAngle(0),
+            verticalAngle(-PI/2)
     {
         // Add to list of active cameras
         activeCameras.push_back(this);
@@ -56,6 +56,7 @@ namespace GGE
         return viewMatrix;
     }
 
+    // TODO: Fix movement
     glm::vec3 Camera::move(glm::vec3 translation)
     {
         position = Entity::move(translation);
@@ -105,33 +106,41 @@ namespace GGE
     glm::vec3 Camera::yaw(float angle)
     {
         // Increment Angle
-        verticalAngle += angle;
+        horizontalAngle += angle;
 
         // Calculate new direction
-        direction.x = sin(horizontalAngle) * sin(verticalAngle);
-        direction.y = cos(horizontalAngle);
-        direction.z = sin(horizontalAngle) * cos(verticalAngle);
+        direction.x = sin(verticalAngle) * sin(horizontalAngle);
+        direction.y = cos(verticalAngle);
+        direction.z = sin(verticalAngle) * cos(horizontalAngle);
 
         direction = glm::normalize(direction);
 
         // Calculate view matrix
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+
+        return direction;
     }
 
     glm::vec3 Camera::pitch(float angle)
     {
+        // Stop the camera from flipping over
+        if(verticalAngle + angle > 0 || verticalAngle + angle < -PI)
+            return direction;
+
         // Increment Angle
-        horizontalAngle += angle;
+        verticalAngle += angle;
 
         // Calculate new direction
-        direction.x = sin(horizontalAngle) * sin(verticalAngle);
-        direction.y = cos(horizontalAngle);
-        direction.z = sin(horizontalAngle) * cos(verticalAngle);
+        direction.x = sin(verticalAngle) * sin(horizontalAngle);
+        direction.y = cos(verticalAngle);
+        direction.z = sin(verticalAngle) * cos(horizontalAngle);
 
         direction = glm::normalize(direction);
 
         // Calculate view matrix
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+
+        return direction;
     }
 
     glm::vec3 Camera::getUp() { return up; }

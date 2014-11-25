@@ -254,9 +254,9 @@ void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
     else if(cameraMovement.x < 0)
         cam->yaw(0.01);
     if(cameraMovement.y > 0)
-        cam->pitch(-0.01);
-    else if(cameraMovement.y < 0)
         cam->pitch(0.01);
+    else if(cameraMovement.y < 0)
+        cam->pitch(-0.01);
 }
 
 int main(int argc, char ** argv)
@@ -270,6 +270,7 @@ int main(int argc, char ** argv)
     // Set up scene
     setupScene();
 
+    // TODO: Move callbacks to setting variables for multiple presses
     // Set key callback
     glfwSetKeyCallback(window->getGLFWWindow(), keyCallback);
 
