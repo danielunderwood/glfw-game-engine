@@ -182,6 +182,7 @@ void renderFunction()
     //glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
 
     //cam->move(glm::vec3(0.001, 0.0, 0.01));
+    //cam->pitch(0.1);
 }
 
 // Callback for handling key events
@@ -249,13 +250,13 @@ void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
 
     // Change Position of Camera
     if(cameraMovement.x > 0)
-        cam->yaw(-0.02);
+        cam->yaw(-0.01);
     else if(cameraMovement.x < 0)
-        cam->yaw(0.02);
+        cam->yaw(0.01);
     if(cameraMovement.y > 0)
-        cam->pitch(0.02);
+        cam->pitch(-0.01);
     else if(cameraMovement.y < 0)
-        cam->pitch(-0.02);
+        cam->pitch(0.01);
 }
 
 int main(int argc, char ** argv)

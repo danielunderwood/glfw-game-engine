@@ -16,7 +16,9 @@ namespace GGE
     Camera::Camera(glm::vec3 position, glm::vec3 direction, glm::vec3 up) :
             Entity::Entity(position, direction),
             up(up),
-            right(glm::normalize(glm::cross(direction, up)))
+            right(glm::normalize(glm::cross(direction, up))),
+            horizontalAngle(DEGREES_TO_RADIANS(-90)),
+            verticalAngle(0)
     {
         // Add to list of active cameras
         activeCameras.push_back(this);
@@ -58,7 +60,7 @@ namespace GGE
     {
         position = Entity::move(translation);
 
-        direction += translation;
+        direction = glm::normalize(direction + translation);
 
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
 
@@ -102,20 +104,34 @@ namespace GGE
 
     glm::vec3 Camera::yaw(float angle)
     {
-        direction = Entity::rotate(angle, Y_UNIT_VECTOR);
-        right = Entity::rotate(angle, Y_UNIT_VECTOR);
+        // Increment Angle
+        verticalAngle += angle;
 
+        // Calculate new direction
+        direction.x = sin(horizontalAngle) * sin(verticalAngle);
+        direction.y = cos(horizontalAngle);
+        direction.z = sin(horizontalAngle) * cos(verticalAngle);
+
+        direction = glm::normalize(direction);
+
+        // Calculate view matrix
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
-        return direction;
     }
 
     glm::vec3 Camera::pitch(float angle)
     {
-        direction = Entity::rotate(angle, right);
-        up = Entity::rotate(angle, right);
+        // Increment Angle
+        horizontalAngle += angle;
 
+        // Calculate new direction
+        direction.x = sin(horizontalAngle) * sin(verticalAngle);
+        direction.y = cos(horizontalAngle);
+        direction.z = sin(horizontalAngle) * cos(verticalAngle);
+
+        direction = glm::normalize(direction);
+
+        // Calculate view matrix
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
-        return direction;
     }
 
     glm::vec3 Camera::getUp() { return up; }
