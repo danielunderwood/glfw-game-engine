@@ -188,15 +188,19 @@ void renderFunction()
 // Callback for handling key events
 void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mods)
 {
+    // Keep Camera In Plane
+    glm::vec3 direction = cam->getDirection();
+    direction.y = 0;
+
     switch(key)
     {
         // Camera Forward
         case GLFW_KEY_W:
-            cam->move(0.05f * cam->getDirection());
+            cam->move(0.05f * direction);
             break;
         // Camera Backward
         case GLFW_KEY_S:
-            cam->move(-0.05f * cam->getDirection());
+            cam->move(-0.05f * direction);
             break;
         // Camera Left
         case GLFW_KEY_A:

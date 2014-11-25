@@ -61,9 +61,7 @@ namespace GGE
     {
         position = Entity::move(translation);
 
-        direction = glm::normalize(direction + translation);
-
-        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+        viewMatrix = glm::lookAt(position, direction + position, Y_UNIT_VECTOR);
 
         return position;
     }
@@ -114,9 +112,10 @@ namespace GGE
         direction.z = sin(verticalAngle) * cos(horizontalAngle);
 
         direction = glm::normalize(direction);
+        right = glm::normalize(glm::cross(direction, Y_UNIT_VECTOR));
 
         // Calculate view matrix
-        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+        viewMatrix = glm::lookAt(position, direction + position, Y_UNIT_VECTOR);
 
         return direction;
     }
@@ -138,7 +137,7 @@ namespace GGE
         direction = glm::normalize(direction);
 
         // Calculate view matrix
-        viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
+        viewMatrix = glm::lookAt(position, direction + position, Y_UNIT_VECTOR);
 
         return direction;
     }
