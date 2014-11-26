@@ -234,36 +234,13 @@ void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mod
 // Callback for handling mouse movement
 void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
 {
-    // Change camera angle
-    glm::vec3 cameraMovement;
-
-    // Change in x (rotation about y axis)
-    if(xpos > 0)
-        cameraMovement.x = 0.0005;
-    else if (xpos < 0)
-        cameraMovement.x = -0.0005;
-
-    // Change in y (rotation about x axis)
-    if(ypos > 0)
-        cameraMovement.y = -0.0005;
-    else if(ypos < 0)
-        cameraMovement.y = 0.0005;
+    // Rotate camera
+    Camera * cam = Camera::getCurrentCamera();
+    cam->yaw(0.1 * -xpos);
+    cam->pitch(0.1 * -ypos);
 
     // Reset mouse position
     glfwSetCursorPos(window, 0, 0);
-
-    Camera * cam = Camera::getCurrentCamera();
-
-
-    // Change Position of Camera
-    if(cameraMovement.x > 0)
-        cam->yaw(-0.01);
-    else if(cameraMovement.x < 0)
-        cam->yaw(0.01);
-    if(cameraMovement.y > 0)
-        cam->pitch(0.01);
-    else if(cameraMovement.y < 0)
-        cam->pitch(-0.01);
 }
 
 int main(int argc, char ** argv)
