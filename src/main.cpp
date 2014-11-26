@@ -191,9 +191,9 @@ void handleInput()
 {
     GLFWwindow * window = Application::mainWindow->getGLFWWindow();
 
-    glm::vec3 direction = cam->getDirection();
+    glm::vec3 direction = glm::normalize(cam->getDirection());
     direction.y = 0;
-    glm::vec3 right = cam->getRight();
+    glm::vec3 right = glm::normalize(cam->getRight());
 
     if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         cam->move(0.05f * direction);
