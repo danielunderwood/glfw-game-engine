@@ -101,6 +101,12 @@ namespace GGE
         return Entity::setDirection(newDirection);
     }
 
+    void Camera::updatePhysics(float deltaTime)
+    {
+        Entity::updatePhysics(deltaTime);
+        viewMatrix = glm::lookAt(position, direction + position, Y_UNIT_VECTOR);
+    }
+
     glm::vec3 Camera::yaw(float angle)
     {
         // Increment Angle

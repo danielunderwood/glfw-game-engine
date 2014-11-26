@@ -42,7 +42,7 @@ namespace GGE
         virtual glm::vec3 rotate(float angle, glm::vec3 rotationAxis);
 
         // Update physics based on accelerations and velocities
-        virtual glm::vec3 updatePhysics(float deltaTime);
+        virtual void updatePhysics(float deltaTime);
 
     protected:
         // TODO: Look at other structures for these, such as quaternions

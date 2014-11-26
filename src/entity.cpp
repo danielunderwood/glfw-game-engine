@@ -37,7 +37,7 @@ namespace GGE
         return direction = glm::rotate(direction, angle, rotationAxis);
     }
 
-    glm::vec3 Entity::updatePhysics(float deltaTime)
+    void Entity::updatePhysics(float deltaTime)
     {
         velocity += deltaTime * acceleration;
         position += velocity;

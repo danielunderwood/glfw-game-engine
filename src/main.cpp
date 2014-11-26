@@ -166,6 +166,9 @@ void setupScene()
 
 void renderFunction(double timeSinceLastFrame)
 {
+    // Update camera physics
+    cam->updatePhysics(timeSinceLastFrame / CLOCKS_PER_SEC);
+
     //t1->draw();
     //t2->draw();
     t3->draw();

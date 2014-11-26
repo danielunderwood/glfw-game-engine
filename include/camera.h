@@ -33,6 +33,7 @@ namespace GGE
         glm::vec3 move(glm::vec3 translation);
         glm::vec3 setPosition(glm::vec3 newPosition);
         glm::vec3 rotate(float angle, glm::vec3 rotationAxis);
+        void updatePhysics(float deltaTime);
 
         // Rotation Movements
         // TODO: Make these more general
