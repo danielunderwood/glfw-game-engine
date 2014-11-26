@@ -164,55 +164,11 @@ void setupScene()
     objCube->setPosition(glm::vec3(1.0, 0.0, -1.0));
 }
 
-void renderFunction(double timeSinceLastFrame)
-{
-    // Update camera physics
-    cam->updatePhysics(timeSinceLastFrame / CLOCKS_PER_SEC);
-
-    //t1->draw();
-    //t2->draw();
-    t3->draw();
-    t3->setPosition(glm::vec3(1.0, 0.0, -1.0));
-
-    brickTex->bind();
-    //square->draw();
-    texturedTriangle->draw();
-    objCube->draw();
-
-    // Update View Matrix
-    Program::updateViewMatrix(Camera::getCurrentCamera()->getViewMatrix());
-
-    //glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
-
-    //cam->move(glm::vec3(0.001, 0.0, 0.01));
-    //cam->pitch(0.1);
-}
-
 // Callback for handling key events
 void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mods)
 {
-    // Keep Camera In Plane
-    glm::vec3 direction = cam->getDirection();
-    direction.y = 0;
-
     switch(key)
     {
-        // Camera Forward
-        case GLFW_KEY_W:
-            cam->move(0.05f * direction);
-            break;
-        // Camera Backward
-        case GLFW_KEY_S:
-            cam->move(-0.05f * direction);
-            break;
-        // Camera Left
-        case GLFW_KEY_A:
-            cam->move(-0.05f * cam->getRight());
-            break;
-        // Camera Right
-        case GLFW_KEY_D:
-            cam->move(0.05f * cam->getRight());
-            break;
         // Change Rendering Mode
         case GLFW_KEY_R:
             if(action == GLFW_PRESS)
@@ -231,16 +187,60 @@ void keyCallback(GLFWwindow * window, int key, int scancode, int action, int mod
     }
 }
 
+void handleInput()
+{
+    GLFWwindow * window = Application::mainWindow->getGLFWWindow();
+
+    glm::vec3 direction = cam->getDirection();
+    direction.y = 0;
+    glm::vec3 right = cam->getRight();
+
+    if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        cam->move(0.05f * direction);
+    if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        cam->move(-0.05f * direction);
+    if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        cam->move(-0.05f * right);
+    if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        cam->move(0.05f * right);
+}
+
 // Callback for handling mouse movement
 void cursorMoveCallback(GLFWwindow * window, double xpos, double ypos)
 {
     // Rotate camera
     Camera * cam = Camera::getCurrentCamera();
-    cam->yaw(0.1 * -xpos);
-    cam->pitch(0.1 * -ypos);
+    cam->yaw(0.05f * -xpos);
+    cam->pitch(0.05f * -ypos);
 
     // Reset mouse position
     glfwSetCursorPos(window, 0, 0);
+}
+
+void renderFunction(double timeSinceLastFrame)
+{
+    // Update camera physics
+    cam->updatePhysics(timeSinceLastFrame / CLOCKS_PER_SEC);
+
+    //t1->draw();
+    //t2->draw();
+    t3->draw();
+    t3->setPosition(glm::vec3(1.0, 0.0, -1.0));
+
+    brickTex->bind();
+    //square->draw();
+    texturedTriangle->draw();
+    objCube->draw();
+
+    // Update View Matrix
+    Program::updateViewMatrix(Camera::getCurrentCamera()->getViewMatrix());
+
+    handleInput();
+
+    //glm::vec3 pos = texturedTriangle->move(glm::vec3(-0.01, 0.01, 0.0));
+
+    //cam->move(glm::vec3(0.001, 0.0, 0.01));
+    //cam->pitch(0.1);
 }
 
 int main(int argc, char ** argv)
