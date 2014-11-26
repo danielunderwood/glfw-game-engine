@@ -164,7 +164,7 @@ void setupScene()
     objCube->setPosition(glm::vec3(1.0, 0.0, -1.0));
 }
 
-void renderFunction()
+void renderFunction(double timeSinceLastFrame)
 {
     //t1->draw();
     //t2->draw();

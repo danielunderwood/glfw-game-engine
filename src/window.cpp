@@ -37,6 +37,8 @@ namespace GGE
                 projectionMatrix[1][0], projectionMatrix[1][1], projectionMatrix[1][2], projectionMatrix[1][3],
                 projectionMatrix[2][0], projectionMatrix[2][1], projectionMatrix[2][2], projectionMatrix[2][3],
                 projectionMatrix[3][0], projectionMatrix[3][1], projectionMatrix[3][2], projectionMatrix[3][3]);
+
+        lastFrameTime = glfwGetTime();
     }
 
     Window::~Window()
@@ -168,12 +170,16 @@ namespace GGE
 
     bool Window::renderFrame()
     {
+        // Update time
+        timeSinceLastFrame = glfwGetTime() - lastFrameTime;
+        lastFrameTime = glfwGetTime();
+        
         // Clear Screen
         // TODO: Add clearing depth buffer when it is necessary
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Call assigned render function
-        renderFunction();
+        renderFunction(timeSinceLastFrame);
 
         // Poll inputs
         glfwPollEvents();

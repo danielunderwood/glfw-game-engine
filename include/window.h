@@ -8,7 +8,7 @@
 
 namespace GGE
 {
-    typedef void (*RenderFunction)();
+    typedef void (*RenderFunction)(double timeSinceLastFrame);
 
     // Represents a GLFW Window with context
     class Window
@@ -47,6 +47,8 @@ namespace GGE
         bool shouldClose;               // Should window close?
         char *title;                    // Title of window
         GLFWwindow *window;             // Window for GLFW
+        double timeSinceLastFrame;      // Time since last frame
+        double lastFrameTime;           // Time last frame was reported
 
 
         glm::mat4 projectionMatrix;       // Perspective matrix for window
