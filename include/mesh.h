@@ -38,6 +38,9 @@ namespace GGE
         glm::vec3 setPosition(glm::vec3 newPosition);
 
     private:
+        // Common initialization code
+        void init();
+
         // Points in triangle
         // TODO: See if there is something better to use for these
         std::vector<GLfloat> points;

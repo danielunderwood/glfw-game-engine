@@ -20,65 +20,7 @@ namespace GGE
             drawType(drawType),
             drawShape(drawShape)
     {
-        // Bind program
-        program->bind();
-
-        // Make a VBO to hold points
-        GLuint vbo = 0;
-        glGenBuffers(1, &vbo);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(GLfloat), &points[0], drawType);
-
-        // VBO TO hold colors
-        GLuint colorVbo = 0;
-        glGenBuffers(1, &colorVbo);
-        glBindBuffer(GL_ARRAY_BUFFER, colorVbo);
-
-        // Make a VAO for the points VBO
-        // TODO: Get indices from shaders
-        vao = 0;
-        glGenVertexArrays(1, &vao);
-        glBindVertexArray(vao);
-
-        // Color if no texture coordinates
-        // TODO: Remove this and find a better way of testing
-        if (textureCoords.empty())
-        {
-            static const float colors[] = {
-                    1.0, 1.0, 1.0,
-                    0.0, 1.0, 0.0,
-                    0.0, 0.0, 1.0
-            };
-
-            // Assign data to vbo
-            glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
-            // Describe data in vao
-            GLuint colorIndex = program->getAttrib("color");
-            glVertexAttribPointer(colorIndex, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-            glEnableVertexAttribArray(colorIndex);
-        }
-        else
-        {
-            // Assign data to vbo
-            glBufferData(GL_ARRAY_BUFFER, textureCoords.size() * sizeof(GLfloat), &textureCoords[0], drawType);
-            // Describe data in vao
-            GLuint texCoordIndex = program->getAttrib("texCoord");
-            glVertexAttribPointer(texCoordIndex, 2, GL_FLOAT, GL_FALSE, 0, NULL);
-            glEnableVertexAttribArray(texCoordIndex);
-        }
-
-        // Points
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        GLuint positionIndex = program->getAttrib("position");
-        glVertexAttribPointer(positionIndex, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-        glEnableVertexAttribArray(positionIndex);
-
-        // Upload model matrix
-        GLint uniModel = program->getUniform("model");
-        glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(modelMatrix));
-
-        // Unbind program
-        program->unbind();
+        init();
     }
 
     Mesh::Mesh(const char * filename, const char * directory, Program * program) :
@@ -120,7 +62,7 @@ namespace GGE
                 points.push_back(shapes[shape].mesh.positions[3 * vertex + 2]);
             }
         }
-        /*
+
         for (size_t i = 0; i < materials.size(); i++) {
             printf("material[%ld].name = %s\n", i, materials[i].name.c_str());
             printf("  material.Ka = (%f, %f ,%f)\n", materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
@@ -143,8 +85,17 @@ namespace GGE
             }
         }
         fflush(stdout);
-        */
 
+        init();
+    }
+
+    Mesh::~Mesh()
+    {
+    //TODO: Delete vbos and vaos
+    }
+
+    void Mesh::init()
+    {
         // Standard initialization
         // TODO: Move this to common function
 
@@ -207,13 +158,6 @@ namespace GGE
 
         // Unbind program
         program->unbind();
-
-
-    }
-
-    Mesh::~Mesh()
-    {
-    //TODO: Delete vbos and vaos
     }
 
     void Mesh::draw()
