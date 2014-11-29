@@ -25,9 +25,7 @@ namespace GGE
 
 
         // Calculate direction
-        direction.x = sin(verticalAngle) * sin(horizontalAngle);
-        direction.y = cos(verticalAngle);
-        direction.z = sin(verticalAngle) * cos(horizontalAngle);
+        recalculateDirection();
 
         // Set up view matrix
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
@@ -119,9 +117,7 @@ namespace GGE
         horizontalAngle += angle;
 
         // Calculate new direction
-        direction.x = sin(verticalAngle) * sin(horizontalAngle);
-        direction.y = cos(verticalAngle);
-        direction.z = sin(verticalAngle) * cos(horizontalAngle);
+        recalculateDirection();
 
         direction = glm::normalize(direction);
         right = glm::normalize(glm::cross(direction, Y_UNIT_VECTOR));
@@ -142,9 +138,7 @@ namespace GGE
         verticalAngle += angle;
 
         // Calculate new direction
-        direction.x = sin(verticalAngle) * sin(horizontalAngle);
-        direction.y = cos(verticalAngle);
-        direction.z = sin(verticalAngle) * cos(horizontalAngle);
+        recalculateDirection();
 
         direction = glm::normalize(direction);
 
@@ -152,6 +146,13 @@ namespace GGE
         viewMatrix = glm::lookAt(position, direction + position, Y_UNIT_VECTOR);
 
         return direction;
+    }
+
+    void Camera::recalculateDirection()
+    {
+        direction.x = sin(verticalAngle) * sin(horizontalAngle);
+        direction.y = cos(verticalAngle);
+        direction.z = sin(verticalAngle) * cos(horizontalAngle);
     }
 
     glm::vec3 Camera::getUp() { return up; }

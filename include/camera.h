@@ -61,5 +61,8 @@ namespace GGE
         float horizontalAngle;
         float verticalAngle;
 
+        // Common function for recalculating direction
+        void recalculateDirection();
+
     };
 }
