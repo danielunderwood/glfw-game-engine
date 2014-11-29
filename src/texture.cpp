@@ -8,18 +8,33 @@ namespace GGE
 {
     GLuint Texture::currentTexture = 0;
 
+    Texture::Texture(const unsigned int * imageData)
+    {
+        // Generate a texture
+        glGenTextures(1, &textureID);
+        glBindTexture(textureType, textureID);
+
+        // TODO: Make this work more generally
+        glTexImage2D(textureType, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_INT, imageData);
+
+        // Common initialization
+        init();
+
+        // Unbind texture
+        glBindTexture(textureType, 0);
+    }
+
     Texture::Texture(const char *filename, GLenum textureType) :
             textureType(textureType)
     {
         // Generate OpenGL texture
         glGenTextures(1, &textureID);
-        glBindTexture(GL_TEXTURE_2D, textureID);
-
+        glBindTexture(textureType, textureID);
         // Load Image
         printf("Loading %s as texture %d\n", filename, textureID);
         fflush(stdout);
         int height, width;
-        unsigned char *texImage = SOIL_load_image(filename, &width, &height, 0, SOIL_LOAD_RGB);
+        unsigned char * texImage = SOIL_load_image(filename, &width, &height, 0, SOIL_LOAD_RGB);
 
         if (!texImage)
         {
@@ -34,21 +49,31 @@ namespace GGE
         // Free Image Data
         SOIL_free_image_data(texImage);
 
-        // Set Texture Parameters
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        // Common initialization
+        init();
 
-
-        // Generate Mipmaps
-        glGenerateMipmap(textureType);
+        // Unbind texture
+        // TODO: Check if this causes performance issues
+        glBindTexture(textureType, 0);
     }
 
     Texture::~Texture()
     {
         // Delete textures
         glDeleteTextures(textureType, &textureID);
+    }
+
+    void Texture::init()
+    {
+
+        // Set Texture Parameters
+        glTexParameteri(textureType, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(textureType, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(textureType, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
+        glTexParameteri(textureType, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        // Generate Mipmaps
+        glGenerateMipmap(textureType);
     }
 
     void Texture::bind()
