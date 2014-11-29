@@ -23,6 +23,12 @@ namespace GGE
         // Add to list of active cameras
         activeCameras.push_back(this);
 
+
+        // Calculate direction
+        direction.x = sin(verticalAngle) * sin(horizontalAngle);
+        direction.y = cos(verticalAngle);
+        direction.z = sin(verticalAngle) * cos(horizontalAngle);
+
         // Set up view matrix
         viewMatrix = glm::lookAt(position, direction, Y_UNIT_VECTOR);
 
