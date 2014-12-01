@@ -23,11 +23,18 @@ namespace GGE
         init();
     }
 
+    Mesh::Mesh(std::vector<GLfloat> points) :
+            points(points)
+    {
+        init();
+    }
+
     Mesh::Mesh(const char * filename, const char * directory, Program * program) :
     program(program),
     drawType(GL_STATIC_DRAW),
     drawShape(GL_TRIANGLE_STRIP)
     {
+
         // Vector for shapes
         std::vector<tinyobj::shape_t> shapes;
 
@@ -50,41 +57,96 @@ namespace GGE
         printf("Loaded %d shapes and %d materials from %s\n", shapes.size(), materials.size(), filename);
         fflush(stdout);
 
+        // Coordinate sets
+        // TODO: Find a better way to do this
+        std::vector<CoordinateSet *> coordinateSets;
+        // Material ID to use for each shape
+        std::vector< std::vector<int> > materialIDs;
+
         // Iterate through shapes
         for(int shape = 0; shape < shapes.size(); shape++)
         {
-            // Assign vertex values to mesh
+            // CoordinateSet for this shape
+            CoordinateSet * cs = new CoordinateSet();
+
             for (int vertex = 0; vertex < shapes[shape].mesh.positions.size() / 3; vertex++)
             {
+                // Keep track of current mesh to make following calls easier
+                tinyobj::mesh_t currentMesh = shapes[shape].mesh;
+
+                // Make new vertex every 3 vertices
+                for(int i = 0; i < 3; i++)
+                {
+                    if(!currentMesh.positions.empty())
+                        cs->positionCoordinates.push_back(currentMesh.positions[3 * vertex + i]);
+
+                    // TODO: Clean this up if normals are not declared in file
+                    if(!currentMesh.normals.empty())
+                        cs->normals.push_back(currentMesh.normals[3 * vertex + i]);
+
+                    // Cycle through texture coordinates every two points
+                    // TODO: Clean this up if texture coordinates are not declared
+                    if(i < 3 && !currentMesh.normals.empty())
+                        cs->textureCoordinates.push_back(currentMesh.texcoords[2 * vertex + i]);
+
+                    points.push_back(currentMesh.positions[3 * vertex + i]);
+                }
                 // TODO: Figure out how to do this in a better way
-                points.push_back(shapes[shape].mesh.positions[3 * vertex + 0]);
-                points.push_back(shapes[shape].mesh.positions[3 * vertex + 1]);
-                points.push_back(shapes[shape].mesh.positions[3 * vertex + 2]);
+
             }
+
+            // Add this coordinate set to vector
+            coordinateSets.push_back(cs);
+
+            // Add material ID for this shape
+            materialIDs.push_back(shapes[shape].mesh.material_ids);
         }
 
-        for (size_t i = 0; i < materials.size(); i++) {
-            printf("material[%ld].name = %s\n", i, materials[i].name.c_str());
-            printf("  material.Ka = (%f, %f ,%f)\n", materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
-            printf("  material.Kd = (%f, %f ,%f)\n", materials[i].diffuse[0], materials[i].diffuse[1], materials[i].diffuse[2]);
-            printf("  material.Ks = (%f, %f ,%f)\n", materials[i].specular[0], materials[i].specular[1], materials[i].specular[2]);
-            printf("  material.Tr = (%f, %f ,%f)\n", materials[i].transmittance[0], materials[i].transmittance[1], materials[i].transmittance[2]);
-            printf("  material.Ke = (%f, %f ,%f)\n", materials[i].emission[0], materials[i].emission[1], materials[i].emission[2]);
-            printf("  material.Ns = %f\n", materials[i].shininess);
-            printf("  material.Ni = %f\n", materials[i].ior);
-            printf("  material.dissolve = %f\n", materials[i].dissolve);
-            printf("  material.illum = %d\n", materials[i].illum);
-            printf("  material.map_Ka = %s\n", materials[i].ambient_texname.c_str());
-            printf("  material.map_Kd = %s\n", materials[i].diffuse_texname.c_str());
-            printf("  material.map_Ks = %s\n", materials[i].specular_texname.c_str());
-            printf("  material.map_Ns = %s\n", materials[i].normal_texname.c_str());
-            std::map<std::string, std::string>::const_iterator it(materials[i].unknown_parameter.begin());
-            std::map<std::string, std::string>::const_iterator itEnd(materials[i].unknown_parameter.end());
-            for (; it != itEnd; it++) {
-                printf("  material.%s = %s\n", it->first.c_str(), it->second.c_str());
+        // Materials from file
+        std::vector<Material *> mats;
+
+        // Iterate through materials
+        for (int material = 0; material < materials.size(); material++)
+        {
+            // Current material for simpler code
+            tinyobj::material_t currentMaterial = materials[material];
+
+            // Assign array properties
+            // TODO: Use uniform or some type of cast
+
+            LightingProperties * lp = new LightingProperties();
+            TextureSet * ts = new TextureSet();
+
+            // Assign RGB values
+            for(int i = 0; i < 3; i++)
+            {
+                lp->ambientColor[i] = currentMaterial.ambient[i];
+                lp->diffuseColor[i] = currentMaterial.diffuse[i];
+                lp->specularColor[i] = currentMaterial.specular[i];
+                lp->transmissionColor[i] = currentMaterial.transmittance[i];
+                lp->emissionColor[i] = currentMaterial.emission[i];
             }
+
+            // Assign float values
+            lp->shininess = currentMaterial.shininess;
+            lp->indexOfRefraction = currentMaterial.ior;
+            lp->dissolve = currentMaterial.dissolve;
+
+            // Map textures
+            // TODO: Generalize texture types - Probably done in Texture constructor
+            if(!currentMaterial.ambient_texname.empty())
+                ts->ambientTexture = new Texture(currentMaterial.ambient_texname.c_str(), GL_TEXTURE_2D);
+            if(!currentMaterial.diffuse_texname.empty())
+                ts->diffuseTexture = new Texture(currentMaterial.diffuse_texname.c_str(), GL_TEXTURE_2D);
+            if(!currentMaterial.specular_texname.empty())
+                ts->specularTexture = new Texture(currentMaterial.specular_texname.c_str(), GL_TEXTURE_2D);
+            if(!currentMaterial.normal_texname.empty())
+                ts->normalTexture = new Texture(currentMaterial.normal_texname.c_str(), GL_TEXTURE_2D);
+
+            // Add new material
+            // TODO: Make this work with texture
+            mats.push_back(new Material(NULL, lp));
         }
-        fflush(stdout);
 
         init();
     }

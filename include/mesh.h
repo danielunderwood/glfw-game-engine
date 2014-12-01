@@ -9,6 +9,7 @@
 #include "texture.h"
 #include "program.h"
 #include "entity.h"
+#include "shape.h"
 
 namespace GGE
 {
@@ -20,13 +21,17 @@ namespace GGE
         Mesh(std::vector<GLfloat> points, std::vector<GLfloat> textureCoords, Texture *texture,
                 Program *program, GLenum drawType = GL_STATIC_DRAW, GLenum drawShape = GL_TRIANGLES);
 
+        // Constructor for use with Model
+        // TODO: Remove other constructors
+        Mesh(std::vector<GLfloat> points);
+
         // Constructor to load from file
         Mesh(const char * filename, const char * directory, Program *program);
 
         // Destructor
         ~Mesh();
 
-        // Draw Triangle
+        // Draw mesh
         void draw();
 
         // Getter for model matrix
@@ -40,6 +45,9 @@ namespace GGE
     private:
         // Common initialization code
         void init();
+
+        // Shapes that make up mesh
+        std::vector<Shape *> shapes;
 
         // Points in triangle
         // TODO: See if there is something better to use for these

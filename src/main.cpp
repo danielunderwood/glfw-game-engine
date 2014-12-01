@@ -48,7 +48,7 @@ void setupScene()
     texP = new Program(texShaders);
 
     // Brick Texture
-    brickTex = new Texture("res/textures/texture-brick.png");
+    brickTex = new Texture("res/textures/texture-brick.png", GL_TEXTURE_2D);
 
     // Make camera
     cam = new Camera(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, -0.01), Y_UNIT_VECTOR);
@@ -250,6 +250,9 @@ int main(int argc, char ** argv)
 
     // Add Window
     Window * window = app->addWindow(320, 620, true, "Test", true);
+
+    //glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
 
     // Set up scene
     setupScene();

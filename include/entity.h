@@ -18,6 +18,8 @@ namespace GGE
 
         virtual ~Entity();
 
+        // TODO: Transform matrix stuff to generalize model and view matrices (and light matrices)
+
         // Getters
         glm::vec3 getPosition();
         glm::vec3 getDirection();
