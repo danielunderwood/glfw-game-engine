@@ -18,15 +18,21 @@ namespace GGE
     {
     }
 
+    PointLight::~PointLight() {}
+
     AmbientLight::AmbientLight(glm::vec3 position, glm::vec3 direction, Color4 color) :
         Light(position, direction, LIGHT_AMBIENT, color)
     {
     }
 
+    AmbientLight::~AmbientLight() {}
+
     SpotLight::SpotLight(glm::vec3 position, glm::vec3 direction, Color4 color) :
         Light(position, direction, LIGHT_SPOT, color)
     {
     }
+
+    SpotLight::~SpotLight() {}
 
     Color4 Light::getColor() { return color; }
     LightType Light::getLightType() { return type; }
