@@ -27,4 +27,7 @@ namespace GGE
         Light(position, direction, LIGHT_SPOT, color)
     {
     }
+
+    Color4 Light::getColor() { return color; }
+    LightType Light::getLightType() { return type; }
 }
