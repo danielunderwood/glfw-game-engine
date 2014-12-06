@@ -1,0 +1,139 @@
+\hypertarget{class_g_g_e_1_1_application}{\section{G\+G\+E\+:\+:Application Class Reference}
+\label{class_g_g_e_1_1_application}\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+}
+
+
+{\ttfamily \#include $<$application.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_application_ab30339d40c6eea9ddc818fb7b7f0b127}{Application} ()
+\item 
+\hyperlink{class_g_g_e_1_1_application_aa61a2e40680e004d1af303c9b81bd109}{$\sim$\+Application} ()
+\item 
+\hyperlink{class_g_g_e_1_1_window}{Window} $\ast$ \hyperlink{class_g_g_e_1_1_application_a403820d97ee74e9bab85743e651a8c8c}{add\+Window} (int height, int width, bool fullscreen, char $\ast$title, bool is\+Main)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_g_g_e_1_1_application_acc3c35b614352705a8e11567abba31b2}{glfw\+Error\+Callback} (int error, const char $\ast$description)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_window}{Window} $\ast$ \hyperlink{class_g_g_e_1_1_application_afac18c3566e0934960cf292bef534fe6}{windows}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_g_e_1_1_window}{Window} $\ast$ \hyperlink{class_g_g_e_1_1_application_a9c9cce3ea5902ce5c8fac386d4592e41}{main\+Window} = N\+U\+L\+L
+\item 
+static bool \hyperlink{class_g_g_e_1_1_application_a3aa0cfc5ba81457e511130b8fddb0788}{glew\+Initialized} = false
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267b}{Error\+Code} \{ \hyperlink{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba0af907f479a06dc7053089d490fbf955}{G\+L\+F\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}, 
+\hyperlink{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba09d66e7a4f11315fe476637fb687207f}{G\+L\+E\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}, 
+\hyperlink{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba740a2252d9dc7e54920205d1f28eb6a9}{C\+R\+E\+A\+T\+E\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+A\+I\+L\+U\+R\+E}, 
+\hyperlink{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba4a9d849e8ef967cc1138df428af830bb}{S\+U\+C\+C\+E\+S\+S}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_g_g_e_1_1_application_a79675202f34d2d8105fbecb2ecc35db0}{init} ()
+\item 
+void \hyperlink{class_g_g_e_1_1_application_a9aa875072c65b2b59b1cbf231a949d21}{terminate} (\hyperlink{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267b}{Error\+Code} e)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267b}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!Error\+Code@{Error\+Code}}
+\index{Error\+Code@{Error\+Code}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{Error\+Code}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf G\+G\+E\+::\+Application\+::\+Error\+Code}\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267b}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{G\+L\+F\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E@{G\+L\+F\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!G\+L\+F\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E@{G\+L\+F\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}}\item[{\em 
+\hypertarget{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba0af907f479a06dc7053089d490fbf955}{G\+L\+F\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}\label{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba0af907f479a06dc7053089d490fbf955}
+}]\index{G\+L\+E\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E@{G\+L\+E\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!G\+L\+E\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E@{G\+L\+E\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}}\item[{\em 
+\hypertarget{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba09d66e7a4f11315fe476637fb687207f}{G\+L\+E\+W\+\_\+\+I\+N\+I\+T\+\_\+\+F\+A\+I\+L\+U\+R\+E}\label{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba09d66e7a4f11315fe476637fb687207f}
+}]\index{C\+R\+E\+A\+T\+E\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+A\+I\+L\+U\+R\+E@{C\+R\+E\+A\+T\+E\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+A\+I\+L\+U\+R\+E}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!C\+R\+E\+A\+T\+E\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+A\+I\+L\+U\+R\+E@{C\+R\+E\+A\+T\+E\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+A\+I\+L\+U\+R\+E}}\item[{\em 
+\hypertarget{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba740a2252d9dc7e54920205d1f28eb6a9}{C\+R\+E\+A\+T\+E\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+A\+I\+L\+U\+R\+E}\label{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba740a2252d9dc7e54920205d1f28eb6a9}
+}]\index{S\+U\+C\+C\+E\+S\+S@{S\+U\+C\+C\+E\+S\+S}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!S\+U\+C\+C\+E\+S\+S@{S\+U\+C\+C\+E\+S\+S}}\item[{\em 
+\hypertarget{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba4a9d849e8ef967cc1138df428af830bb}{S\+U\+C\+C\+E\+S\+S}\label{class_g_g_e_1_1_application_a39cb0a658b749fd014b3355c157d267ba4a9d849e8ef967cc1138df428af830bb}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_application_ab30339d40c6eea9ddc818fb7b7f0b127}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!Application@{Application}}
+\index{Application@{Application}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{Application}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Application\+::\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_application_ab30339d40c6eea9ddc818fb7b7f0b127}
+\hypertarget{class_g_g_e_1_1_application_aa61a2e40680e004d1af303c9b81bd109}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!````~Application@{$\sim$\+Application}}
+\index{````~Application@{$\sim$\+Application}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{$\sim$\+Application}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Application\+::$\sim$\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_application_aa61a2e40680e004d1af303c9b81bd109}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_application_a403820d97ee74e9bab85743e651a8c8c}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!add\+Window@{add\+Window}}
+\index{add\+Window@{add\+Window}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{add\+Window}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} $\ast$ G\+G\+E\+::\+Application\+::add\+Window (
+\begin{DoxyParamCaption}
+\item[{int}]{height, }
+\item[{int}]{width, }
+\item[{bool}]{fullscreen, }
+\item[{char $\ast$}]{title, }
+\item[{bool}]{is\+Main}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_application_a403820d97ee74e9bab85743e651a8c8c}
+\hypertarget{class_g_g_e_1_1_application_acc3c35b614352705a8e11567abba31b2}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!glfw\+Error\+Callback@{glfw\+Error\+Callback}}
+\index{glfw\+Error\+Callback@{glfw\+Error\+Callback}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{glfw\+Error\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Application\+::glfw\+Error\+Callback (
+\begin{DoxyParamCaption}
+\item[{int}]{error, }
+\item[{const char $\ast$}]{description}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_application_acc3c35b614352705a8e11567abba31b2}
+\hypertarget{class_g_g_e_1_1_application_a79675202f34d2d8105fbecb2ecc35db0}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!init@{init}}
+\index{init@{init}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}int G\+G\+E\+::\+Application\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_application_a79675202f34d2d8105fbecb2ecc35db0}
+\hypertarget{class_g_g_e_1_1_application_a9aa875072c65b2b59b1cbf231a949d21}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!terminate@{terminate}}
+\index{terminate@{terminate}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{terminate}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Application\+::terminate (
+\begin{DoxyParamCaption}
+\item[{{\bf Error\+Code}}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_application_a9aa875072c65b2b59b1cbf231a949d21}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_application_a3aa0cfc5ba81457e511130b8fddb0788}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!glew\+Initialized@{glew\+Initialized}}
+\index{glew\+Initialized@{glew\+Initialized}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{glew\+Initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+G\+E\+::\+Application\+::glew\+Initialized = false\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_application_a3aa0cfc5ba81457e511130b8fddb0788}
+\hypertarget{class_g_g_e_1_1_application_a9c9cce3ea5902ce5c8fac386d4592e41}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!main\+Window@{main\+Window}}
+\index{main\+Window@{main\+Window}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{main\+Window}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} $\ast$ G\+G\+E\+::\+Application\+::main\+Window = N\+U\+L\+L\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_application_a9c9cce3ea5902ce5c8fac386d4592e41}
+\hypertarget{class_g_g_e_1_1_application_afac18c3566e0934960cf292bef534fe6}{\index{G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}!windows@{windows}}
+\index{windows@{windows}!G\+G\+E\+::\+Application@{G\+G\+E\+::\+Application}}
+\subsubsection[{windows}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window}$\ast$ G\+G\+E\+::\+Application\+::windows}}\label{class_g_g_e_1_1_application_afac18c3566e0934960cf292bef534fe6}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{application_8h}{application.\+h}\item 
+src/\hyperlink{application_8cpp}{application.\+cpp}\end{DoxyCompactItemize}

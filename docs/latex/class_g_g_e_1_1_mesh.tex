@@ -1,0 +1,179 @@
+\hypertarget{class_g_g_e_1_1_mesh}{\section{G\+G\+E\+:\+:Mesh Class Reference}
+\label{class_g_g_e_1_1_mesh}\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+}
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+Inheritance diagram for G\+G\+E\+:\+:Mesh\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_g_e_1_1_mesh}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh_af2227f54556d5bae2cdaa84a44e4c890}{Mesh} (std\+::vector$<$ G\+Lfloat $>$ \hyperlink{class_g_g_e_1_1_mesh_ab91ef29f57f9f8b7cddb7f360da63f47}{points}, std\+::vector$<$ G\+Lfloat $>$ \hyperlink{class_g_g_e_1_1_mesh_a7e48e26708078727065dd68e58846503}{texture\+Coords}, \hyperlink{class_g_g_e_1_1_texture}{Texture} $\ast$\hyperlink{class_g_g_e_1_1_mesh_acda1261106fd88be1bfc6a9adaa0e7b5}{texture}, \hyperlink{class_g_g_e_1_1_program}{Program} $\ast$\hyperlink{class_g_g_e_1_1_mesh_aee3bd238788ee7380e8d6770d5f29f2c}{program}, G\+Lenum \hyperlink{class_g_g_e_1_1_mesh_a92c516168dc3400a468cd4dd632287f6}{draw\+Type}=G\+L\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+D\+R\+A\+W, G\+Lenum \hyperlink{class_g_g_e_1_1_mesh_a31f188bc943c5586befddc8838bd7c9a}{draw\+Shape}=G\+L\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S)
+\item 
+\hyperlink{class_g_g_e_1_1_mesh_a4a5408368fd4e8432b6c079432d4d039}{Mesh} (std\+::vector$<$ G\+Lfloat $>$ \hyperlink{class_g_g_e_1_1_mesh_ab91ef29f57f9f8b7cddb7f360da63f47}{points})
+\item 
+\hyperlink{class_g_g_e_1_1_mesh_a7c3fcda3195e1a67089bd9866d50aae7}{Mesh} (const char $\ast$filename, const char $\ast$directory, \hyperlink{class_g_g_e_1_1_program}{Program} $\ast$\hyperlink{class_g_g_e_1_1_mesh_aee3bd238788ee7380e8d6770d5f29f2c}{program})
+\item 
+\hyperlink{class_g_g_e_1_1_mesh_a33c847d16eaa0c19ee23d452d51ada24}{$\sim$\+Mesh} ()
+\item 
+void \hyperlink{class_g_g_e_1_1_mesh_af3ea4a760ffcd84cbb428f859f74778e}{draw} ()
+\item 
+glm\+::mat4 \hyperlink{class_g_g_e_1_1_mesh_a01cf6257386d96ba81ac1f80c650f0bd}{get\+Model\+Matrix} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_mesh_a40161efa046c5513710bae8db2848d20}{move} (glm\+::vec3 translation)
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_mesh_a96e3bdea0c48b75b858261e0a6ac1eb6}{set\+Position} (glm\+::vec3 new\+Position)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_g_g_e_1_1_mesh_aed1ab1e99e0a433d92f3c63db5401853}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{class_g_g_e_1_1_shape}{Shape} $\ast$ $>$ \hyperlink{class_g_g_e_1_1_mesh_a47f9d96f13ba1a491de0bd3c3adb9a76}{shapes}
+\item 
+std\+::vector$<$ G\+Lfloat $>$ \hyperlink{class_g_g_e_1_1_mesh_ab91ef29f57f9f8b7cddb7f360da63f47}{points}
+\item 
+glm\+::mat4 \hyperlink{class_g_g_e_1_1_mesh_a8ec6ca9082c5573198be3e9d675c2e92}{model\+Matrix}
+\item 
+\hyperlink{class_g_g_e_1_1_texture}{Texture} $\ast$ \hyperlink{class_g_g_e_1_1_mesh_acda1261106fd88be1bfc6a9adaa0e7b5}{texture}
+\item 
+\hyperlink{class_g_g_e_1_1_program}{Program} $\ast$ \hyperlink{class_g_g_e_1_1_mesh_aee3bd238788ee7380e8d6770d5f29f2c}{program}
+\item 
+std\+::vector$<$ G\+Lfloat $>$ \hyperlink{class_g_g_e_1_1_mesh_a7e48e26708078727065dd68e58846503}{texture\+Coords}
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_mesh_a547c5fcf688b6a957c3febd742d51f9f}{vao}
+\item 
+G\+Lenum \hyperlink{class_g_g_e_1_1_mesh_a92c516168dc3400a468cd4dd632287f6}{draw\+Type}
+\item 
+G\+Lenum \hyperlink{class_g_g_e_1_1_mesh_a31f188bc943c5586befddc8838bd7c9a}{draw\+Shape}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_mesh_af2227f54556d5bae2cdaa84a44e4c890}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Mesh\+::\+Mesh (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ G\+Lfloat $>$}]{points, }
+\item[{std\+::vector$<$ G\+Lfloat $>$}]{texture\+Coords, }
+\item[{{\bf Texture} $\ast$}]{texture, }
+\item[{{\bf Program} $\ast$}]{program, }
+\item[{G\+Lenum}]{draw\+Type = {\ttfamily GL\+\_\+STATIC\+\_\+DRAW}, }
+\item[{G\+Lenum}]{draw\+Shape = {\ttfamily GL\+\_\+TRIANGLES}}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_mesh_af2227f54556d5bae2cdaa84a44e4c890}
+\hypertarget{class_g_g_e_1_1_mesh_a4a5408368fd4e8432b6c079432d4d039}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Mesh\+::\+Mesh (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ G\+Lfloat $>$}]{points}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_mesh_a4a5408368fd4e8432b6c079432d4d039}
+\hypertarget{class_g_g_e_1_1_mesh_a7c3fcda3195e1a67089bd9866d50aae7}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Mesh\+::\+Mesh (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{const char $\ast$}]{directory, }
+\item[{{\bf Program} $\ast$}]{program}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_mesh_a7c3fcda3195e1a67089bd9866d50aae7}
+\hypertarget{class_g_g_e_1_1_mesh_a33c847d16eaa0c19ee23d452d51ada24}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!````~Mesh@{$\sim$\+Mesh}}
+\index{````~Mesh@{$\sim$\+Mesh}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{$\sim$\+Mesh}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Mesh\+::$\sim$\+Mesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_mesh_a33c847d16eaa0c19ee23d452d51ada24}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_mesh_af3ea4a760ffcd84cbb428f859f74778e}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!draw@{draw}}
+\index{draw@{draw}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Mesh\+::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_mesh_af3ea4a760ffcd84cbb428f859f74778e}
+\hypertarget{class_g_g_e_1_1_mesh_a01cf6257386d96ba81ac1f80c650f0bd}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!get\+Model\+Matrix@{get\+Model\+Matrix}}
+\index{get\+Model\+Matrix@{get\+Model\+Matrix}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{get\+Model\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 G\+G\+E\+::\+Mesh\+::get\+Model\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_mesh_a01cf6257386d96ba81ac1f80c650f0bd}
+\hypertarget{class_g_g_e_1_1_mesh_aed1ab1e99e0a433d92f3c63db5401853}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!init@{init}}
+\index{init@{init}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Mesh\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_aed1ab1e99e0a433d92f3c63db5401853}
+\hypertarget{class_g_g_e_1_1_mesh_a40161efa046c5513710bae8db2848d20}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!move@{move}}
+\index{move@{move}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Mesh\+::move (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{translation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_mesh_a40161efa046c5513710bae8db2848d20}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a7525dd307ec84c0eb4052886142a57fb}{G\+G\+E\+::\+Entity}.
+
+\hypertarget{class_g_g_e_1_1_mesh_a96e3bdea0c48b75b858261e0a6ac1eb6}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Mesh\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_mesh_a96e3bdea0c48b75b858261e0a6ac1eb6}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a2281d937a3430a14ec23b9a10b91efcb}{G\+G\+E\+::\+Entity}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_mesh_a31f188bc943c5586befddc8838bd7c9a}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!draw\+Shape@{draw\+Shape}}
+\index{draw\+Shape@{draw\+Shape}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{draw\+Shape}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lenum G\+G\+E\+::\+Mesh\+::draw\+Shape\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_a31f188bc943c5586befddc8838bd7c9a}
+\hypertarget{class_g_g_e_1_1_mesh_a92c516168dc3400a468cd4dd632287f6}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!draw\+Type@{draw\+Type}}
+\index{draw\+Type@{draw\+Type}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{draw\+Type}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lenum G\+G\+E\+::\+Mesh\+::draw\+Type\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_a92c516168dc3400a468cd4dd632287f6}
+\hypertarget{class_g_g_e_1_1_mesh_a8ec6ca9082c5573198be3e9d675c2e92}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!model\+Matrix@{model\+Matrix}}
+\index{model\+Matrix@{model\+Matrix}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{model\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 G\+G\+E\+::\+Mesh\+::model\+Matrix\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_a8ec6ca9082c5573198be3e9d675c2e92}
+\hypertarget{class_g_g_e_1_1_mesh_ab91ef29f57f9f8b7cddb7f360da63f47}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!points@{points}}
+\index{points@{points}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{points}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$G\+Lfloat$>$ G\+G\+E\+::\+Mesh\+::points\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_ab91ef29f57f9f8b7cddb7f360da63f47}
+\hypertarget{class_g_g_e_1_1_mesh_aee3bd238788ee7380e8d6770d5f29f2c}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!program@{program}}
+\index{program@{program}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{program}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program}$\ast$ G\+G\+E\+::\+Mesh\+::program\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_aee3bd238788ee7380e8d6770d5f29f2c}
+\hypertarget{class_g_g_e_1_1_mesh_a47f9d96f13ba1a491de0bd3c3adb9a76}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!shapes@{shapes}}
+\index{shapes@{shapes}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{shapes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Shape} $\ast$$>$ G\+G\+E\+::\+Mesh\+::shapes\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_a47f9d96f13ba1a491de0bd3c3adb9a76}
+\hypertarget{class_g_g_e_1_1_mesh_acda1261106fd88be1bfc6a9adaa0e7b5}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!texture@{texture}}
+\index{texture@{texture}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{texture}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Texture}$\ast$ G\+G\+E\+::\+Mesh\+::texture\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_acda1261106fd88be1bfc6a9adaa0e7b5}
+\hypertarget{class_g_g_e_1_1_mesh_a7e48e26708078727065dd68e58846503}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!texture\+Coords@{texture\+Coords}}
+\index{texture\+Coords@{texture\+Coords}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{texture\+Coords}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$G\+Lfloat$>$ G\+G\+E\+::\+Mesh\+::texture\+Coords\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_a7e48e26708078727065dd68e58846503}
+\hypertarget{class_g_g_e_1_1_mesh_a547c5fcf688b6a957c3febd742d51f9f}{\index{G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}!vao@{vao}}
+\index{vao@{vao}!G\+G\+E\+::\+Mesh@{G\+G\+E\+::\+Mesh}}
+\subsubsection[{vao}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Mesh\+::vao\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_mesh_a547c5fcf688b6a957c3febd742d51f9f}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{mesh_8h}{mesh.\+h}\item 
+src/\hyperlink{mesh_8cpp}{mesh.\+cpp}\end{DoxyCompactItemize}

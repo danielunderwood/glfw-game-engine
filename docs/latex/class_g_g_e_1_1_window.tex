@@ -1,0 +1,214 @@
+\hypertarget{class_g_g_e_1_1_window}{\section{G\+G\+E\+:\+:Window Class Reference}
+\label{class_g_g_e_1_1_window}\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+}
+
+
+{\ttfamily \#include $<$window.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_window_a0be4c31554bea6a3e41b07b97ea4dd74}{Window} (int \hyperlink{class_g_g_e_1_1_window_a2aef17e23370755f4c3de24e527676ff}{height}, int \hyperlink{class_g_g_e_1_1_window_a5d878b7b885837f5062b516ecbdc22bf}{width}, bool \hyperlink{class_g_g_e_1_1_window_a43b2bb5a05e9f6d7af76086ce42145f2}{fullscreen}, char $\ast$\hyperlink{class_g_g_e_1_1_window_a9430276ac4c0ddc7e04be71772af4670}{title})
+\item 
+\hyperlink{class_g_g_e_1_1_window_aacf14cfd459d8c7cb78cb121327657c9}{$\sim$\+Window} ()
+\item 
+void \hyperlink{class_g_g_e_1_1_window_a705a031ad4ef0d5f6f08d715f2ec0e01}{set\+Render\+Function} (\hyperlink{namespace_g_g_e_ae2d6bfdcdfc2e210b6d827b4221a9dc4}{Render\+Function} \hyperlink{class_g_g_e_1_1_window_ac699c5d6c173adeea2f1e5cda44b8b9a}{render\+Function})
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{class_g_g_e_1_1_window_a8ea51e37afd72bf174d51ea0b698a66c}{get\+G\+L\+F\+W\+Window} ()
+\item 
+int \hyperlink{class_g_g_e_1_1_window_ab69355bb29c63ba69fb75a8ac7b6a522}{get\+Height} ()
+\item 
+int \hyperlink{class_g_g_e_1_1_window_ad94d14a36c4ffcc4d97cedbe23828b7b}{get\+Width} ()
+\item 
+bool \hyperlink{class_g_g_e_1_1_window_af4ef9734314b74cb36417d8cabb6fb18}{is\+Fullscreen} ()
+\item 
+bool \hyperlink{class_g_g_e_1_1_window_ae2add48e60bfa9beb33b722176f9a0d5}{is\+Closed} ()
+\item 
+void \hyperlink{class_g_g_e_1_1_window_afd4c6a34bb54b77154e75fcb68fbee45}{close} ()
+\item 
+glm\+::mat4 \hyperlink{class_g_g_e_1_1_window_a0cb2e0dfb03bf3b9ffd0231d6e4e682c}{get\+Projection\+Matrix} ()
+\item 
+bool \hyperlink{class_g_g_e_1_1_window_a378a4b08b488eed0f30a4dfd552719f7}{render\+Frame} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_g_g_e_1_1_window_aa7c54d7337b0e13e6c0c5d9ed26249f3}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_g_g_e_1_1_window_a5eec12b16162d1b350173d75489abbf4}{resize\+Callback} (G\+L\+F\+Wwindow $\ast$\hyperlink{class_g_g_e_1_1_window_aefa5259b62d603d83ebf8963a019d73b}{window}, int new\+Width, int new\+Height)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_g_g_e_1_1_window_a2aef17e23370755f4c3de24e527676ff}{height}
+\item 
+int \hyperlink{class_g_g_e_1_1_window_a5d878b7b885837f5062b516ecbdc22bf}{width}
+\item 
+bool \hyperlink{class_g_g_e_1_1_window_a43b2bb5a05e9f6d7af76086ce42145f2}{fullscreen}
+\item 
+bool \hyperlink{class_g_g_e_1_1_window_a0cba23a6e1296e5f1d539e87b177d678}{should\+Close}
+\item 
+char $\ast$ \hyperlink{class_g_g_e_1_1_window_a9430276ac4c0ddc7e04be71772af4670}{title}
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{class_g_g_e_1_1_window_aefa5259b62d603d83ebf8963a019d73b}{window}
+\item 
+double \hyperlink{class_g_g_e_1_1_window_a4cea6995dfa84431c5169dd3208fbda8}{time\+Since\+Last\+Frame}
+\item 
+double \hyperlink{class_g_g_e_1_1_window_ab93d7f77e803a854ef5188d5ce039838}{last\+Frame\+Time}
+\item 
+glm\+::mat4 \hyperlink{class_g_g_e_1_1_window_acc1dfe541ecdf8c1ca08eec451ea7aba}{projection\+Matrix}
+\item 
+\hyperlink{namespace_g_g_e_ae2d6bfdcdfc2e210b6d827b4221a9dc4}{Render\+Function} \hyperlink{class_g_g_e_1_1_window_ac699c5d6c173adeea2f1e5cda44b8b9a}{render\+Function}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::list$<$ \hyperlink{class_g_g_e_1_1_window}{Window} $\ast$ $>$ \hyperlink{class_g_g_e_1_1_window_a2ab7c16795aa37b881760cff6b487f06}{windows}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_window_a0be4c31554bea6a3e41b07b97ea4dd74}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!Window@{Window}}
+\index{Window@{Window}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{Window}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Window\+::\+Window (
+\begin{DoxyParamCaption}
+\item[{int}]{height, }
+\item[{int}]{width, }
+\item[{bool}]{fullscreen, }
+\item[{char $\ast$}]{title}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_a0be4c31554bea6a3e41b07b97ea4dd74}
+\hypertarget{class_g_g_e_1_1_window_aacf14cfd459d8c7cb78cb121327657c9}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!````~Window@{$\sim$\+Window}}
+\index{````~Window@{$\sim$\+Window}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{$\sim$\+Window}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Window\+::$\sim$\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_aacf14cfd459d8c7cb78cb121327657c9}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_window_afd4c6a34bb54b77154e75fcb68fbee45}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!close@{close}}
+\index{close@{close}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Window\+::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_afd4c6a34bb54b77154e75fcb68fbee45}
+\hypertarget{class_g_g_e_1_1_window_a8ea51e37afd72bf174d51ea0b698a66c}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!get\+G\+L\+F\+W\+Window@{get\+G\+L\+F\+W\+Window}}
+\index{get\+G\+L\+F\+W\+Window@{get\+G\+L\+F\+W\+Window}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{get\+G\+L\+F\+W\+Window}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wwindow $\ast$ G\+G\+E\+::\+Window\+::get\+G\+L\+F\+W\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_a8ea51e37afd72bf174d51ea0b698a66c}
+\hypertarget{class_g_g_e_1_1_window_ab69355bb29c63ba69fb75a8ac7b6a522}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{get\+Height}]{\setlength{\rightskip}{0pt plus 5cm}int G\+G\+E\+::\+Window\+::get\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_ab69355bb29c63ba69fb75a8ac7b6a522}
+\hypertarget{class_g_g_e_1_1_window_a0cb2e0dfb03bf3b9ffd0231d6e4e682c}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!get\+Projection\+Matrix@{get\+Projection\+Matrix}}
+\index{get\+Projection\+Matrix@{get\+Projection\+Matrix}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{get\+Projection\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 G\+G\+E\+::\+Window\+::get\+Projection\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_a0cb2e0dfb03bf3b9ffd0231d6e4e682c}
+\hypertarget{class_g_g_e_1_1_window_ad94d14a36c4ffcc4d97cedbe23828b7b}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!get\+Width@{get\+Width}}
+\index{get\+Width@{get\+Width}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{get\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int G\+G\+E\+::\+Window\+::get\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_ad94d14a36c4ffcc4d97cedbe23828b7b}
+\hypertarget{class_g_g_e_1_1_window_aa7c54d7337b0e13e6c0c5d9ed26249f3}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!init@{init}}
+\index{init@{init}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Window\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_aa7c54d7337b0e13e6c0c5d9ed26249f3}
+\hypertarget{class_g_g_e_1_1_window_ae2add48e60bfa9beb33b722176f9a0d5}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!is\+Closed@{is\+Closed}}
+\index{is\+Closed@{is\+Closed}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{is\+Closed}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+G\+E\+::\+Window\+::is\+Closed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_ae2add48e60bfa9beb33b722176f9a0d5}
+\hypertarget{class_g_g_e_1_1_window_af4ef9734314b74cb36417d8cabb6fb18}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!is\+Fullscreen@{is\+Fullscreen}}
+\index{is\+Fullscreen@{is\+Fullscreen}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{is\+Fullscreen}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+G\+E\+::\+Window\+::is\+Fullscreen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_af4ef9734314b74cb36417d8cabb6fb18}
+\hypertarget{class_g_g_e_1_1_window_a378a4b08b488eed0f30a4dfd552719f7}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!render\+Frame@{render\+Frame}}
+\index{render\+Frame@{render\+Frame}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{render\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+G\+E\+::\+Window\+::render\+Frame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_a378a4b08b488eed0f30a4dfd552719f7}
+\hypertarget{class_g_g_e_1_1_window_a5eec12b16162d1b350173d75489abbf4}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!resize\+Callback@{resize\+Callback}}
+\index{resize\+Callback@{resize\+Callback}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{resize\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Window\+::resize\+Callback (
+\begin{DoxyParamCaption}
+\item[{G\+L\+F\+Wwindow $\ast$}]{window, }
+\item[{int}]{new\+Width, }
+\item[{int}]{new\+Height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a5eec12b16162d1b350173d75489abbf4}
+\hypertarget{class_g_g_e_1_1_window_a705a031ad4ef0d5f6f08d715f2ec0e01}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!set\+Render\+Function@{set\+Render\+Function}}
+\index{set\+Render\+Function@{set\+Render\+Function}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{set\+Render\+Function}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Window\+::set\+Render\+Function (
+\begin{DoxyParamCaption}
+\item[{{\bf Render\+Function}}]{render\+Function}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_window_a705a031ad4ef0d5f6f08d715f2ec0e01}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_window_a43b2bb5a05e9f6d7af76086ce42145f2}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!fullscreen@{fullscreen}}
+\index{fullscreen@{fullscreen}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{fullscreen}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+G\+E\+::\+Window\+::fullscreen\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a43b2bb5a05e9f6d7af76086ce42145f2}
+\hypertarget{class_g_g_e_1_1_window_a2aef17e23370755f4c3de24e527676ff}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!height@{height}}
+\index{height@{height}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int G\+G\+E\+::\+Window\+::height\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a2aef17e23370755f4c3de24e527676ff}
+\hypertarget{class_g_g_e_1_1_window_ab93d7f77e803a854ef5188d5ce039838}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!last\+Frame\+Time@{last\+Frame\+Time}}
+\index{last\+Frame\+Time@{last\+Frame\+Time}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{last\+Frame\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double G\+G\+E\+::\+Window\+::last\+Frame\+Time\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_ab93d7f77e803a854ef5188d5ce039838}
+\hypertarget{class_g_g_e_1_1_window_acc1dfe541ecdf8c1ca08eec451ea7aba}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!projection\+Matrix@{projection\+Matrix}}
+\index{projection\+Matrix@{projection\+Matrix}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{projection\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 G\+G\+E\+::\+Window\+::projection\+Matrix\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_acc1dfe541ecdf8c1ca08eec451ea7aba}
+\hypertarget{class_g_g_e_1_1_window_ac699c5d6c173adeea2f1e5cda44b8b9a}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!render\+Function@{render\+Function}}
+\index{render\+Function@{render\+Function}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{render\+Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Render\+Function} G\+G\+E\+::\+Window\+::render\+Function\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_ac699c5d6c173adeea2f1e5cda44b8b9a}
+\hypertarget{class_g_g_e_1_1_window_a0cba23a6e1296e5f1d539e87b177d678}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!should\+Close@{should\+Close}}
+\index{should\+Close@{should\+Close}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{should\+Close}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+G\+E\+::\+Window\+::should\+Close\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a0cba23a6e1296e5f1d539e87b177d678}
+\hypertarget{class_g_g_e_1_1_window_a4cea6995dfa84431c5169dd3208fbda8}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!time\+Since\+Last\+Frame@{time\+Since\+Last\+Frame}}
+\index{time\+Since\+Last\+Frame@{time\+Since\+Last\+Frame}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{time\+Since\+Last\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}double G\+G\+E\+::\+Window\+::time\+Since\+Last\+Frame\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a4cea6995dfa84431c5169dd3208fbda8}
+\hypertarget{class_g_g_e_1_1_window_a9430276ac4c0ddc7e04be71772af4670}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!title@{title}}
+\index{title@{title}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{title}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ G\+G\+E\+::\+Window\+::title\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a9430276ac4c0ddc7e04be71772af4670}
+\hypertarget{class_g_g_e_1_1_window_a5d878b7b885837f5062b516ecbdc22bf}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!width@{width}}
+\index{width@{width}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int G\+G\+E\+::\+Window\+::width\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a5d878b7b885837f5062b516ecbdc22bf}
+\hypertarget{class_g_g_e_1_1_window_aefa5259b62d603d83ebf8963a019d73b}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!window@{window}}
+\index{window@{window}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{window}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wwindow$\ast$ G\+G\+E\+::\+Window\+::window\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_window_aefa5259b62d603d83ebf8963a019d73b}
+\hypertarget{class_g_g_e_1_1_window_a2ab7c16795aa37b881760cff6b487f06}{\index{G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}!windows@{windows}}
+\index{windows@{windows}!G\+G\+E\+::\+Window@{G\+G\+E\+::\+Window}}
+\subsubsection[{windows}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ {\bf Window} $\ast$ $>$ G\+G\+E\+::\+Window\+::windows\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_window_a2ab7c16795aa37b881760cff6b487f06}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{window_8h}{window.\+h}\item 
+src/\hyperlink{window_8cpp}{window.\+cpp}\end{DoxyCompactItemize}

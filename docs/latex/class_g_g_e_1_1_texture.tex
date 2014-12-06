@@ -1,0 +1,117 @@
+\hypertarget{class_g_g_e_1_1_texture}{\section{G\+G\+E\+:\+:Texture Class Reference}
+\label{class_g_g_e_1_1_texture}\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+}
+
+
+{\ttfamily \#include $<$texture.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_texture_af70bbf244600091e968aefc1ab27b73f}{Texture} (const unsigned int $\ast$image\+Data)
+\item 
+\hyperlink{class_g_g_e_1_1_texture_a3978c92ae0d7bec3aef3006d1cac802b}{Texture} (const char $\ast$filename, G\+Lenum \hyperlink{class_g_g_e_1_1_texture_a9fd9a4cf0a84fcd68b336c92d6d0514e}{texture\+Type})
+\item 
+\hyperlink{class_g_g_e_1_1_texture_a62700829f86e0b63e0cc4ee04202ee8d}{$\sim$\+Texture} ()
+\item 
+void \hyperlink{class_g_g_e_1_1_texture_a2c52e20a240d5ec5a9ba3c0d26454546}{bind} ()
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_texture_a5e1ca37555586073c8014dde62c548f0}{get\+Texture\+I\+D} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_g_e_1_1_texture}{Texture} $\ast$ \hyperlink{class_g_g_e_1_1_texture_a0b90b74276704a2455ba2afa82cc13a7}{W\+H\+I\+T\+E}
+\item 
+static \hyperlink{class_g_g_e_1_1_texture}{Texture} $\ast$ \hyperlink{class_g_g_e_1_1_texture_a0ce25ba4515c038959da1d389d2c80da}{T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_g_g_e_1_1_texture_a0c017352f8273b7d55216b7ccccaa0ef}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_texture_a24eb48105f06bfe9c0b14d2ff84b50c6}{texture\+I\+D}
+\item 
+G\+Lenum \hyperlink{class_g_g_e_1_1_texture_a9fd9a4cf0a84fcd68b336c92d6d0514e}{texture\+Type}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static G\+Luint \hyperlink{class_g_g_e_1_1_texture_ad1d7ae9c5c1c637d00d3002cf99e47e0}{current\+Texture} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_texture_af70bbf244600091e968aefc1ab27b73f}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{Texture}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Texture\+::\+Texture (
+\begin{DoxyParamCaption}
+\item[{const unsigned int $\ast$}]{image\+Data}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_texture_af70bbf244600091e968aefc1ab27b73f}
+\hypertarget{class_g_g_e_1_1_texture_a3978c92ae0d7bec3aef3006d1cac802b}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{Texture}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Texture\+::\+Texture (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{G\+Lenum}]{texture\+Type}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_texture_a3978c92ae0d7bec3aef3006d1cac802b}
+\hypertarget{class_g_g_e_1_1_texture_a62700829f86e0b63e0cc4ee04202ee8d}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!````~Texture@{$\sim$\+Texture}}
+\index{````~Texture@{$\sim$\+Texture}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{$\sim$\+Texture}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Texture\+::$\sim$\+Texture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_texture_a62700829f86e0b63e0cc4ee04202ee8d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_texture_a2c52e20a240d5ec5a9ba3c0d26454546}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!bind@{bind}}
+\index{bind@{bind}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Texture\+::bind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_texture_a2c52e20a240d5ec5a9ba3c0d26454546}
+\hypertarget{class_g_g_e_1_1_texture_a5e1ca37555586073c8014dde62c548f0}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!get\+Texture\+I\+D@{get\+Texture\+I\+D}}
+\index{get\+Texture\+I\+D@{get\+Texture\+I\+D}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{get\+Texture\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Texture\+::get\+Texture\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_texture_a5e1ca37555586073c8014dde62c548f0}
+\hypertarget{class_g_g_e_1_1_texture_a0c017352f8273b7d55216b7ccccaa0ef}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!init@{init}}
+\index{init@{init}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Texture\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_texture_a0c017352f8273b7d55216b7ccccaa0ef}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_texture_ad1d7ae9c5c1c637d00d3002cf99e47e0}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!current\+Texture@{current\+Texture}}
+\index{current\+Texture@{current\+Texture}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{current\+Texture}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Texture\+::current\+Texture = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_texture_ad1d7ae9c5c1c637d00d3002cf99e47e0}
+\hypertarget{class_g_g_e_1_1_texture_a24eb48105f06bfe9c0b14d2ff84b50c6}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!texture\+I\+D@{texture\+I\+D}}
+\index{texture\+I\+D@{texture\+I\+D}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{texture\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Texture\+::texture\+I\+D\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_texture_a24eb48105f06bfe9c0b14d2ff84b50c6}
+\hypertarget{class_g_g_e_1_1_texture_a9fd9a4cf0a84fcd68b336c92d6d0514e}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!texture\+Type@{texture\+Type}}
+\index{texture\+Type@{texture\+Type}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{texture\+Type}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lenum G\+G\+E\+::\+Texture\+::texture\+Type\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_texture_a9fd9a4cf0a84fcd68b336c92d6d0514e}
+\hypertarget{class_g_g_e_1_1_texture_a0ce25ba4515c038959da1d389d2c80da}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T@{T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}}
+\index{T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T@{T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Texture}$\ast$ G\+G\+E\+::\+Texture\+::\+T\+R\+A\+N\+S\+P\+A\+R\+E\+N\+T\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_texture_a0ce25ba4515c038959da1d389d2c80da}
+\hypertarget{class_g_g_e_1_1_texture_a0b90b74276704a2455ba2afa82cc13a7}{\index{G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}!W\+H\+I\+T\+E@{W\+H\+I\+T\+E}}
+\index{W\+H\+I\+T\+E@{W\+H\+I\+T\+E}!G\+G\+E\+::\+Texture@{G\+G\+E\+::\+Texture}}
+\subsubsection[{W\+H\+I\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Texture}$\ast$ G\+G\+E\+::\+Texture\+::\+W\+H\+I\+T\+E\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_texture_a0b90b74276704a2455ba2afa82cc13a7}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{texture_8h}{texture.\+h}\item 
+src/\hyperlink{texture_8cpp}{texture.\+cpp}\end{DoxyCompactItemize}

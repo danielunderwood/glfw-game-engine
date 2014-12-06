@@ -1,0 +1,248 @@
+\hypertarget{class_g_g_e_1_1_entity}{\section{G\+G\+E\+:\+:Entity Class Reference}
+\label{class_g_g_e_1_1_entity}\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+}
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
+Inheritance diagram for G\+G\+E\+:\+:Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_g_e_1_1_entity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_entity_ade9679d5c915b919e367d785d2a18f70}{Entity} ()
+\item 
+\hyperlink{class_g_g_e_1_1_entity_a18a84dee351730eac50e79d50e24f354}{Entity} (glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a38a9fa01bfaf37ca415181ba6a179d3f}{position}, glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a80c69365314541244f26e4a15b4223d8}{direction})
+\item 
+virtual \hyperlink{class_g_g_e_1_1_entity_ae9ba0e22515e35e0a6f227fb0e302304}{$\sim$\+Entity} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a306c97f3b5a7658b3437326b4e4f1c43}{get\+Position} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a66b3121fa59c5b3116d333f9554e5d3c}{get\+Direction} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_ad92f55ba905e45d6a5b2edea65a97174}{get\+Acceleration} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a4efa4c353b707e71be2915199643a875}{get\+Velocity} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_aaf7d12ccb86dc8e27c0b29eb5a8b1660}{get\+Angular\+Acceleration} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_ab93e0d14ad464bf40ecbe2b0d5407547}{get\+Angular\+Velocity} ()
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a2281d937a3430a14ec23b9a10b91efcb}{set\+Position} (glm\+::vec3 new\+Position)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a5acb66004603256c60d89253002d001c}{set\+Direction} (glm\+::vec3 new\+Direction)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a02b81e51dc7a3bc7c61da9ad67b0285a}{set\+Acceleration} (glm\+::vec3 new\+Acceleration)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_ab787c672dea551a2033bb7c72ab28111}{set\+Velocity} (glm\+::vec3 new\+Velocity)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_aa6a2c62a4e6ca8e32c4efdc33ce68203}{set\+Angular\+Acceleration} (glm\+::vec3 new\+Angular\+Acceleration)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_aa92ebf0b5b04c006abfe3f36439baf75}{set\+Angular\+Velocity} (glm\+::vec3 new\+Angular\+Velocity)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a7525dd307ec84c0eb4052886142a57fb}{move} (glm\+::vec3 translation)
+\item 
+virtual glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a98fd8225a41364d0a2d89eb0590430de}{rotate} (float angle, glm\+::vec3 rotation\+Axis)
+\item 
+virtual void \hyperlink{class_g_g_e_1_1_entity_a22c9a6258e81ee6bd250732121e8c26f}{update\+Physics} (float delta\+Time)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a38a9fa01bfaf37ca415181ba6a179d3f}{position}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a80c69365314541244f26e4a15b4223d8}{direction}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_ad27c3100a20150cc1539f1bf199f1ba3}{acceleration}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a4fd6a0bab72b12da601c34e7f3fe4620}{velocity}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a750368da3d794d8d1ea3a51357dcacdd}{angular\+Velocity}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_ae7c0ce4f2567c988b77bb3925830f946}{angular\+Acceleration}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_entity_ade9679d5c915b919e367d785d2a18f70}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Entity\+::\+Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_ade9679d5c915b919e367d785d2a18f70}
+\hypertarget{class_g_g_e_1_1_entity_a18a84dee351730eac50e79d50e24f354}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Entity\+::\+Entity (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{position, }
+\item[{glm\+::vec3}]{direction}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_a18a84dee351730eac50e79d50e24f354}
+\hypertarget{class_g_g_e_1_1_entity_ae9ba0e22515e35e0a6f227fb0e302304}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!````~Entity@{$\sim$\+Entity}}
+\index{````~Entity@{$\sim$\+Entity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{$\sim$\+Entity}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Entity\+::$\sim$\+Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_ae9ba0e22515e35e0a6f227fb0e302304}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_entity_ad92f55ba905e45d6a5b2edea65a97174}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!get\+Acceleration@{get\+Acceleration}}
+\index{get\+Acceleration@{get\+Acceleration}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{get\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::get\+Acceleration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_ad92f55ba905e45d6a5b2edea65a97174}
+\hypertarget{class_g_g_e_1_1_entity_aaf7d12ccb86dc8e27c0b29eb5a8b1660}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!get\+Angular\+Acceleration@{get\+Angular\+Acceleration}}
+\index{get\+Angular\+Acceleration@{get\+Angular\+Acceleration}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{get\+Angular\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::get\+Angular\+Acceleration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_aaf7d12ccb86dc8e27c0b29eb5a8b1660}
+\hypertarget{class_g_g_e_1_1_entity_ab93e0d14ad464bf40ecbe2b0d5407547}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!get\+Angular\+Velocity@{get\+Angular\+Velocity}}
+\index{get\+Angular\+Velocity@{get\+Angular\+Velocity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{get\+Angular\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::get\+Angular\+Velocity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_ab93e0d14ad464bf40ecbe2b0d5407547}
+\hypertarget{class_g_g_e_1_1_entity_a66b3121fa59c5b3116d333f9554e5d3c}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{get\+Direction}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::get\+Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_a66b3121fa59c5b3116d333f9554e5d3c}
+\hypertarget{class_g_g_e_1_1_entity_a306c97f3b5a7658b3437326b4e4f1c43}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{get\+Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::get\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_a306c97f3b5a7658b3437326b4e4f1c43}
+\hypertarget{class_g_g_e_1_1_entity_a4efa4c353b707e71be2915199643a875}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!get\+Velocity@{get\+Velocity}}
+\index{get\+Velocity@{get\+Velocity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{get\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::get\+Velocity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_entity_a4efa4c353b707e71be2915199643a875}
+\hypertarget{class_g_g_e_1_1_entity_a7525dd307ec84c0eb4052886142a57fb}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!move@{move}}
+\index{move@{move}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::move (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{translation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_a7525dd307ec84c0eb4052886142a57fb}
+
+
+Reimplemented in \hyperlink{class_g_g_e_1_1_mesh_a40161efa046c5513710bae8db2848d20}{G\+G\+E\+::\+Mesh}, and \hyperlink{class_g_g_e_1_1_camera_aabbc2364f59c1d4a2aaf8dbde0414570}{G\+G\+E\+::\+Camera}.
+
+\hypertarget{class_g_g_e_1_1_entity_a98fd8225a41364d0a2d89eb0590430de}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!rotate@{rotate}}
+\index{rotate@{rotate}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::rotate (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{glm\+::vec3}]{rotation\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_a98fd8225a41364d0a2d89eb0590430de}
+
+
+Reimplemented in \hyperlink{class_g_g_e_1_1_camera_ab6914aa89065900c3c2509a2efa48045}{G\+G\+E\+::\+Camera}.
+
+\hypertarget{class_g_g_e_1_1_entity_a02b81e51dc7a3bc7c61da9ad67b0285a}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!set\+Acceleration@{set\+Acceleration}}
+\index{set\+Acceleration@{set\+Acceleration}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{set\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::set\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Acceleration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_a02b81e51dc7a3bc7c61da9ad67b0285a}
+\hypertarget{class_g_g_e_1_1_entity_aa6a2c62a4e6ca8e32c4efdc33ce68203}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!set\+Angular\+Acceleration@{set\+Angular\+Acceleration}}
+\index{set\+Angular\+Acceleration@{set\+Angular\+Acceleration}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{set\+Angular\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::set\+Angular\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Angular\+Acceleration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_aa6a2c62a4e6ca8e32c4efdc33ce68203}
+\hypertarget{class_g_g_e_1_1_entity_aa92ebf0b5b04c006abfe3f36439baf75}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!set\+Angular\+Velocity@{set\+Angular\+Velocity}}
+\index{set\+Angular\+Velocity@{set\+Angular\+Velocity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{set\+Angular\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::set\+Angular\+Velocity (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Angular\+Velocity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_aa92ebf0b5b04c006abfe3f36439baf75}
+\hypertarget{class_g_g_e_1_1_entity_a5acb66004603256c60d89253002d001c}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!set\+Direction@{set\+Direction}}
+\index{set\+Direction@{set\+Direction}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{set\+Direction}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::set\+Direction (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_a5acb66004603256c60d89253002d001c}
+
+
+Reimplemented in \hyperlink{class_g_g_e_1_1_camera_a1583d20af7d4388d8984ae03163cf68c}{G\+G\+E\+::\+Camera}.
+
+\hypertarget{class_g_g_e_1_1_entity_a2281d937a3430a14ec23b9a10b91efcb}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_a2281d937a3430a14ec23b9a10b91efcb}
+
+
+Reimplemented in \hyperlink{class_g_g_e_1_1_mesh_a96e3bdea0c48b75b858261e0a6ac1eb6}{G\+G\+E\+::\+Mesh}, and \hyperlink{class_g_g_e_1_1_camera_acc49c4d20d440e3602c7304518856683}{G\+G\+E\+::\+Camera}.
+
+\hypertarget{class_g_g_e_1_1_entity_ab787c672dea551a2033bb7c72ab28111}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!set\+Velocity@{set\+Velocity}}
+\index{set\+Velocity@{set\+Velocity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{set\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::set\+Velocity (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Velocity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_ab787c672dea551a2033bb7c72ab28111}
+\hypertarget{class_g_g_e_1_1_entity_a22c9a6258e81ee6bd250732121e8c26f}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!update\+Physics@{update\+Physics}}
+\index{update\+Physics@{update\+Physics}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{update\+Physics}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Entity\+::update\+Physics (
+\begin{DoxyParamCaption}
+\item[{float}]{delta\+Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_entity_a22c9a6258e81ee6bd250732121e8c26f}
+
+
+Reimplemented in \hyperlink{class_g_g_e_1_1_camera_abf61bb5eb074da41032e5debb30c20d9}{G\+G\+E\+::\+Camera}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_entity_ad27c3100a20150cc1539f1bf199f1ba3}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!acceleration@{acceleration}}
+\index{acceleration@{acceleration}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{acceleration}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::acceleration\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_g_e_1_1_entity_ad27c3100a20150cc1539f1bf199f1ba3}
+\hypertarget{class_g_g_e_1_1_entity_ae7c0ce4f2567c988b77bb3925830f946}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!angular\+Acceleration@{angular\+Acceleration}}
+\index{angular\+Acceleration@{angular\+Acceleration}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{angular\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::angular\+Acceleration\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_g_e_1_1_entity_ae7c0ce4f2567c988b77bb3925830f946}
+\hypertarget{class_g_g_e_1_1_entity_a750368da3d794d8d1ea3a51357dcacdd}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!angular\+Velocity@{angular\+Velocity}}
+\index{angular\+Velocity@{angular\+Velocity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{angular\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::angular\+Velocity\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_g_e_1_1_entity_a750368da3d794d8d1ea3a51357dcacdd}
+\hypertarget{class_g_g_e_1_1_entity_a80c69365314541244f26e4a15b4223d8}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!direction@{direction}}
+\index{direction@{direction}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{direction}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::direction\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_g_e_1_1_entity_a80c69365314541244f26e4a15b4223d8}
+\hypertarget{class_g_g_e_1_1_entity_a38a9fa01bfaf37ca415181ba6a179d3f}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!position@{position}}
+\index{position@{position}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::position\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_g_e_1_1_entity_a38a9fa01bfaf37ca415181ba6a179d3f}
+\hypertarget{class_g_g_e_1_1_entity_a4fd6a0bab72b12da601c34e7f3fe4620}{\index{G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}!velocity@{velocity}}
+\index{velocity@{velocity}!G\+G\+E\+::\+Entity@{G\+G\+E\+::\+Entity}}
+\subsubsection[{velocity}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Entity\+::velocity\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_g_e_1_1_entity_a4fd6a0bab72b12da601c34e7f3fe4620}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{entity_8h}{entity.\+h}\item 
+src/\hyperlink{entity_8cpp}{entity.\+cpp}\end{DoxyCompactItemize}

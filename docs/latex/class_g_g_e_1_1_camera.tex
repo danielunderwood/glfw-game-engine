@@ -1,0 +1,237 @@
+\hypertarget{class_g_g_e_1_1_camera}{\section{G\+G\+E\+:\+:Camera Class Reference}
+\label{class_g_g_e_1_1_camera}\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+}
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+Inheritance diagram for G\+G\+E\+:\+:Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_g_e_1_1_camera}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_camera_a07e9334dc74b4148d1bad25585072ad4}{Camera} (glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a38a9fa01bfaf37ca415181ba6a179d3f}{position}, glm\+::vec3 \hyperlink{class_g_g_e_1_1_entity_a80c69365314541244f26e4a15b4223d8}{direction}, glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_a48d161f43a6c2d8a39048bae3d0e1c89}{up}=\hyperlink{geometry_8h_a7d6711c6186da4b0a5340c87437ecea1}{Y\+\_\+\+U\+N\+I\+T\+\_\+\+V\+E\+C\+T\+O\+R})
+\item 
+\hyperlink{class_g_g_e_1_1_camera_a72d7bd6f2ed982be2d0e93f3d3ef2127}{$\sim$\+Camera} ()
+\item 
+\hyperlink{class_g_g_e_1_1_camera}{Camera} $\ast$ \hyperlink{class_g_g_e_1_1_camera_ac971efe3635b1496133841e5503564d3}{use} ()
+\item 
+glm\+::mat4 \hyperlink{class_g_g_e_1_1_camera_adcad2633fd701fffd7519c3aa2b5edc2}{get\+View\+Matrix} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_ab5a61819ea4dfa2368b099ec4cb4a9a3}{get\+Up} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_a1c3a0d332981a9ba7a07f60263bb8a3c}{get\+Right} ()
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_aabbc2364f59c1d4a2aaf8dbde0414570}{move} (glm\+::vec3 translation)
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_acc49c4d20d440e3602c7304518856683}{set\+Position} (glm\+::vec3 new\+Position)
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_ab6914aa89065900c3c2509a2efa48045}{rotate} (float angle, glm\+::vec3 rotation\+Axis)
+\item 
+void \hyperlink{class_g_g_e_1_1_camera_abf61bb5eb074da41032e5debb30c20d9}{update\+Physics} (float delta\+Time)
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_a09c621baf3609dadb7e83132783005da}{yaw} (float angle)
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_a0c88a86e369cb916f91a8c0f49d6adc9}{pitch} (float angle)
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_a1583d20af7d4388d8984ae03163cf68c}{set\+Direction} (glm\+::vec3 new\+Direction)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_g_e_1_1_camera}{Camera} $\ast$ \hyperlink{class_g_g_e_1_1_camera_ae92af63f3737bc869e94e5f4703fbaa6}{get\+Current\+Camera} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_g_g_e_1_1_camera_aba9d72d5688c3a8d7aa5eff868ef8c3b}{recalculate\+Direction} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::mat4 \hyperlink{class_g_g_e_1_1_camera_a221e30f65f6ea2f56effe0f49d788a62}{view\+Matrix}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_a48d161f43a6c2d8a39048bae3d0e1c89}{up}
+\item 
+glm\+::vec3 \hyperlink{class_g_g_e_1_1_camera_af9a93409b55b7d6fcc5c6ccf20d146fe}{right}
+\item 
+float \hyperlink{class_g_g_e_1_1_camera_af4ce4bd9320cb90a96279e89e971f414}{horizontal\+Angle}
+\item 
+float \hyperlink{class_g_g_e_1_1_camera_a15ada6665d1e31494ee175f1668e7655}{vertical\+Angle}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_g_e_1_1_camera}{Camera} $\ast$ \hyperlink{class_g_g_e_1_1_camera_a500bf2297f52a16911d453c2d8a4dafc}{current\+Camera} = N\+U\+L\+L
+\item 
+static std\+::list$<$ \hyperlink{class_g_g_e_1_1_camera}{Camera} $\ast$ $>$ \hyperlink{class_g_g_e_1_1_camera_a0840a832e6d94923576520715a1e5933}{active\+Cameras}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_camera_a07e9334dc74b4148d1bad25585072ad4}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{Camera}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{position, }
+\item[{glm\+::vec3}]{direction, }
+\item[{glm\+::vec3}]{up = {\ttfamily {\bf Y\+\_\+\+U\+N\+I\+T\+\_\+\+V\+E\+C\+T\+O\+R}}}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_a07e9334dc74b4148d1bad25585072ad4}
+\hypertarget{class_g_g_e_1_1_camera_a72d7bd6f2ed982be2d0e93f3d3ef2127}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!````~Camera@{$\sim$\+Camera}}
+\index{````~Camera@{$\sim$\+Camera}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{$\sim$\+Camera}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Camera\+::$\sim$\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_a72d7bd6f2ed982be2d0e93f3d3ef2127}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_camera_ae92af63f3737bc869e94e5f4703fbaa6}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!get\+Current\+Camera@{get\+Current\+Camera}}
+\index{get\+Current\+Camera@{get\+Current\+Camera}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{get\+Current\+Camera}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera} $\ast$ G\+G\+E\+::\+Camera\+::get\+Current\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_camera_ae92af63f3737bc869e94e5f4703fbaa6}
+\hypertarget{class_g_g_e_1_1_camera_a1c3a0d332981a9ba7a07f60263bb8a3c}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!get\+Right@{get\+Right}}
+\index{get\+Right@{get\+Right}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{get\+Right}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::get\+Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_a1c3a0d332981a9ba7a07f60263bb8a3c}
+\hypertarget{class_g_g_e_1_1_camera_ab5a61819ea4dfa2368b099ec4cb4a9a3}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!get\+Up@{get\+Up}}
+\index{get\+Up@{get\+Up}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{get\+Up}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::get\+Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_ab5a61819ea4dfa2368b099ec4cb4a9a3}
+\hypertarget{class_g_g_e_1_1_camera_adcad2633fd701fffd7519c3aa2b5edc2}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!get\+View\+Matrix@{get\+View\+Matrix}}
+\index{get\+View\+Matrix@{get\+View\+Matrix}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{get\+View\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 G\+G\+E\+::\+Camera\+::get\+View\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_adcad2633fd701fffd7519c3aa2b5edc2}
+\hypertarget{class_g_g_e_1_1_camera_aabbc2364f59c1d4a2aaf8dbde0414570}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!move@{move}}
+\index{move@{move}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::move (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{translation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_camera_aabbc2364f59c1d4a2aaf8dbde0414570}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a7525dd307ec84c0eb4052886142a57fb}{G\+G\+E\+::\+Entity}.
+
+\hypertarget{class_g_g_e_1_1_camera_a0c88a86e369cb916f91a8c0f49d6adc9}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!pitch@{pitch}}
+\index{pitch@{pitch}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{pitch}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::pitch (
+\begin{DoxyParamCaption}
+\item[{float}]{angle}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_a0c88a86e369cb916f91a8c0f49d6adc9}
+\hypertarget{class_g_g_e_1_1_camera_aba9d72d5688c3a8d7aa5eff868ef8c3b}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!recalculate\+Direction@{recalculate\+Direction}}
+\index{recalculate\+Direction@{recalculate\+Direction}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{recalculate\+Direction}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Camera\+::recalculate\+Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_aba9d72d5688c3a8d7aa5eff868ef8c3b}
+\hypertarget{class_g_g_e_1_1_camera_ab6914aa89065900c3c2509a2efa48045}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!rotate@{rotate}}
+\index{rotate@{rotate}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::rotate (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{glm\+::vec3}]{rotation\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_camera_ab6914aa89065900c3c2509a2efa48045}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a98fd8225a41364d0a2d89eb0590430de}{G\+G\+E\+::\+Entity}.
+
+\hypertarget{class_g_g_e_1_1_camera_a1583d20af7d4388d8984ae03163cf68c}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!set\+Direction@{set\+Direction}}
+\index{set\+Direction@{set\+Direction}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{set\+Direction}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::set\+Direction (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_camera_a1583d20af7d4388d8984ae03163cf68c}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a5acb66004603256c60d89253002d001c}{G\+G\+E\+::\+Entity}.
+
+\hypertarget{class_g_g_e_1_1_camera_acc49c4d20d440e3602c7304518856683}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{new\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_camera_acc49c4d20d440e3602c7304518856683}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a2281d937a3430a14ec23b9a10b91efcb}{G\+G\+E\+::\+Entity}.
+
+\hypertarget{class_g_g_e_1_1_camera_abf61bb5eb074da41032e5debb30c20d9}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!update\+Physics@{update\+Physics}}
+\index{update\+Physics@{update\+Physics}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{update\+Physics}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Camera\+::update\+Physics (
+\begin{DoxyParamCaption}
+\item[{float}]{delta\+Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_g_e_1_1_camera_abf61bb5eb074da41032e5debb30c20d9}
+
+
+Reimplemented from \hyperlink{class_g_g_e_1_1_entity_a22c9a6258e81ee6bd250732121e8c26f}{G\+G\+E\+::\+Entity}.
+
+\hypertarget{class_g_g_e_1_1_camera_ac971efe3635b1496133841e5503564d3}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!use@{use}}
+\index{use@{use}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{use}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera} $\ast$ G\+G\+E\+::\+Camera\+::use (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_ac971efe3635b1496133841e5503564d3}
+\hypertarget{class_g_g_e_1_1_camera_a09c621baf3609dadb7e83132783005da}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!yaw@{yaw}}
+\index{yaw@{yaw}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{yaw}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::yaw (
+\begin{DoxyParamCaption}
+\item[{float}]{angle}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_camera_a09c621baf3609dadb7e83132783005da}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_camera_a0840a832e6d94923576520715a1e5933}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!active\+Cameras@{active\+Cameras}}
+\index{active\+Cameras@{active\+Cameras}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{active\+Cameras}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ {\bf Camera} $\ast$ $>$ G\+G\+E\+::\+Camera\+::active\+Cameras\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_a0840a832e6d94923576520715a1e5933}
+\hypertarget{class_g_g_e_1_1_camera_a500bf2297f52a16911d453c2d8a4dafc}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!current\+Camera@{current\+Camera}}
+\index{current\+Camera@{current\+Camera}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{current\+Camera}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera} $\ast$ G\+G\+E\+::\+Camera\+::current\+Camera = N\+U\+L\+L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_a500bf2297f52a16911d453c2d8a4dafc}
+\hypertarget{class_g_g_e_1_1_camera_af4ce4bd9320cb90a96279e89e971f414}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!horizontal\+Angle@{horizontal\+Angle}}
+\index{horizontal\+Angle@{horizontal\+Angle}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{horizontal\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}float G\+G\+E\+::\+Camera\+::horizontal\+Angle\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_af4ce4bd9320cb90a96279e89e971f414}
+\hypertarget{class_g_g_e_1_1_camera_af9a93409b55b7d6fcc5c6ccf20d146fe}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!right@{right}}
+\index{right@{right}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{right}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::right\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_af9a93409b55b7d6fcc5c6ccf20d146fe}
+\hypertarget{class_g_g_e_1_1_camera_a48d161f43a6c2d8a39048bae3d0e1c89}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!up@{up}}
+\index{up@{up}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{up}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 G\+G\+E\+::\+Camera\+::up\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_a48d161f43a6c2d8a39048bae3d0e1c89}
+\hypertarget{class_g_g_e_1_1_camera_a15ada6665d1e31494ee175f1668e7655}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!vertical\+Angle@{vertical\+Angle}}
+\index{vertical\+Angle@{vertical\+Angle}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{vertical\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}float G\+G\+E\+::\+Camera\+::vertical\+Angle\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_a15ada6665d1e31494ee175f1668e7655}
+\hypertarget{class_g_g_e_1_1_camera_a221e30f65f6ea2f56effe0f49d788a62}{\index{G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}!view\+Matrix@{view\+Matrix}}
+\index{view\+Matrix@{view\+Matrix}!G\+G\+E\+::\+Camera@{G\+G\+E\+::\+Camera}}
+\subsubsection[{view\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 G\+G\+E\+::\+Camera\+::view\+Matrix\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_camera_a221e30f65f6ea2f56effe0f49d788a62}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{camera_8h}{camera.\+h}\item 
+src/\hyperlink{camera_8cpp}{camera.\+cpp}\end{DoxyCompactItemize}

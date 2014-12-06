@@ -1,0 +1,145 @@
+\hypertarget{main_8cpp}{\section{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.\+cpp@{src/main.\+cpp}}
+}
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$camera.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}application.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}shader.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}texture.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}program.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}geometry.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_aa8282e07b3588f21a8b10caac984f3ec}{setup\+Scene} ()
+\item 
+void \hyperlink{main_8cpp_a0b9e239c8889734711f29fe45551605b}{key\+Callback} (G\+L\+F\+Wwindow $\ast$window, int key, int scancode, int action, int mods)
+\item 
+void \hyperlink{main_8cpp_a86a4350073f51aaa6d7ffe99483de0fe}{handle\+Input} ()
+\item 
+void \hyperlink{main_8cpp_a30dbe68e652430b2bd7f76a35ff1532d}{cursor\+Move\+Callback} (G\+L\+F\+Wwindow $\ast$window, double xpos, double ypos)
+\item 
+void \hyperlink{main_8cpp_a14142d114a12aad9433697c2d3851f06}{render\+Function} (double time\+Since\+Last\+Frame)
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_application}{Application} $\ast$ \hyperlink{main_8cpp_a08c031f46c2bc800cdd9286852d26504}{app}
+\item 
+\hyperlink{class_g_g_e_1_1_program}{Program} $\ast$ \hyperlink{main_8cpp_abbc44d602bd51853e0165bbb21d6f5cc}{p}
+\item 
+\hyperlink{class_g_g_e_1_1_program}{Program} $\ast$ \hyperlink{main_8cpp_a96317c9b772fe6e84ce735692905c3e1}{tex\+P}
+\item 
+\hyperlink{class_g_g_e_1_1_texture}{Texture} $\ast$ \hyperlink{main_8cpp_aa9a93f0c8415e5c11c6112ff98a1574b}{brick\+Tex}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh}{Mesh} $\ast$ \hyperlink{main_8cpp_ab47b77b0f7916a070a0c49e5ec3ac423}{t1}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh}{Mesh} $\ast$ \hyperlink{main_8cpp_ae98054e39d0b88ddbeb15a63cf1ee2a0}{t2}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh}{Mesh} $\ast$ \hyperlink{main_8cpp_a2f808901531bf6692c890c86206c3c81}{t3}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh}{Mesh} $\ast$ \hyperlink{main_8cpp_a918c9fcf384a4cce91d12bd8ccb83c25}{square}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh}{Mesh} $\ast$ \hyperlink{main_8cpp_a46dcd1bba82ee2dbc8dd56647eca9219}{textured\+Triangle}
+\item 
+\hyperlink{class_g_g_e_1_1_mesh}{Mesh} $\ast$ \hyperlink{main_8cpp_a52f7498f4a875c8186aeb19e235043ac}{obj\+Cube}
+\item 
+\hyperlink{class_g_g_e_1_1_camera}{Camera} $\ast$ \hyperlink{main_8cpp_a82f7081245eb70cf78c0a189cfab9e19}{cam}
+\item 
+G\+Lenum \hyperlink{main_8cpp_a9027aa147a2ef3f7ad71f86d229add1f}{polygon\+Mode} = G\+L\+\_\+\+F\+I\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_a30dbe68e652430b2bd7f76a35ff1532d}{\index{main.\+cpp@{main.\+cpp}!cursor\+Move\+Callback@{cursor\+Move\+Callback}}
+\index{cursor\+Move\+Callback@{cursor\+Move\+Callback}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{cursor\+Move\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void cursor\+Move\+Callback (
+\begin{DoxyParamCaption}
+\item[{G\+L\+F\+Wwindow $\ast$}]{window, }
+\item[{double}]{xpos, }
+\item[{double}]{ypos}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a30dbe68e652430b2bd7f76a35ff1532d}
+\hypertarget{main_8cpp_a86a4350073f51aaa6d7ffe99483de0fe}{\index{main.\+cpp@{main.\+cpp}!handle\+Input@{handle\+Input}}
+\index{handle\+Input@{handle\+Input}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{handle\+Input}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a86a4350073f51aaa6d7ffe99483de0fe}
+\hypertarget{main_8cpp_a0b9e239c8889734711f29fe45551605b}{\index{main.\+cpp@{main.\+cpp}!key\+Callback@{key\+Callback}}
+\index{key\+Callback@{key\+Callback}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{key\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void key\+Callback (
+\begin{DoxyParamCaption}
+\item[{G\+L\+F\+Wwindow $\ast$}]{window, }
+\item[{int}]{key, }
+\item[{int}]{scancode, }
+\item[{int}]{action, }
+\item[{int}]{mods}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a0b9e239c8889734711f29fe45551605b}
+\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{main_8cpp_a14142d114a12aad9433697c2d3851f06}{\index{main.\+cpp@{main.\+cpp}!render\+Function@{render\+Function}}
+\index{render\+Function@{render\+Function}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{render\+Function}]{\setlength{\rightskip}{0pt plus 5cm}void render\+Function (
+\begin{DoxyParamCaption}
+\item[{double}]{time\+Since\+Last\+Frame}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a14142d114a12aad9433697c2d3851f06}
+\hypertarget{main_8cpp_aa8282e07b3588f21a8b10caac984f3ec}{\index{main.\+cpp@{main.\+cpp}!setup\+Scene@{setup\+Scene}}
+\index{setup\+Scene@{setup\+Scene}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{setup\+Scene}]{\setlength{\rightskip}{0pt plus 5cm}void setup\+Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_aa8282e07b3588f21a8b10caac984f3ec}
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8cpp_a08c031f46c2bc800cdd9286852d26504}{\index{main.\+cpp@{main.\+cpp}!app@{app}}
+\index{app@{app}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{app}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Application}$\ast$ app}}\label{main_8cpp_a08c031f46c2bc800cdd9286852d26504}
+\hypertarget{main_8cpp_aa9a93f0c8415e5c11c6112ff98a1574b}{\index{main.\+cpp@{main.\+cpp}!brick\+Tex@{brick\+Tex}}
+\index{brick\+Tex@{brick\+Tex}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{brick\+Tex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Texture}$\ast$ brick\+Tex}}\label{main_8cpp_aa9a93f0c8415e5c11c6112ff98a1574b}
+\hypertarget{main_8cpp_a82f7081245eb70cf78c0a189cfab9e19}{\index{main.\+cpp@{main.\+cpp}!cam@{cam}}
+\index{cam@{cam}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{cam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Camera}$\ast$ cam}}\label{main_8cpp_a82f7081245eb70cf78c0a189cfab9e19}
+\hypertarget{main_8cpp_a52f7498f4a875c8186aeb19e235043ac}{\index{main.\+cpp@{main.\+cpp}!obj\+Cube@{obj\+Cube}}
+\index{obj\+Cube@{obj\+Cube}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{obj\+Cube}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh} $\ast$ obj\+Cube}}\label{main_8cpp_a52f7498f4a875c8186aeb19e235043ac}
+\hypertarget{main_8cpp_abbc44d602bd51853e0165bbb21d6f5cc}{\index{main.\+cpp@{main.\+cpp}!p@{p}}
+\index{p@{p}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program}$\ast$ p}}\label{main_8cpp_abbc44d602bd51853e0165bbb21d6f5cc}
+\hypertarget{main_8cpp_a9027aa147a2ef3f7ad71f86d229add1f}{\index{main.\+cpp@{main.\+cpp}!polygon\+Mode@{polygon\+Mode}}
+\index{polygon\+Mode@{polygon\+Mode}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{polygon\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lenum polygon\+Mode = G\+L\+\_\+\+F\+I\+L\+L}}\label{main_8cpp_a9027aa147a2ef3f7ad71f86d229add1f}
+\hypertarget{main_8cpp_a918c9fcf384a4cce91d12bd8ccb83c25}{\index{main.\+cpp@{main.\+cpp}!square@{square}}
+\index{square@{square}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{square}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh} $\ast$ square}}\label{main_8cpp_a918c9fcf384a4cce91d12bd8ccb83c25}
+\hypertarget{main_8cpp_ab47b77b0f7916a070a0c49e5ec3ac423}{\index{main.\+cpp@{main.\+cpp}!t1@{t1}}
+\index{t1@{t1}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{t1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh}$\ast$ t1}}\label{main_8cpp_ab47b77b0f7916a070a0c49e5ec3ac423}
+\hypertarget{main_8cpp_ae98054e39d0b88ddbeb15a63cf1ee2a0}{\index{main.\+cpp@{main.\+cpp}!t2@{t2}}
+\index{t2@{t2}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{t2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh} $\ast$ t2}}\label{main_8cpp_ae98054e39d0b88ddbeb15a63cf1ee2a0}
+\hypertarget{main_8cpp_a2f808901531bf6692c890c86206c3c81}{\index{main.\+cpp@{main.\+cpp}!t3@{t3}}
+\index{t3@{t3}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{t3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh} $\ast$ t3}}\label{main_8cpp_a2f808901531bf6692c890c86206c3c81}
+\hypertarget{main_8cpp_a96317c9b772fe6e84ce735692905c3e1}{\index{main.\+cpp@{main.\+cpp}!tex\+P@{tex\+P}}
+\index{tex\+P@{tex\+P}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{tex\+P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program}$\ast$ tex\+P}}\label{main_8cpp_a96317c9b772fe6e84ce735692905c3e1}
+\hypertarget{main_8cpp_a46dcd1bba82ee2dbc8dd56647eca9219}{\index{main.\+cpp@{main.\+cpp}!textured\+Triangle@{textured\+Triangle}}
+\index{textured\+Triangle@{textured\+Triangle}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{textured\+Triangle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh} $\ast$ textured\+Triangle}}\label{main_8cpp_a46dcd1bba82ee2dbc8dd56647eca9219}

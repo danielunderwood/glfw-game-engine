@@ -1,0 +1,144 @@
+\hypertarget{class_g_g_e_1_1_program}{\section{G\+G\+E\+:\+:Program Class Reference}
+\label{class_g_g_e_1_1_program}\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+}
+
+
+{\ttfamily \#include $<$program.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_g_e_1_1_program_a3879f737244244d8689b2708de63c55f}{Program} (std\+::vector$<$ \hyperlink{class_g_g_e_1_1_shader}{Shader} $\ast$ $>$ \hyperlink{class_g_g_e_1_1_program_a6f31b509c852f7271282d5ad79056b18}{shaders})
+\item 
+\hyperlink{class_g_g_e_1_1_program_aab1fc451cf7e926bf4bb9f8c99d904ed}{$\sim$\+Program} ()
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_program_aeb2aa9fb22fd5ce5d6d981d3308ec576}{get\+Program\+I\+D} ()
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_program_ab8444f45bd2a41920a41e84d2023d2d1}{bind} ()
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_program_ab703c352644e33680907edfde5140654}{unbind} ()
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_program_aec23fac66944617abdb3beb82b8886a0}{get\+Attrib} (const G\+Lchar $\ast$attrib\+Name)
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_program_af1d316e47de393df33d9f6e58292fbdb}{get\+Uniform} (const G\+Lchar $\ast$uniform\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_g_e_1_1_program}{Program} $\ast$ \hyperlink{class_g_g_e_1_1_program_a37badf65e989bee6d3dc3842ae0b5ccf}{get\+Current\+Program} ()
+\item 
+static void \hyperlink{class_g_g_e_1_1_program_a5e1fa577efd1cd96531b2a0a8e497423}{update\+Projection\+Matrix} (glm\+::mat4 projection\+Matrix)
+\item 
+static void \hyperlink{class_g_g_e_1_1_program_a2ad116e144ea1c29b33a6d28e0ff1447}{update\+View\+Matrix} (glm\+::mat4 view\+Matrix)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{class_g_g_e_1_1_program_aa011e6183ba2be3e3d99d9e03101fb3d}{program\+I\+D}
+\item 
+std\+::vector$<$ \hyperlink{class_g_g_e_1_1_shader}{Shader} $\ast$ $>$ \hyperlink{class_g_g_e_1_1_program_a6f31b509c852f7271282d5ad79056b18}{shaders}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_g_e_1_1_program}{Program} $\ast$ \hyperlink{class_g_g_e_1_1_program_a006a547745798242ceb402b9e5a1ed1b}{current\+Program} = N\+U\+L\+L
+\item 
+static std\+::list$<$ \hyperlink{class_g_g_e_1_1_program}{Program} $\ast$ $>$ \hyperlink{class_g_g_e_1_1_program_ac6342a249c1333e4364bf8e4ac0d9b39}{active\+Programs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_g_e_1_1_program_a3879f737244244d8689b2708de63c55f}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!Program@{Program}}
+\index{Program@{Program}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{Program}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Program\+::\+Program (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Shader} $\ast$ $>$}]{shaders}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_a3879f737244244d8689b2708de63c55f}
+\hypertarget{class_g_g_e_1_1_program_aab1fc451cf7e926bf4bb9f8c99d904ed}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!````~Program@{$\sim$\+Program}}
+\index{````~Program@{$\sim$\+Program}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{$\sim$\+Program}]{\setlength{\rightskip}{0pt plus 5cm}G\+G\+E\+::\+Program\+::$\sim$\+Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_aab1fc451cf7e926bf4bb9f8c99d904ed}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_g_e_1_1_program_ab8444f45bd2a41920a41e84d2023d2d1}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!bind@{bind}}
+\index{bind@{bind}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Program\+::bind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_ab8444f45bd2a41920a41e84d2023d2d1}
+\hypertarget{class_g_g_e_1_1_program_aec23fac66944617abdb3beb82b8886a0}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!get\+Attrib@{get\+Attrib}}
+\index{get\+Attrib@{get\+Attrib}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{get\+Attrib}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Program\+::get\+Attrib (
+\begin{DoxyParamCaption}
+\item[{const G\+Lchar $\ast$}]{attrib\+Name}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_aec23fac66944617abdb3beb82b8886a0}
+\hypertarget{class_g_g_e_1_1_program_a37badf65e989bee6d3dc3842ae0b5ccf}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!get\+Current\+Program@{get\+Current\+Program}}
+\index{get\+Current\+Program@{get\+Current\+Program}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{get\+Current\+Program}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program} $\ast$ G\+G\+E\+::\+Program\+::get\+Current\+Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_program_a37badf65e989bee6d3dc3842ae0b5ccf}
+\hypertarget{class_g_g_e_1_1_program_aeb2aa9fb22fd5ce5d6d981d3308ec576}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!get\+Program\+I\+D@{get\+Program\+I\+D}}
+\index{get\+Program\+I\+D@{get\+Program\+I\+D}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{get\+Program\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Program\+::get\+Program\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_aeb2aa9fb22fd5ce5d6d981d3308ec576}
+\hypertarget{class_g_g_e_1_1_program_af1d316e47de393df33d9f6e58292fbdb}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!get\+Uniform@{get\+Uniform}}
+\index{get\+Uniform@{get\+Uniform}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{get\+Uniform}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Program\+::get\+Uniform (
+\begin{DoxyParamCaption}
+\item[{const G\+Lchar $\ast$}]{uniform\+Name}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_af1d316e47de393df33d9f6e58292fbdb}
+\hypertarget{class_g_g_e_1_1_program_ab703c352644e33680907edfde5140654}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!unbind@{unbind}}
+\index{unbind@{unbind}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{unbind}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Program\+::unbind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_g_e_1_1_program_ab703c352644e33680907edfde5140654}
+\hypertarget{class_g_g_e_1_1_program_a5e1fa577efd1cd96531b2a0a8e497423}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!update\+Projection\+Matrix@{update\+Projection\+Matrix}}
+\index{update\+Projection\+Matrix@{update\+Projection\+Matrix}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{update\+Projection\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Program\+::update\+Projection\+Matrix (
+\begin{DoxyParamCaption}
+\item[{glm\+::mat4}]{projection\+Matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_program_a5e1fa577efd1cd96531b2a0a8e497423}
+\hypertarget{class_g_g_e_1_1_program_a2ad116e144ea1c29b33a6d28e0ff1447}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!update\+View\+Matrix@{update\+View\+Matrix}}
+\index{update\+View\+Matrix@{update\+View\+Matrix}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{update\+View\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void G\+G\+E\+::\+Program\+::update\+View\+Matrix (
+\begin{DoxyParamCaption}
+\item[{glm\+::mat4}]{view\+Matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_g_e_1_1_program_a2ad116e144ea1c29b33a6d28e0ff1447}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_g_e_1_1_program_ac6342a249c1333e4364bf8e4ac0d9b39}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!active\+Programs@{active\+Programs}}
+\index{active\+Programs@{active\+Programs}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{active\+Programs}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ {\bf Program} $\ast$ $>$ G\+G\+E\+::\+Program\+::active\+Programs\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_program_ac6342a249c1333e4364bf8e4ac0d9b39}
+\hypertarget{class_g_g_e_1_1_program_a006a547745798242ceb402b9e5a1ed1b}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!current\+Program@{current\+Program}}
+\index{current\+Program@{current\+Program}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{current\+Program}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program} $\ast$ G\+G\+E\+::\+Program\+::current\+Program = N\+U\+L\+L\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_g_g_e_1_1_program_a006a547745798242ceb402b9e5a1ed1b}
+\hypertarget{class_g_g_e_1_1_program_aa011e6183ba2be3e3d99d9e03101fb3d}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!program\+I\+D@{program\+I\+D}}
+\index{program\+I\+D@{program\+I\+D}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{program\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint G\+G\+E\+::\+Program\+::program\+I\+D\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_program_aa011e6183ba2be3e3d99d9e03101fb3d}
+\hypertarget{class_g_g_e_1_1_program_a6f31b509c852f7271282d5ad79056b18}{\index{G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}!shaders@{shaders}}
+\index{shaders@{shaders}!G\+G\+E\+::\+Program@{G\+G\+E\+::\+Program}}
+\subsubsection[{shaders}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Shader} $\ast$$>$ G\+G\+E\+::\+Program\+::shaders\hspace{0.3cm}{\ttfamily [private]}}}\label{class_g_g_e_1_1_program_a6f31b509c852f7271282d5ad79056b18}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{program_8h}{program.\+h}\item 
+src/\hyperlink{program_8cpp}{program.\+cpp}\end{DoxyCompactItemize}
