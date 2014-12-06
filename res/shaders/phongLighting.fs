@@ -91,7 +91,7 @@ vec3 calculateDiffuseColor()
         diffuseColor = material.diffuseColor;
     }
 
-    diffuseColor.xyz *= dot(normalize(l), normalize(lerpNormals)) * light.diffuseColor.xyz;
+    diffuseColor.xyz *= max(0, dot(normalize(l), normalize(lerpNormals))) * light.diffuseColor.xyz;
     return diffuseColor;
 }
 
@@ -102,7 +102,7 @@ vec3 calculateSpecularColor()
     r -= light.position;
 
     // Specular Multiplication Term
-    float specularMult = pow(dot(normalize(r), normalize(lerpPosition - cameraPosition)), shininess);
+    float specularMult = pow(max(0, dot(normalize(r), normalize(lerpPosition - cameraPosition))), shininess);
 
     // Specular Color
     vec3 specularColor;
