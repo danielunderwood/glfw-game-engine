@@ -45,8 +45,5 @@ install_manifest.txt
 # Idea Directory
 .idea/
 
-# Github Pages Folder
-html/
-
 # Don't ignore obj meshes
 !res/meshes/*.obj
