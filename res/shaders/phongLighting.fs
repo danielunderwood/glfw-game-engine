@@ -43,6 +43,7 @@ uniform Material material;      // Material for what is being rendered
 // -- Inputs --
 in vec2 lerpTextureCoordinates;
 in vec3 lerpNormals;
+in vec3 lerpPosition;
 
 // -- Outputs --
 
