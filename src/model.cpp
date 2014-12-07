@@ -43,8 +43,6 @@ namespace GGE
             }
         }
 
-        mesh = new Mesh(meshPoints);
-
         for (size_t i = 0; i < materials.size(); i++) {
             printf("material[%ld].name = %s\n", i, materials[i].name.c_str());
             printf("  material.Ka = (%f, %f ,%f)\n", materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
@@ -68,9 +66,8 @@ namespace GGE
         }
         fflush(stdout);
     }
-    Model::Model(Mesh * mesh, Material * material) :
-            mesh(mesh),
-            material(material)
+    Model::Model(std::list<Shape*> shapes) :
+        shapes(shapes)
     {
     }
 

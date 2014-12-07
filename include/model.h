@@ -1,6 +1,8 @@
 #pragma once
 
-#include "mesh.h"
+#include <list>
+
+#include "shape.h"
 #include "material.h"
 
 namespace GGE {
@@ -10,7 +12,7 @@ namespace GGE {
         // Constructor to load from file
         Model(const char * filename, const char * directory);
         // Constructor with model and material
-        Model(Mesh * mesh, Material * material);
+        Model(std::list<Shape*> shapes);
 
         // Destructor
         ~Model();
@@ -19,10 +21,7 @@ namespace GGE {
         void draw();
 
     private:
-        // Mesh for model
-        Mesh * mesh;
-        // Material for model
-        // TODO: Make compatible for multiple materials on a model
-        Material * material;
+        // Shapes that make up model
+    std::list<Shape *> shapes;
     };
 }
