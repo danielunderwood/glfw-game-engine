@@ -1,0 +1,31 @@
+language: cpp
+
+compiler:
+  - gcc
+  - clang
+
+before_install:
+  # Update package indices and install new cmake version for linux
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo add-apt-repository ppa:kalakris/cmake -y; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -q; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get install -y cmake xorg-dev libglu1-mesa-dev; fi
+  - if [ $TRAVIS_OS_NAME == osx]; then brew update; fi
+
+script:
+  - cmake -H. -Bbuild
+  - cd build
+  - make
+
+# Need to figure out feature tags
+os:
+  - linux
+  - osx
+
+notifications:
+  email:
+    recipients:
+      - daniel.underwood13@gmail.com
+    on_success: change
+    on_failure: always
+  template:
+    - "%{repository}/%{branch} (%{commit} - %{author}): %{build_url}: %{message}"
