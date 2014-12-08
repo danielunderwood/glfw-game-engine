@@ -5,10 +5,10 @@ compiler:
   - clang
 
 before_install:
+  - if [ $TRAVIS_OS_NAME == linux]; then sudo add-apt-repository -y ppa:kalakris/cmake; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get install -y cmake; fi
   - if [ $TRAVIS_OS_NAME == osx]; then brew update; fi
-  - if [ $TRAVIS_OS_NAME == osx]; then brew upgrade cmake; fi
 
 script:
   - cmake -H. -Bbuild
