@@ -1,3 +1,5 @@
+Build Status: ![Build Status](https://api.travis-ci.org/danielunderwood/glfw-game-engine.svg "Build Status")
+
 This is an attempt to make a game engine from (almost) scratch using OpenGL for rendering and GLFW for managing the OpenGL context and window creation. The end goal of this engine is to create a game, although it will be designed to be a game engine suitable for general use. It currently has the following dependencies:
 
 + GLFW (OpenGL Context/Window Creation)
