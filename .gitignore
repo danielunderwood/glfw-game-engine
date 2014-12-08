@@ -42,6 +42,9 @@ install_manifest.txt
 [Bb]uild/
 [Bb]in/
 
+# Doxygen Generated Documentation
+docs/
+
 # Idea Directory
 .idea/
 
