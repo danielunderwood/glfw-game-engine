@@ -1,0 +1,21 @@
+language: cpp
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  - cmake -H. -Bbuild
+  - cd build
+  - make
+
+os:
+  - linux
+  - osx
+
+notifications:
+  email:
+    recipients:
+      - daniel.underwood13@gmail.com
+    on_success: change
+    on_failure: always
