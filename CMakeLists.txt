@@ -34,6 +34,9 @@ if(MSVC)
   add_definitions(-DGLEW_STATIC)
 endif()
 
+# C++ Standard
+add_definitions( -std=c++0x )
+
 # Copy resources to output directory
 # TODO: Figure out why this isn't working -- possibly because we're checking if directory exists?
 file(COPY res/shaders/. DESTINATION ${CMAKE_BINARY_DIR}/res/shaders)
