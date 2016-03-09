@@ -1,6 +1,6 @@
 __Current Status:__ Work on this project has been discontinued in favor of using a commercial engine due to lack of time to fully develop an engine. I have noticed that several people have shown interest in this project; if anyone would like to continue working on this project, I would be glad to contribute ideas and guidance. The engine is still in need of several components, most notably materials and physics systems. Due to a lack of artistic knowledge, the materials system is one of the reasons for discontinuing the project. Skeletal and animation systems are needed as well. Feel free to fork the project to continue on it on your own, but it would likely be better to continue the project from here with community contributions. If anyone is interested in continuing the project as a community effort, please leave a comment on the commit for the change of README.md or contact me via email (can be found in git log).
 
-Build Status: ![Build Status](https://api.travis-ci.org/danielunderwood/glfw-game-engine.svg "Build Status")
+Build Status: [![Build Status](https://api.travis-ci.org/danielunderwood/glfw-game-engine.svg "Build Status")](https://travis-ci.org/danielunderwood/glfw-game-engine)
 
 This is an attempt to make a game engine from (almost) scratch using OpenGL for rendering and GLFW for managing the OpenGL context and window creation. The end goal of this engine is to create a game, although it will be designed to be a game engine suitable for general use. It currently has the following dependencies:
 
